@@ -13,11 +13,9 @@ struct EZPZ_ZZINApp: App {
 
     var body: some Scene {
         WindowGroup {
-            TabBarMainView()
             // 앱이 실행되면 TabBarMainView로 연결이 됩니다.
-            
-            // ContentView() //기본코드
-            //      .environment(\.managedObjectContext, persistenceController.container.viewContext)        }
+            TabBarMainView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

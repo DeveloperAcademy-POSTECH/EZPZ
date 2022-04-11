@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ChallengeEntity" representedClassName="ChallengeEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="toJournal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="toChallenge" inverseEntity="JournalEntity"/>
+    </entity>
+    <entity name="JournalEntity" representedClassName="JournalEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="emoji" optional="YES" attributeType="String"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="toChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChallengeEntity" inverseName="toJournal" inverseEntity="ChallengeEntity"/>
     </entity>
     <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="ChallengeEntity" positionX="-63" positionY="18" width="128" height="119"/>
     </elements>
 </model>
