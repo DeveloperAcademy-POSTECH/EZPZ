@@ -26,6 +26,9 @@
 		A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */; };
 		A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */; };
 		A883220828040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */; };
+		D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921D7280414DB0061ED4A /* RoutineView.swift */; };
+		D50921DA2804157D0061ED4A /* ChallengedetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921D92804157D0061ED4A /* ChallengedetailView.swift */; };
+		D50921DC2804158B0061ED4A /* ChallengecompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +53,9 @@
 		A883220228040AB20037CB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateView.swift; sourceTree = "<group>"; };
 		A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateSystemFontView.swift; sourceTree = "<group>"; };
+		D50921D7280414DB0061ED4A /* RoutineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutineView.swift; path = EZPZ_ZZIN/RoutineView.swift; sourceTree = SOURCE_ROOT; };
+		D50921D92804157D0061ED4A /* ChallengedetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengedetailView.swift; path = EZPZ_ZZIN/ChallengedetailView.swift; sourceTree = SOURCE_ROOT; };
+		D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengecompleteView.swift; path = EZPZ_ZZIN/ChallengecompleteView.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +136,7 @@
 		A88321E52804054E0037CB6F /* Routine */ = {
 			isa = PBXGroup;
 			children = (
+				D50921D7280414DB0061ED4A /* RoutineView.swift */,
 			);
 			path = Routine;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 		A88321E6280405550037CB6F /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
+				D50921D92804157D0061ED4A /* ChallengedetailView.swift */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -266,6 +275,7 @@
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
+				D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */,
 				A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */,
 				A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */,
 				A883220828040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift in Sources */,
@@ -273,6 +283,8 @@
 				A88321D3280404300037CB6F /* ContentView.swift in Sources */,
 				A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */,
 				A88321F0280407050037CB6F /* OnBoardingAssets.swift in Sources */,
+				D50921DC2804158B0061ED4A /* ChallengecompleteView.swift in Sources */,
+				D50921DA2804157D0061ED4A /* ChallengedetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
