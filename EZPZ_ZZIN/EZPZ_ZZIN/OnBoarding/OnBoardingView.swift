@@ -15,12 +15,20 @@ struct OnBoardingView: View {
     
    // let elements: [Any] = [ppap1.self, ppap2.self,ppap3.self]
     
+    @State var userName: String = ""
+    
+//    func p() -> EmptyView {
+//        print("asdfasfd"  + userName)
+//        return EmptyView()
+//    }
+//
     var body: some View {
         TabView {
             Group{
                 OnBoardingStartView()
                 OnBoardingWellcomeView()
-                OnBoardingUserNameView()
+                OnBoardingUserNameView(name: $userName)
+//                p()
             }
             Group{
             

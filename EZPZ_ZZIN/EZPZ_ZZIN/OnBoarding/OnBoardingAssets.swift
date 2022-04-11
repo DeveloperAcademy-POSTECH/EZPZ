@@ -17,9 +17,15 @@ struct EzpzProgressView: View {
     var gauge : Double = 0.0
     var body: some View {
         ProgressView(value: gauge, total: 100)
-            .progressViewStyle(LinearProgressViewStyle(tint:Color("ezpzLime")))
+            .tint(EzpzStyle.EzpzColor.ezpzLime)
+            .frame(width: UIScreen.main.bounds.width / 3)
+//            .progressViewStyle(LinearProgressViewStyle(tint:Color("ezpzLime")))
             .padding(.leading)
-            .padding(.trailing,200)
+//            .padding(.trailing,200)
+        
+        
+//        ProgressView(value: progressStatus,total: 1 )
+               
     }
     
 }
