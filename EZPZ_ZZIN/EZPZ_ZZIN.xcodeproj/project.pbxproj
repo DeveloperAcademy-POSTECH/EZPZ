@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
 		A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */; };
 		A88321D3280404300037CB6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D2280404300037CB6F /* ContentView.swift */; };
 		A88321D5280404310037CB6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88321D4280404310037CB6F /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		A88321CD280404300037CB6F /* EZPZ_ZZIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZPZ_ZZIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZ_ZZINApp.swift; sourceTree = "<group>"; };
 		A88321D2280404300037CB6F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 		A88321E82804055F0037CB6F /* MyPage */ = {
 			isa = PBXGroup;
 			children = (
+				7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			files = (
 				A88321EA280405A20037CB6F /* TabBarMainView.swift in Sources */,
 				A88321DA280404310037CB6F /* Persistence.swift in Sources */,
+				7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
