@@ -31,22 +31,22 @@ struct EzpzProgressView: View {
 }
 
 
-struct testppap: View {
-    
-    var gauge : Double = 0.0
-    
-    var body: some View {
-        Text("🚀   작심삼일 탈출하기")
-            .foregroundColor(Color.white)
-            .padding()
-            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(Color.blue, lineWidth: 1)
-            )
-            .padding()
-    }
-}
+//struct testppap: View {
+//
+//    var gauge : Double = 0.0
+//
+//    var body: some View {
+//        Text("🚀   작심삼일 탈출하기")
+//            .foregroundColor(Color.white)
+//            .padding()
+//            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+//            .overlay(
+//                RoundedRectangle(cornerRadius: 10)
+//                    .stroke(Color.blue, lineWidth: 1)
+//            )
+//            .padding()
+//    }
+//}
 
 struct OnBoardingMainBtn: View{
     var iCon = "아이콘"
@@ -97,6 +97,40 @@ func partialColorString(allString: String,allStringColor: Color ,partialString: 
     }
     
     return string
+}
+
+//CommonTendencyView
+
+struct CommonTendencynBtn: View{
+    var iCon = "아이콘"
+    var msgText = "iCon과 msgText를 설정해주세요."
+    var checkLeading = true
+    @State var textcolor = [Color("ezpzDisdable")]
+    var body : some View {
+        Button(action: {
+            // 페이지가 다음으로 넘어가야함
+            textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+        }) {
+            HStack{
+                Text(iCon)
+                Spacer()
+                Text(msgText)
+                    
+            } .foregroundColor(Color.white)
+          
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width / 2, alignment: .leading)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(
+                    LinearGradient(gradient: Gradient(colors: textcolor),
+                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1))
+                    ,lineWidth: 3
+                    
+                )
+        )
+    }
 }
 
 

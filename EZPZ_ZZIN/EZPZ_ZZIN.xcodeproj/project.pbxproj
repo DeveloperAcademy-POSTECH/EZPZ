@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D39280421FA0000FB11 /* CommonDetailView.swift */; };
+		70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3B28044ED20000FB11 /* CommonLastView.swift */; };
 		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
 		A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */; };
 		A88321D3280404300037CB6F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D2280404300037CB6F /* ContentView.swift */; };
@@ -33,6 +35,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70F15D39280421FA0000FB11 /* CommonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailView.swift; sourceTree = "<group>"; };
+		70F15D3B28044ED20000FB11 /* CommonLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLastView.swift; sourceTree = "<group>"; };
 		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		A88321CD280404300037CB6F /* EZPZ_ZZIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZPZ_ZZIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZ_ZZINApp.swift; sourceTree = "<group>"; };
@@ -171,6 +175,8 @@
 			isa = PBXGroup;
 			children = (
 				A88321F2280407FF0037CB6F /* EzpzStyle.swift */,
+				70F15D39280421FA0000FB11 /* CommonDetailView.swift */,
+				70F15D3B28044ED20000FB11 /* CommonLastView.swift */,
 				A88321F42804081D0037CB6F /* Fonts */,
 			);
 			path = Common;
@@ -275,10 +281,12 @@
 			files = (
 				A88321EA280405A20037CB6F /* TabBarMainView.swift in Sources */,
 				A88321DA280404310037CB6F /* Persistence.swift in Sources */,
+				70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */,
 				7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
+				70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */,
 				D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */,
 				A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */,
 				A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */,
