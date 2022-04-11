@@ -26,17 +26,17 @@
 		A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321ED280406F00037CB6F /* OnBoardingDetailView.swift */; };
 		A88321F0280407050037CB6F /* OnBoardingAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321EF280407050037CB6F /* OnBoardingAssets.swift */; };
 		A88321F3280407FF0037CB6F /* EzpzStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321F2280407FF0037CB6F /* EzpzStyle.swift */; };
-		A88321FA280408390037CB6F /* SpoqaHanSansNeo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F5280408380037CB6F /* SpoqaHanSansNeo-Bold.ttf */; };
-		A88321FB280408390037CB6F /* SpoqaHanSansNeo-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F6280408390037CB6F /* SpoqaHanSansNeo-Light.ttf */; };
-		A88321FC280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F7280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf */; };
-		A88321FD280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F8280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf */; };
-		A88321FE280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */; };
 		A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */; };
 		A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */; };
 		A883220828040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */; };
 		D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921D7280414DB0061ED4A /* RoutineView.swift */; };
 		D50921DA2804157D0061ED4A /* ChallengedetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921D92804157D0061ED4A /* ChallengedetailView.swift */; };
 		D50921DC2804158B0061ED4A /* ChallengecompleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */; };
+		D509223928044D660061ED4A /* SpoqaHanSansNeo-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223428044D640061ED4A /* SpoqaHanSansNeo-Light.otf */; };
+		D509223A28044D660061ED4A /* SpoqaHanSansNeo-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223528044D650061ED4A /* SpoqaHanSansNeo-Bold.otf */; };
+		D509223B28044D660061ED4A /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223628044D650061ED4A /* SpoqaHanSansNeo-Medium.otf */; };
+		D509223C28044D660061ED4A /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223728044D660061ED4A /* SpoqaHanSansNeo-Regular.otf */; };
+		D509223D28044D660061ED4A /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223828044D660061ED4A /* SpoqaHanSansNeo-Thin.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,11 +60,6 @@
 		A88321ED280406F00037CB6F /* OnBoardingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDetailView.swift; sourceTree = "<group>"; };
 		A88321EF280407050037CB6F /* OnBoardingAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingAssets.swift; sourceTree = "<group>"; };
 		A88321F2280407FF0037CB6F /* EzpzStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzpzStyle.swift; sourceTree = "<group>"; };
-		A88321F5280408380037CB6F /* SpoqaHanSansNeo-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.ttf"; sourceTree = "<group>"; };
-		A88321F6280408390037CB6F /* SpoqaHanSansNeo-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.ttf"; sourceTree = "<group>"; };
-		A88321F7280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
-		A88321F8280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
-		A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
 		A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateAppleFontView.swift; sourceTree = "<group>"; };
 		A883220228040AB20037CB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateView.swift; sourceTree = "<group>"; };
@@ -72,6 +67,12 @@
 		D50921D7280414DB0061ED4A /* RoutineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutineView.swift; path = EZPZ_ZZIN/RoutineView.swift; sourceTree = SOURCE_ROOT; };
 		D50921D92804157D0061ED4A /* ChallengedetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengedetailView.swift; path = EZPZ_ZZIN/ChallengedetailView.swift; sourceTree = SOURCE_ROOT; };
 		D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengecompleteView.swift; path = EZPZ_ZZIN/ChallengecompleteView.swift; sourceTree = SOURCE_ROOT; };
+		D509223428044D640061ED4A /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
+		D509223528044D650061ED4A /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
+		D509223628044D650061ED4A /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
+		D509223728044D660061ED4A /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
+		D509223828044D660061ED4A /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
+		D509223E28044D990061ED4A /* EZPZ-ZZIN-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EZPZ-ZZIN-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +106,7 @@
 		A88321CF280404300037CB6F /* EZPZ_ZZIN */ = {
 			isa = PBXGroup;
 			children = (
+				D509223E28044D990061ED4A /* EZPZ-ZZIN-Info.plist */,
 				A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */,
 				A88321D9280404310037CB6F /* Persistence.swift */,
 				A88321E3280404530037CB6F /* Main */,
@@ -200,11 +202,11 @@
 		A88321F42804081D0037CB6F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				A88321F5280408380037CB6F /* SpoqaHanSansNeo-Bold.ttf */,
-				A88321F6280408390037CB6F /* SpoqaHanSansNeo-Light.ttf */,
-				A88321F7280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf */,
-				A88321F8280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf */,
-				A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */,
+				D509223528044D650061ED4A /* SpoqaHanSansNeo-Bold.otf */,
+				D509223428044D640061ED4A /* SpoqaHanSansNeo-Light.otf */,
+				D509223628044D650061ED4A /* SpoqaHanSansNeo-Medium.otf */,
+				D509223728044D660061ED4A /* SpoqaHanSansNeo-Regular.otf */,
+				D509223828044D660061ED4A /* SpoqaHanSansNeo-Thin.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -277,13 +279,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A88321FB280408390037CB6F /* SpoqaHanSansNeo-Light.ttf in Resources */,
 				A88321D8280404310037CB6F /* Preview Assets.xcassets in Resources */,
-				A88321FA280408390037CB6F /* SpoqaHanSansNeo-Bold.ttf in Resources */,
-				A88321FC280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf in Resources */,
-				A88321FE280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf in Resources */,
-				A88321FD280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf in Resources */,
+				D509223C28044D660061ED4A /* SpoqaHanSansNeo-Regular.otf in Resources */,
+				D509223928044D660061ED4A /* SpoqaHanSansNeo-Light.otf in Resources */,
 				A88321D5280404310037CB6F /* Assets.xcassets in Resources */,
+				D509223B28044D660061ED4A /* SpoqaHanSansNeo-Medium.otf in Resources */,
+				D509223A28044D660061ED4A /* SpoqaHanSansNeo-Bold.otf in Resources */,
+				D509223D28044D660061ED4A /* SpoqaHanSansNeo-Thin.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -448,6 +450,7 @@
 				DEVELOPMENT_TEAM = 22A6RK2943;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EZPZ-ZZIN-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -478,6 +481,7 @@
 				DEVELOPMENT_TEAM = 22A6RK2943;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "EZPZ-ZZIN-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
