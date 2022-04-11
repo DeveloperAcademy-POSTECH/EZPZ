@@ -34,21 +34,21 @@ struct EzpzStyle {
     }
     
     enum EzpzFont{
-//        static var ezpzTitle1: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 34, relativeTo: .largeTitle)
-//        static var ezpzTitle2: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 28, relativeTo: .title)
-//        static var ezpzTitle3: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 24, relativeTo: .title2)
-//        static var ezpzTitle4: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 18, relativeTo: .title3)
-//        static var ezpzHeadline: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 17, relativeTo: .headline)
-//        static var ezpzBody: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 17, relativeTo: .body)
-//        static var ezpzCaption1: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 12, relativeTo: .caption)
+        static var ezpzTitle1: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 34, relativeTo: .largeTitle)
+        static var ezpzTitle2: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 28, relativeTo: .title)
+        static var ezpzTitle3: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 24, relativeTo: .title2)
+        static var ezpzTitle4: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 18, relativeTo: .title3)
+        static var ezpzHeadline: Font = Font.custom("SpoqaHanSansNeo-Bold", size: 17, relativeTo: .headline)
+        static var ezpzBody: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 17, relativeTo: .body)
+        static var ezpzCaption1: Font = Font.custom("SpoqaHanSansNeo-Regular", size: 12, relativeTo: .caption)
         
-        static var ezpzTitle1: Font = Font.custom("AppleSDGothicNeo-Bold", size: 34, relativeTo: .largeTitle)
-        static var ezpzTitle2: Font = Font.custom("AppleSDGothicNeo-Bold", size: 28, relativeTo: .title)
-        static var ezpzTitle3: Font = Font.custom("AppleSDGothicNeo-Bold", size: 24, relativeTo: .title2)
-        static var ezpzTitle4: Font = Font.custom("AppleSDGothicNeo-Bold", size: 18, relativeTo: .title3)
-        static var ezpzHeadline: Font = Font.custom("AppleSDGothicNeo-Bold", size: 17, relativeTo: .headline)
-        static var ezpzBody: Font = Font.custom("AppleSDGothicNeo-Regular", size: 17, relativeTo: .body)
-        static var ezpzCaption1: Font = Font.custom("AppleSDGothicNeo-Regular", size: 12, relativeTo: .caption)
+        static var ezpzTitle1Apple: Font = Font.custom("AppleSDGothicNeo-Bold", size: 34, relativeTo: .largeTitle)
+        static var ezpzTitle2Apple: Font = Font.custom("AppleSDGothicNeo-Bold", size: 28, relativeTo: .title)
+        static var ezpzTitle3Apple: Font = Font.custom("AppleSDGothicNeo-Bold", size: 24, relativeTo: .title2)
+        static var ezpzTitle4Apple: Font = Font.custom("AppleSDGothicNeo-Bold", size: 18, relativeTo: .title3)
+        static var ezpzHeadlineApple: Font = Font.custom("AppleSDGothicNeo-Bold", size: 17, relativeTo: .headline)
+        static var ezpzBodyApple: Font = Font.custom("AppleSDGothicNeo-Regular", size: 17, relativeTo: .body)
+        static var ezpzCaption1Apple: Font = Font.custom("AppleSDGothicNeo-Regular", size: 12, relativeTo: .caption)
         
         
     }

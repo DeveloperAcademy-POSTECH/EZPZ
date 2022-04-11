@@ -30,13 +30,13 @@ struct TabBarMainView: View {
                     // 탭바 아이템의 텍스트 설정입니다.
                 }
             
-            OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            OnBoardingDesignTemplateSystemFontView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("내도전")
                 }
             
-            OnBoardingView()  //돌아보기 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            OnBoardingDesignTemplateAppleFontView()  //돌아보기 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem {
                     Image(systemName: "pencil")
                     Text("돌아보기")

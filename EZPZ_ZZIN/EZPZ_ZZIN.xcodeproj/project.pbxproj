@@ -23,7 +23,9 @@
 		A88321FC280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F7280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf */; };
 		A88321FD280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F8280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf */; };
 		A88321FE280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */; };
-		A8832201280409950037CB6F /* OnBoardingDesignTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8832200280409950037CB6F /* OnBoardingDesignTemplateView.swift */; };
+		A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */; };
+		A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */; };
+		A883220828040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,7 +46,10 @@
 		A88321F7280408390037CB6F /* SpoqaHanSansNeo-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.ttf"; sourceTree = "<group>"; };
 		A88321F8280408390037CB6F /* SpoqaHanSansNeo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.ttf"; sourceTree = "<group>"; };
 		A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.ttf"; sourceTree = "<group>"; };
-		A8832200280409950037CB6F /* OnBoardingDesignTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateView.swift; sourceTree = "<group>"; };
+		A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateAppleFontView.swift; sourceTree = "<group>"; };
+		A883220228040AB20037CB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateView.swift; sourceTree = "<group>"; };
+		A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateSystemFontView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 		A88321C4280404300037CB6F = {
 			isa = PBXGroup;
 			children = (
+				A883220228040AB20037CB6F /* Info.plist */,
 				A88321CF280404300037CB6F /* EZPZ_ZZIN */,
 				A88321CE280404300037CB6F /* Products */,
 			);
@@ -113,10 +119,10 @@
 		A88321E4280405400037CB6F /* OnBoarding */ = {
 			isa = PBXGroup;
 			children = (
+				A883220428040C900037CB6F /* TemplateView */,
 				A88321EB280405F80037CB6F /* OnBoardingView.swift */,
 				A88321ED280406F00037CB6F /* OnBoardingDetailView.swift */,
 				A88321EF280407050037CB6F /* OnBoardingAssets.swift */,
-				A8832200280409950037CB6F /* OnBoardingDesignTemplateView.swift */,
 			);
 			path = OnBoarding;
 			sourceTree = "<group>";
@@ -168,6 +174,16 @@
 				A88321F9280408390037CB6F /* SpoqaHanSansNeo-Thin.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		A883220428040C900037CB6F /* TemplateView */ = {
+			isa = PBXGroup;
+			children = (
+				A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */,
+				A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */,
+				A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */,
+			);
+			path = TemplateView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -250,7 +266,9 @@
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
-				A8832201280409950037CB6F /* OnBoardingDesignTemplateView.swift in Sources */,
+				A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */,
+				A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */,
+				A883220828040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift in Sources */,
 				A88321F3280407FF0037CB6F /* EzpzStyle.swift in Sources */,
 				A88321D3280404300037CB6F /* ContentView.swift in Sources */,
 				A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */,
