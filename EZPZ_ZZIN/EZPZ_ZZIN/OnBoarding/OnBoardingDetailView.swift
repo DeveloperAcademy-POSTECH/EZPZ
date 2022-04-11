@@ -21,11 +21,11 @@ struct OnBoardigDetailView: View {
 // 실행또한 가능합니다. static var previews: some View { } 안에
 // 뷰를 넣어주면 됩니다.
 // TMI: UIkit은 이거 없어서 저는 빌드 계속 돌리면서 확인했습니다. ㅠㅠ
-struct OnBoardigDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingUserNameView()
-    }
-}
+//struct OnBoardigDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingUserNameView()
+//    }
+//}
 
 
 
@@ -100,7 +100,7 @@ struct OnBoardingWellcomeView: View {
 struct OnBoardingUserNameView: View {
     var allString = "이름을\n알려주세요."
     var partialString = "이름"
-    @State var name: String = ""
+    @Binding var name: String
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
