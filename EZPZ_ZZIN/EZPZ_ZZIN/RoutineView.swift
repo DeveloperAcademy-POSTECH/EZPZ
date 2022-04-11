@@ -24,8 +24,7 @@ struct RoutineView: View {
                 VStack{
                 HStack{
                     Text("2022년 3월")
-                        .font(.system(size: 17))
-                        .fontWeight(.bold)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                 }.frame(height: 45)
                 HStack{
@@ -38,13 +37,11 @@ struct RoutineView: View {
                                             .frame(width: 50, height: 70)
                                             VStack{
                                                 Text("월")
-                                                .font(.system(size: 12))
-                                                .fontWeight(.bold)
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                                 .foregroundColor(ColorManage.ezpzDisdable)
                                                 .padding(.bottom, 4).padding(.top,3)
                                                 Text("\(i)")
-                                                        .font(.system(size: 18))
-                                                        .fontWeight(.bold)
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                                         .foregroundColor(ColorManage.ezpzDisdable)
                                                 }
                                                 }
@@ -57,15 +54,14 @@ struct RoutineView: View {
                     Group{
                         HStack{
                     Text("오늘 할 일")
-                        .font(.system(size: 28))
-                        .fontWeight(.bold)
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)
                             Spacer()
                         }
                         HStack{
                             Text("오늘 할 일이 3개 있어요!")
-                                .font(.system(size: 17))
+                                .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                                 .padding(.leading, 17)
                                 Spacer()
@@ -78,7 +74,7 @@ struct RoutineView: View {
                         
                     }) {
                             Text("오늘 한 일 돌아보기")
-                            .fontWeight(.bold).font(.system(size: 18))
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                 .frame(width: 356 , height: 40)
                                 .foregroundColor(ColorManage.ezpzLime)
                                 .background(ColorManage.ezpzDeepgrey)
@@ -90,8 +86,7 @@ struct RoutineView: View {
                     Group{
                         HStack{
                             Text("🚴‍♀️ 100일 동안 5kg 빼기")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                 .foregroundColor(ColorManage.ezpzLime)
                                 .lineLimit(1).padding(.leading, 17.0)
                                 .padding(.top, 5).padding(.bottom, 1)
@@ -112,8 +107,7 @@ struct RoutineView: View {
                     Group{
                     HStack{
                         Text("⏰ 12시 이후 방해금지 모드 설정하기")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                             .foregroundColor(ColorManage.ezpzLime)
                             .lineLimit(1).padding(.leading, 17.0)
                             .padding(.top, 5).padding(.bottom, 1)
@@ -188,12 +182,12 @@ struct CheckboxField: View {
                 }
                 if (self.isMarked){
                     Text(label)
-                    .font(Font.system(size: size))
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: size))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .strikethrough()
                 } else{
                     Text(label)
-                    .font(Font.system(size: size))
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: size))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                 }
                 Spacer()

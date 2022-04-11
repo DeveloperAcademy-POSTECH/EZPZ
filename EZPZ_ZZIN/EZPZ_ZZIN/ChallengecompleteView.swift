@@ -16,8 +16,7 @@ struct ChallengecompleteView: View {
             VStack{
                 HStack{
                 Text("저장하고 돌아가기")
-                    .font(.system(size: 17))
-                    .fontWeight(.bold)
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading)
                         .padding(.leading, 35)
@@ -27,15 +26,14 @@ struct ChallengecompleteView: View {
                 Group{
                     HStack{
                 Text("도전 수정하기")
-                    .font(.system(size: 28))
-                    .fontWeight(.bold)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17)
                         Spacer()
                     }
                     HStack{
                         Text("바꾸고 싶은 부분을 누르면 바꿀 수 있어요!")
-                            .font(.system(size: 17))
+                            .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)
                             Spacer()
@@ -47,15 +45,13 @@ struct ChallengecompleteView: View {
                 }.padding(.bottom,10)
                 HStack{
                     Text("100일동안 5kg 빼기")
-                        .font(.system(size: 24))
-                        .fontWeight(.bold)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 24))
                         .foregroundColor(ColorManage.ezpzPink)
 
                 }
                 HStack{
                     Text("2022.03.12~2022.05.30")
-                        .font(.system(size: 17))
-                        .fontWeight(.bold)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                         .foregroundColor(ColorManage.ezpzLightgrey)
 
                 }

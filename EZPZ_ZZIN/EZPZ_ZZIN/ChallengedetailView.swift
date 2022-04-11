@@ -24,23 +24,21 @@ struct ChallengedetailView: View {
             VStack{
                 HStack{
                     Text("2022년 3월")
-                        .font(.system(size: 17))
-                        .fontWeight(.bold)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                 }
                 VStack{
                     Group{
                         HStack{
                     Text("🚴‍♀️ 100일 동안 5kg 빼기")
-                        .font(.system(size: 28))
-                        .fontWeight(.bold)
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom,2)
                             Spacer()
                         }
                         HStack{
                             Text("2022.03.12~2022.05.30")
-                                .font(.system(size: 17))
+                                .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                                 .padding(.leading, 17)
                                 Spacer()
@@ -51,8 +49,7 @@ struct ChallengedetailView: View {
                         print("오늘 한 일 돌아보기")
                     }) {
                             Text("오늘 한 일 돌아보기")
-                                .fontWeight(.bold)
-                                .font(.system(size: 17))
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                 .frame(width: 356 , height: 40)
                                 .foregroundColor(ColorManage.ezpzLime)
                                 .background(ColorManage.ezpzDarkgrey)
@@ -65,8 +62,7 @@ struct ChallengedetailView: View {
                     Group{
                         HStack{
                             Text("📍 오늘 할 일")
-                                .font(.system(size: 18))
-                                .fontWeight(.bold)
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                 .foregroundColor(ColorManage.ezpzLime)
                                 .lineLimit(1).padding(.leading, 17.0)
                                 .padding([.bottom], 5)
@@ -81,8 +77,7 @@ struct ChallengedetailView: View {
                         }
                         HStack{
                         Text("+    할 일 추가하기")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzDarkgrey)
                                 .multilineTextAlignment(.leading).padding([.leading], 20)
                             Spacer()
@@ -97,8 +92,7 @@ struct ChallengedetailView: View {
                     Group{
                     HStack{
                         Text("🚴‍♀️ 12시 이후 방해금지 모드 설정하기")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                             .foregroundColor(ColorManage.ezpzLime)
                             .lineLimit(1).padding(.leading, 17.0)
                             .padding([.top,.bottom], 5)
@@ -113,8 +107,7 @@ struct ChallengedetailView: View {
                         }
                     HStack{
                         Text("+    할 일 추가하기")
-                            .font(.system(size: 17))
-                            .fontWeight(.bold)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzDarkgrey)
                                 .multilineTextAlignment(.leading).padding([.leading], 20)
                             Spacer()
