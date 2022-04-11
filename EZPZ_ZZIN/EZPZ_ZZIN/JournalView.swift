@@ -71,13 +71,26 @@ struct JournalView: View {
                 ScrollView {
                     TopTabBarView(isShowingCurrentChallenge: $isShowingCurrentChallenge)
                         .padding(.top, 10)
-                    ForEach(items) { item in
-                        NavigationLink(destination: DailyView(challengeEntity: item)) {
-                            ChallengeCardView(challengeEntity: item)
-                                .padding(.top, 5)
+                    if isShowingCurrentChallenge {
+                        ForEach(items) { item in
+                            if !isDPlus(endDate: item.end) {
+                                NavigationLink(destination: DailyView(challengeEntity: item)) {
+                                    ChallengeCardView(challengeEntity: item)
+                                        .padding(.top, 5)
+                                }
+                            }
+                        }
+                        .padding(.horizontal, 10)
+                    } else {
+                        ForEach(items) { item in
+                            if isDPlus(endDate: item.end) {
+                                NavigationLink(destination: DailyView(challengeEntity: item)) {
+                                    ChallengeCardView(challengeEntity: item)
+                                        .padding(.top, 5)
+                                }
+                            }
                         }
                     }
-                    .padding(.horizontal, 10)
                 }
             }
             .navigationTitle("돌아보기")

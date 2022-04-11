@@ -67,7 +67,7 @@ struct ChallengeCardView: View {
                 Text(challengeEntity.title ?? "")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
-                    .foregroundColor(Color("ezpzLime"))
+                    .foregroundColor(Color(isDPlus(endDate: challengeEntity.end) ? "ezpzPink" : "ezpzLime"))
                 Spacer()
                 
                 Image(systemName: "chevron.right")
@@ -85,7 +85,7 @@ struct ChallengeCardView: View {
             .padding(.vertical, 10)
             
             ProgressView(value: getRatio())
-                .progressViewStyle(LinearProgressViewStyle(tint: Color("ezpzLime")))
+                .progressViewStyle(LinearProgressViewStyle(tint: Color(isDPlus(endDate: challengeEntity.end) ? "ezpzPink" : "ezpzLime")))
                 .padding(.trailing, 20)
         }
         .frame(height: 110)
@@ -93,4 +93,16 @@ struct ChallengeCardView: View {
         .background(Color("ezpzDeepgrey"))
         .cornerRadius(10)
     }
+}
+
+// 지난 도전이면 true를 반환한다. 하고 있는 도전이면 false를 반환한다.
+func isDPlus(endDate: Date?) -> Bool {
+    guard let end = endDate else {
+        print("도전 종료 날짜가 지정되어 있지 않음")
+        return false
+    }
+    let currentDate: Date = Date()
+    let difference: Double = end.distance(to: currentDate)
+    let day: Int = Int(difference / (60 * 60 * 24))
+    return day > 0
 }
