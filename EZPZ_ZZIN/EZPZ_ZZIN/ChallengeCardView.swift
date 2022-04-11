@@ -43,6 +43,22 @@ struct ChallengeCardView: View {
         return Int(getRatio() * 100.0)
     }
     
+    func getDDayString() -> String {
+        guard let endDate = challengeEntity.end else {
+            return "도전 종료 날짜가 지정되어 있지 않아요"
+        }
+        let currentDate: Date = Date()
+        let difference: Double = endDate.distance(to: currentDate)
+        let day: Int = Int(difference / (60 * 60 * 24)) // 시간 단위를 초에서 일로 변경
+        if day < 0 {
+            return "D\(day)"
+        } else if day > 0 {
+            return "D+\(day)"
+        } else {
+            return "D-Day"
+        }
+    }
+    
     var body: some View {
         VStack(spacing: 0) {
             HStack {
@@ -60,8 +76,7 @@ struct ChallengeCardView: View {
             }
             
             HStack {
-                // TODO: D-Day로 변경하기
-                Text("\(getPercentage())% 달성!")
+                Text(getDDayString())
                     .font(.system(size: 16))
                     .foregroundColor(Color("ezpzLightgrey"))
                     .fontWeight(.medium)
