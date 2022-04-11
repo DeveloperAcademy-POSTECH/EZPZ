@@ -23,7 +23,7 @@ struct OnBoardigDetailView: View {
 // TMI: UIkit은 이거 없어서 저는 빌드 계속 돌리면서 확인했습니다. ㅠㅠ
 struct OnBoardigDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ppap1()
+        OnBoardingUserNameView()
     }
 }
 
@@ -31,7 +31,7 @@ struct OnBoardigDetailView_Previews: PreviewProvider {
 
 
 
-struct ppap1: View {
+struct OnBoardingStartView: View {
     
     var allString = "EZPZ를 통해 무엇을 \n하고 싶은신가요?"
     var partialString = "EZPZ를 통해"
@@ -65,29 +65,82 @@ struct ppap1: View {
     
 }
 
-//struct OnBoardingLongLable: LabelStyle {
-//    func makeBody(configuration: Configuration) -> some View {
-//        Label(configuration)
-//            .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-//            .padding()
-//            .background(Color.clear)
-//
-//            .border(.white, width: 1)
-//            .cornerRadius(10)
-//    }
-//}
 
-
-
-struct ppap2: View {
+struct OnBoardingWellcomeView: View {
+    var allString = "잘 오셨어요!\nEZPZ가 도와드릴게요!"
+    var partialString = "EZPZ가 도와드릴게요!"
+    
     var body: some View {
-        Text("내도전2")
+        let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
+        
+        ZStack{
+            VStack(alignment: .leading){
+                
+                HStack{
+                    EzpzProgressView(gauge:20.0)
+                }
+                .padding(.top,40)
+                Spacer()
+                Spacer()
+                Text(mainText)
+                    .padding()
+                    .font(.system(size: 34))
+                
+                Spacer()
+                Spacer()
+                Spacer()
+             
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .background(Color("ezpzBlack"))
+        }.preferredColorScheme(.dark)
     }
 }
 
-struct ppap3: View {
+struct OnBoardingUserNameView: View {
+    var allString = "이름을\n알려주세요."
+    var partialString = "이름"
+    @State var name: String = ""
     var body: some View {
-        Text("내도전3")
+        let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
+        // OnBoardingAssets의 partialColorString()참고
+        
+        ZStack{
+            VStack(alignment: .leading){
+                
+                HStack{
+                    EzpzProgressView(gauge:30.0)
+                }
+                .padding(.top,40)
+                
+                Text(mainText)
+                    .padding([.leading,.trailing,.top])
+                    .padding(.bottom,5)
+                    .font(.system(size: 34))
+                Text("닉네임도 좋아요")
+                    .padding([.leading,.trailing])
+                Spacer()
+
+            
+                
+                Text("이름")
+                    .padding([.leading,.trailing])
+                TextField("이름 또는 닉네임을 적어주세요.", text: $name)
+                    .padding([.leading,.trailing])
+                Divider()
+                    .padding([.leading,.trailing])
+
+                Spacer()
+                Spacer()
+                Spacer()
+                
+
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .background(Color("ezpzBlack"))
+            
+        }.preferredColorScheme(.dark)
+        
     }
 }
 

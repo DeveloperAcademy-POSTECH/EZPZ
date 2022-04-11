@@ -22,7 +22,7 @@ struct TabBarMainView: View {
 //            Color("ezpzPink")
 //            .ignoresSafeArea()
             // TabView라는 뷰입니다.
-            OnBoardingView() //오늘할일 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            RoutineView() //오늘할일 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem { //탭바 아이탬에 대한 속성을 추가 합니다.
                     Image(systemName: "checkmark.square")
                     // 탭바 아이템의 이미지설정입니다.
@@ -30,7 +30,7 @@ struct TabBarMainView: View {
                     // 탭바 아이템의 텍스트 설정입니다.
                 }
             
-            OnBoardingDesignTemplateSystemFontView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("내도전")
@@ -47,6 +47,13 @@ struct TabBarMainView: View {
                     Image(systemName: "gearshape")
                     Text("마이페이지")
                 }
+            
+            OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+                .tabItem {
+                    Image(systemName: "list.dash")
+                    Text("온보딩체킹")
+                }
+            
         }
        
         .accentColor(Color("ezpzPink")) // 탭바 아이템이 선택 되었을때의 색상을 설정해 줍니다.
