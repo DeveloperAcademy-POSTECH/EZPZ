@@ -13,7 +13,12 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-   // let elements: [Any] = [ppap1.self, ppap2.self,ppap3.self]
+    // let elements: [Any] = [ppap1.self, ppap2.self,ppap3.self]
+    
+    init() {
+        UIPageControl.appearance().isUserInteractionEnabled = false
+        // 해당 뷰에서 TabView의 UIPageControl를 유저가 클릭해 다음페이지로 이동 못하게 제한함.
+       }
     
     @State var userName: String = ""
     @State var challenge: String = ""
@@ -21,34 +26,59 @@ struct OnBoardingView: View {
     @State var startDate = Date()
     @State var endDate = Date()
     
-//    @State var startDate: Date = 2022.02.01
-//    @State var endDate: Date =  2022.02.01
-//    func p() -> EmptyView {
-//        print("asdfasfd"  + userName)
-//        return EmptyView()
-//    }
-//
+    //    @State var startDate: Date = 2022.02.01
+    //    @State var endDate: Date =  2022.02.01
+    //    func p() -> EmptyView {
+    //        print("asdfasfd"  + userName)
+    //        return EmptyView()
+    //    }
+    //
+    
+    @State private var selectedPage = 1
+    
     var body: some View {
-        TabView {
-            Group{
-                OnBoardingStartView()
-                OnBoardingWellcomeView()
-                OnBoardingUserNameView(name: $userName)
+        let gagtePage = Double(selectedPage * 10)
+        ZStack{
             
-//                p()
+            ColorManage.ezpzBlack
+                .ignoresSafeArea()
+            
+            VStack(alignment: .leading){
+                EzpzProgressView(gauge:gagtePage)
+                    .padding(.top,UIScreen.main.bounds.height / 16)
+                
+                
+                TabView(selection: $selectedPage) {
+                    Group{
+                        // selectedPage 이거를 페이지 마다 전달해서
+                        // 특정 상황일떄 값을 추가 하든 해서 다음페이지로 이동시키면 될듯
+                        OnBoardingStartView().tag(1)
+                        OnBoardingWellcomeView().tag(2)
+                        OnBoardingUserNameView(name: $userName).tag(3)
+                    }
+                    .gesture(DragGesture())
+                    // .simultaneousGesture(DragGesture())
+                    //그룹 단위로 제스쳐를 막을 수 있는 것 같다.
+                    // .gesture(DragGesture())와 .simultaneousGesture(DragGesture())의 차이는 잘 모르겠다.
+
+                    //온보딩과 아닌것으로 분할
+                    Group{
+                        CommonTendencyView(name: $userName).tag(4)
+                        CommonUserGroupView(name: $userName).tag(5)
+                        CommonWantChallenge().tag(6)
+                        CommonUserFieldView().tag(7)
+                        CommonUserChallengeView(challenge: $challenge).tag(8)
+                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate).tag(9)
+                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate).tag(10)
+                    }
+                    .gesture(DragGesture())
+                }
+                
+                .tabViewStyle(PageTabViewStyle())
+                
+//                    .disabled(true) 이거 쓰면 모든 동작 밴당함
             }
-            //온보딩과 아닌것으로 분할 
-            Group{
-                CommonTendencyView(name: $userName)
-                CommonUserGroupView(name: $userName)
-                CommonWantChallenge()
-                CommonUserFieldView()
-                CommonUserChallengeView(challenge: $challenge)
-                CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate)
-                CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate)
-            }
-        }.tabViewStyle(PageTabViewStyle())
-       
+        }
         
     }
 }

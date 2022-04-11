@@ -52,10 +52,12 @@ struct OnBoardingMainBtn: View{
     var iCon = "아이콘"
     var msgText = "iCon과 msgText를 설정해주세요."
     @State var textcolor = [Color("ezpzDisdable")]
+    @State var overLineWidth : CGFloat = 1
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+            overLineWidth = 3.0
         }) {
             Text(iCon + "  " + msgText )
                 .foregroundColor(Color.white)
@@ -67,7 +69,7 @@ struct OnBoardingMainBtn: View{
                 .strokeBorder(
                     LinearGradient(gradient: Gradient(colors: textcolor),
                                    startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1))
-                    ,lineWidth: 3
+                    ,lineWidth: overLineWidth
                     
                 )
         )
@@ -105,11 +107,15 @@ struct CommonTendencynBtn: View{
     var iCon = "아이콘"
     var msgText = "iCon과 msgText를 설정해주세요."
     var checkLeading = true
+    
     @State var textcolor = [Color("ezpzDisdable")]
+    @State var overLineWidth : CGFloat = 1
+
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+            overLineWidth = 3.0
         }) {
             HStack{
                 Text(iCon)
@@ -126,7 +132,7 @@ struct CommonTendencynBtn: View{
                 .strokeBorder(
                     LinearGradient(gradient: Gradient(colors: textcolor),
                                    startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1))
-                    ,lineWidth: 3
+                    ,lineWidth: overLineWidth
                     
                 )
         )

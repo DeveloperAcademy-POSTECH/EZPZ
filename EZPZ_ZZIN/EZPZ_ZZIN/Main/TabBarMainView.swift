@@ -17,7 +17,7 @@ struct TabBarMainView: View {
     }
     
     var body: some View {
-   
+       
         TabView {
 //            Color("ezpzPink")
 //            .ignoresSafeArea()
@@ -55,8 +55,8 @@ struct TabBarMainView: View {
                 }
             
         }
-       
         .accentColor(Color("ezpzPink")) // 탭바 아이템이 선택 되었을때의 색상을 설정해 줍니다.
+            
     }
 }
 
