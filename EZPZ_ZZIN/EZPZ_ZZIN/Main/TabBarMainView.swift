@@ -36,13 +36,13 @@ struct TabBarMainView: View {
                     Text("내도전")
                 }
             
-            OnBoardingDesignTemplateAppleFontView()  //돌아보기 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            JournalView()
                 .tabItem {
                     Image(systemName: "pencil")
                     Text("돌아보기")
                 }
             
-            OnBoardingDesignTemplateView()  //마이페이지 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            MyPageMainView()  //마이페이지 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("마이페이지")
