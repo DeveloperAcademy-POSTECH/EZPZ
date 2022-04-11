@@ -78,6 +78,8 @@ struct JournalView: View {
                                     ChallengeCardView(challengeEntity: item)
                                         .padding(.top, 5)
                                 }
+                            } else {
+                                EmptyView()
                             }
                         }
                         .padding(.horizontal, 10)
@@ -88,8 +90,11 @@ struct JournalView: View {
                                     ChallengeCardView(challengeEntity: item)
                                         .padding(.top, 5)
                                 }
+                            } else {
+                                EmptyView()
                             }
                         }
+                        .padding(.horizontal, 10)
                     }
                 }
             }
