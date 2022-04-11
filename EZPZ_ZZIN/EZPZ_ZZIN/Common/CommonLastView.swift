@@ -10,12 +10,11 @@ import SwiftUI
 
 struct CommonStartChallengeView: View {
     
+    @Environment(\.managedObjectContext) private var viewContext
     @Binding var userName: String
     @Binding var challenge: String
-    
     @Binding var startDate: Date
     @Binding var endDate: Date
-    
     
     var allString = "새로운 도전을\n만들었어요!"
     var partialString = "새로운 도전"
@@ -44,6 +43,8 @@ struct CommonStartChallengeView: View {
                 
                 Button(action: {
                     // 데이터 저장
+                    createChallenge()
+                    
                     // 리스트 탭으로 이동
                 }) {
                     HStack{
@@ -63,5 +64,17 @@ struct CommonStartChallengeView: View {
             
         }.preferredColorScheme(.dark)
         
+    }
+    
+    func createChallenge() {
+        let newChallenge: ChallengeEntity = ChallengeEntity(context: viewContext)
+        newChallenge.start = startDate
+        newChallenge.end = endDate
+        newChallenge.title = challenge
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
     }
 }
