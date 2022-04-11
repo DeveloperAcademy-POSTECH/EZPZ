@@ -16,8 +16,13 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="toChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChallengeEntity" inverseName="toJournal" inverseEntity="ChallengeEntity"/>
     </entity>
+    <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
     <elements>
-        <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="ChallengeEntity" positionX="-63" positionY="18" width="128" height="119"/>
+        <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="UserEntity" positionX="-45" positionY="63" width="128" height="59"/>
     </elements>
 </model>

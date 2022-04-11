@@ -35,10 +35,10 @@ struct ChallengeCardView: View {
                 Image(systemName: "chevron.right")
                     .font(.system(size: 18))
                     .foregroundColor(Color("ezpzPink"))
-                
             }
             
             HStack {
+                // TODO: D-Day로 변경하기
                 Text("\(getPercentage())% 달성!")
                     .font(.system(size: 16))
                     .foregroundColor(Color("ezpzLightgrey"))
@@ -47,7 +47,7 @@ struct ChallengeCardView: View {
             }
             .padding(.vertical, 10)
             
-            ProgressView(value: 0.87)
+            ProgressView(value: getRatio())
                 .progressViewStyle(LinearProgressViewStyle(tint: Color("ezpzLime")))
                 .padding(.trailing, 20)
         }

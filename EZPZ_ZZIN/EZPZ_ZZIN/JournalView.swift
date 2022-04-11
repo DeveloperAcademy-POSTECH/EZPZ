@@ -58,7 +58,6 @@ struct TopTabBarView: View {
 }
 
 struct JournalView: View {
-    
     @State var isShowingCurrentChallenge: Bool = true // true: 하고 있는 도전, false: 지난 도전
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])

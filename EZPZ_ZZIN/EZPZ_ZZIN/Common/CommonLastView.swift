@@ -71,6 +71,11 @@ struct CommonStartChallengeView: View {
         newChallenge.start = startDate
         newChallenge.end = endDate
         newChallenge.title = challenge
+        newChallenge.emoji = "🍄" // TODO: 기본 이모지 변경하기
+        newChallenge.timestamp = Date()
+        let newUser: UserEntity = UserEntity(context: viewContext)
+        newUser.name = userName
+        newUser.timestamp = Date()
         do {
             try viewContext.save()
         } catch {

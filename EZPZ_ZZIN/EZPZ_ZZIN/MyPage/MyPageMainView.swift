@@ -8,9 +8,27 @@
 import SwiftUI
 
 struct MyPageMainView: View {
+    
+    // CoreData 관련 코드
+    @Environment(\.managedObjectContext) private var viewContext
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \UserEntity.timestamp, ascending: true)])
+    private var user: FetchedResults<UserEntity>
+    
     @State private var showingActionSheet = false
     @State private var showModal = false
     @State private var showingAlert = false
+    
+    func getUsername() -> String {
+        
+        // 유저 이름이 설정되지 않았을 때의 기본 값
+        let defaultUsername: String = "린다"
+        
+        if user.isEmpty {
+            return defaultUsername
+        } else {
+            return user[0].name ?? defaultUsername
+        }
+    }
 
     var body: some View {
         ZStack {
@@ -55,7 +73,7 @@ struct MyPageMainView: View {
                         Circle()
                             .frame(width: 70, height: 70)
                             .padding(.leading, 37.0)
-                        Text("린다")
+                        Text(getUsername())
                             .font(.system(size: 28))
                             .fontWeight(.bold)
                             .foregroundColor(ColorManage.ezpzLime)
@@ -172,7 +190,7 @@ struct ModalView: View {
   }
 }
 
-struct ColorManage{
+struct ColorManage {
     static let ezpzLime = Color("ezpzLime")
     static let ezpzPink = Color("ezpzPink")
     static let ezpzBlack = Color("ezpzBlack")
@@ -182,7 +200,8 @@ struct ColorManage{
     static let ezpzLightgrey = Color("ezpzLightgrey")
     static let ezpzSmokegrey = Color("ezpzSmokegrey")
     static let ezpzGradient = Color("ezpzGradient")
-    static let ezpzGradient_ = Color("eezpzGradient_") }
+    static let ezpzGradient_ = Color("eezpzGradient_")
+}
 
 struct MyPageMainView_Previews: PreviewProvider {
     static var previews: some View {
