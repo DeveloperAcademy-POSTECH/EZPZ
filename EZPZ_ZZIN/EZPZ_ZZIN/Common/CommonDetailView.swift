@@ -33,15 +33,11 @@ struct CommonTendencyView: View {
 
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
-                
+          
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Text("아래의 성격 중 하나를 선택해주세요.")
                     .padding([.leading,.trailing])
                 
@@ -65,14 +61,14 @@ struct CommonTendencyView: View {
                     }.padding([.leading,.trailing],5)
 
                 }
-                Spacer()
+                .padding(.bottom,UIScreen.main.bounds.height / 10)
 
 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
 }
@@ -91,15 +87,12 @@ struct CommonUserGroupView: View {
 
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
+         
                 
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Text("자신을 가장 잘 나타내는 키워드를 선택해주세요.")
                     .padding([.leading,.trailing])
                 
@@ -123,14 +116,15 @@ struct CommonUserGroupView: View {
                     }.padding([.leading,.trailing],5)
 
                 }
-                Spacer()
+                .padding(.bottom,UIScreen.main.bounds.height / 10)
+
 
 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
 }
@@ -145,26 +139,23 @@ struct CommonWantChallenge: View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
-        ZStack{
+     
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:10.0)
-                }
-                .padding(.top,40)
-                
+     
                 Text(mainText)
-                    .padding()
-                    .font(.system(size: 34))
+                    .padding([.leading,.trailing,.bottom])
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 
                 Spacer()
                 OnBoardingMainBtn(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!")
                 OnBoardingMainBtn(iCon: "🤙", msgText: "아니요! 추천받을래요.")
-                    .padding(.bottom,40)
+                    .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
-        }.preferredColorScheme(.dark)
+  
+        
     }
     
     
@@ -184,15 +175,12 @@ struct CommonUserFieldView: View {
 
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
+ 
                 
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Text("아래의 카테고리 중 하나를 선택해 주세요.")
                     .padding([.leading,.trailing])
                 
@@ -212,20 +200,20 @@ struct CommonUserFieldView: View {
 
                     HStack{
                         CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.")
-                        Spacer()
+                            .padding(.trailing,UIScreen.main.bounds.width / 2)
+
                        
                            
                        // CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.")
                     }.padding([.leading,.trailing],5)
 
                 }
-                Spacer()
+                .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
-        
+        }
     }
 }
 
@@ -241,15 +229,12 @@ struct CommonUserChallengeView: View {
         ZStack{
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
+       
                 
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Text("도전명을 알려주세요.")
                     .padding([.leading,.trailing])
                 Spacer()
@@ -271,7 +256,7 @@ struct CommonUserChallengeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
 }
@@ -279,7 +264,7 @@ struct CommonUserChallengeView: View {
 
 struct CommonUserChallengeDateView: View {
     var allString = "도전 기간을\n선택해주세요."
-    var partialString = "도전기간"
+    var partialString = "도전 기간"
     
 //    @Binding var startDate = Date()
 //    @Binding var endDate = Date()
@@ -301,15 +286,12 @@ struct CommonUserChallengeDateView: View {
         ZStack{
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
+       
                 
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Text("짧은 도전도 괜찮아요.")
                     .padding([.leading,.trailing])
                 Spacer()
@@ -343,7 +325,7 @@ struct CommonUserChallengeDateView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
 }

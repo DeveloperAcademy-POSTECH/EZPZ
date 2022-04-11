@@ -21,11 +21,11 @@ struct OnBoardigDetailView: View {
 // 실행또한 가능합니다. static var previews: some View { } 안에
 // 뷰를 넣어주면 됩니다.
 // TMI: UIkit은 이거 없어서 저는 빌드 계속 돌리면서 확인했습니다. ㅠㅠ
-//struct OnBoardigDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        OnBoardingUserNameView()
-//    }
-//}
+struct OnBoardigDetailView_Previews: PreviewProvider {
+    static var previews: some View {
+        OnBoardingStartView()
+    }
+}
 
 
 
@@ -39,27 +39,20 @@ struct OnBoardingStartView: View {
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
-        
-        ZStack{
+           
             VStack(alignment: .leading){
-                
-                HStack{
-                    EzpzProgressView(gauge:10.0)
-                }
-                .padding(.top,40)
-                
+        
                 Text(mainText)
-                    .padding()
-                    .font(.system(size: 34))
-                
+                    .padding([.leading,.trailing,.bottom])
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Spacer()
                 OnBoardingMainBtn(iCon: "🚀", msgText: "작심삼일 탈출하기")
                 OnBoardingMainBtn(iCon: "🧩", msgText: "이루고 싶었던 목표를 성취하기")
-                    .padding(.bottom,40)
+                    .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
-        }.preferredColorScheme(.dark)
+        
     }
     
     
@@ -73,18 +66,15 @@ struct OnBoardingWellcomeView: View {
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         
-        ZStack{
+      
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:20.0)
-                }
-                .padding(.top,40)
+        
                 Spacer()
                 Spacer()
                 Text(mainText)
-                    .padding()
-                    .font(.system(size: 34))
+                    .padding([.leading,.trailing,.bottom])
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 
                 Spacer()
                 Spacer()
@@ -93,7 +83,7 @@ struct OnBoardingWellcomeView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
-        }.preferredColorScheme(.dark)
+        
     }
 }
 
@@ -107,17 +97,13 @@ struct OnBoardingUserNameView: View {
         
         ZStack{
             VStack(alignment: .leading){
-                
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
-                
+          
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+//                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
-                Text("닉네임도 좋아요")
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
+                Text("닉네임도 좋아요.")
                     .padding([.leading,.trailing])
                 Spacer()
 
@@ -139,7 +125,7 @@ struct OnBoardingUserNameView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
 }

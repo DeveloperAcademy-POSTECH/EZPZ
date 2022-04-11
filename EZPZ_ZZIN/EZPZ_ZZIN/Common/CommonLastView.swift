@@ -26,16 +26,12 @@ struct CommonStartChallengeView: View {
         ZStack{
             VStack(alignment: .leading){
                 
-                HStack{
-                    EzpzProgressView(gauge:30.0)
-                }
-                .padding(.top,40)
-                
+        
                 Text(mainText)
-                    .padding([.leading,.trailing,.top])
+                    .padding([.leading,.trailing])
                     .padding(.bottom,5)
-                    .font(.system(size: 34))
-               
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
+
            
                 Spacer()
                 Text("이제 리스트업 하러 가볼까요?")
@@ -62,7 +58,7 @@ struct CommonStartChallengeView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
             
-        }.preferredColorScheme(.dark)
+        }
         
     }
     
