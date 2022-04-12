@@ -25,7 +25,7 @@ struct OnBoardingView: View {
     
     @State var startDate = Date()
     @State var endDate = Date()
-    
+    @State var toDayDate = Date()
     @State var selectedPage = 1
     
     var body: some View {
@@ -60,7 +60,7 @@ struct OnBoardingView: View {
                         CommonWantChallenge(pageNum: $selectedPage).tag(6)
                         CommonUserFieldView(pageNum: $selectedPage).tag(7)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(8)
-                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage).tag(9)
+                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(9)
                         CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate).tag(10)
                     }
                     .gesture(DragGesture())

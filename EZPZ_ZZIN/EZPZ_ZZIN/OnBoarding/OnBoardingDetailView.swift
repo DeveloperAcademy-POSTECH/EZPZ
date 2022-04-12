@@ -47,6 +47,7 @@ struct OnBoardingStartView: View {
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Spacer()
                 OnBoardingMainBtn(iCon: "🚀", msgText: "작심삼일 탈출하기", pageNum: $pageNum)
+                    .padding(.bottom,2)
                 OnBoardingMainBtn(iCon: "🧩", msgText: "이루고 싶었던 목표를 성취하기", pageNum: $pageNum)
                     .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
@@ -70,8 +71,7 @@ struct OnBoardingWellcomeView: View {
             VStack(alignment: .leading){
                 
         
-                Spacer()
-                Spacer()
+          
                 Text(mainText)
                     .padding([.leading,.trailing,.bottom])
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
@@ -88,7 +88,7 @@ struct OnBoardingWellcomeView: View {
 }
 
 struct OnBoardingUserNameView: View {
-    var allString = "이름을\n알려주세요."
+    var allString = "이름을\n알려주세요"
     var partialString = "이름"
     @Binding var name: String
     @Binding var pageNum : Int
@@ -123,7 +123,7 @@ struct OnBoardingUserNameView: View {
                 Spacer()
                 if name != ""{
                     withAnimation {
-                    CommonNextBtn(mainText: "NEXT", pageNum: $pageNum)
+                    CommonNextBtn(mainText: "다음", pageNum: $pageNum)
                     }
                 }
               
