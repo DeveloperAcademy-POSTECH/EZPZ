@@ -15,8 +15,9 @@ struct MyPageMainView: View {
     private var user: FetchedResults<UserEntity>
     
     @State private var showingActionSheet = false
-    @State private var showModal = false
     @State private var showingAlert = false
+    @State private var isPresented1: Bool = false
+    @State private var isPresented2: Bool = false
     
     func getUsername() -> String {
         
@@ -59,11 +60,16 @@ struct MyPageMainView: View {
                             "Select",
                             isPresented: $showingActionSheet,
                             actions: {
-                                Button("닉네임 변경하기") { }
+                                Button("닉네임 변경하기") {
+                                    self.isPresented1 = true
+                                }
                                 Button("프로필 이미지 변경하기") { }
                                 Button("프로필 이미지 삭제하기", role: .destructive) { }
                                 Button("Cancel", role: .cancel) { }
                             })
+                        .sheet(isPresented: $isPresented1) {
+                            ChangeNameView()
+                        }
                     }
                 ZStack {
                     RoundedRectangle(cornerRadius: 10.0)
@@ -150,7 +156,7 @@ struct MyPageMainView: View {
                 Divider()
                     .background(ColorManage.ezpzSmokegrey)
                 HStack {
-                    Button(action: {showingAlert = true}) {
+                    Button(action: {isPresented2 = true}) {
                         Text("도전 포기하기")
                             .font(.system(size: 17))
                             .fontWeight(.medium)
@@ -159,11 +165,9 @@ struct MyPageMainView: View {
                             .padding(.leading, 17.0)
                             .padding([.top,.bottom], 5)
                     }
-                        .alert("포기할 도전을 선택해주세요", isPresented: $showingAlert) {
-                            Button("삭제", role: .destructive) {}
-                            } message: {
-                            Text("도전을 정말 삭제하시겠어요?")
-                            }
+                    .sheet(isPresented: $isPresented2) {
+                        ChallengeDeleteView()
+                    }
                     Spacer()
                 }
                 Divider()
@@ -173,22 +177,6 @@ struct MyPageMainView: View {
     }
 }
 
-
-struct ModalView: View {
-
-    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-
-  var body: some View {
-    Group {
-      Text("포기할 버튼을 선택해주세요")
-      Button(action: {
-          self.presentationMode.wrappedValue.dismiss()
-      }) {
-        Text("Dismiss")
-      }
-    }
-  }
-}
 
 struct ColorManage {
     static let ezpzLime = Color("ezpzLime")

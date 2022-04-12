@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-
-		70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D39280421FA0000FB11 /* CommonDetailView.swift */; };
-		70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3B28044ED20000FB11 /* CommonLastView.swift */; };
-
 		4371B0D82804231600E23268 /* JournalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0D72804231500E23268 /* JournalView.swift */; };
 		4371B0DA2804233100E23268 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0D92804233100E23268 /* EditorView.swift */; };
 		4371B0DC2804235900E23268 /* EmojiTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0DB2804235900E23268 /* EmojiTextField.swift */; };
@@ -19,8 +15,12 @@
 		4371B0E22804239F00E23268 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0E12804239F00E23268 /* DailyView.swift */; };
 		4371B0E4280423BD00E23268 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0E3280423BD00E23268 /* CardView.swift */; };
 		4371B0E6280423D500E23268 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0E5280423D500E23268 /* ChallengeCardView.swift */; };
-
+		43C97D642805518E007F34AD /* ChallengeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C97D632805518E007F34AD /* ChallengeSelectionView.swift */; };
+		70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D39280421FA0000FB11 /* CommonDetailView.swift */; };
+		70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3B28044ED20000FB11 /* CommonLastView.swift */; };
 		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
+		7EC9CA1528056D6500085EDB /* ChallengeDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */; };
+		7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1628056E7200085EDB /* ChangeNameView.swift */; };
 		A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */; };
 		A88321D5280404310037CB6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88321D4280404310037CB6F /* Assets.xcassets */; };
 		A88321D8280404310037CB6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88321D7280404310037CB6F /* Preview Assets.xcassets */; };
@@ -45,9 +45,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		70F15D39280421FA0000FB11 /* CommonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailView.swift; sourceTree = "<group>"; };
-		70F15D3B28044ED20000FB11 /* CommonLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLastView.swift; sourceTree = "<group>"; };
-
 		4371B0D72804231500E23268 /* JournalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JournalView.swift; path = EZPZ_ZZIN/JournalView.swift; sourceTree = SOURCE_ROOT; };
 		4371B0D92804233100E23268 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditorView.swift; path = EZPZ_ZZIN/EditorView.swift; sourceTree = SOURCE_ROOT; };
 		4371B0DB2804235900E23268 /* EmojiTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EmojiTextField.swift; path = EZPZ_ZZIN/EmojiTextField.swift; sourceTree = SOURCE_ROOT; };
@@ -56,7 +53,12 @@
 		4371B0E12804239F00E23268 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyView.swift; path = EZPZ_ZZIN/DailyView.swift; sourceTree = SOURCE_ROOT; };
 		4371B0E3280423BD00E23268 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardView.swift; path = EZPZ_ZZIN/CardView.swift; sourceTree = SOURCE_ROOT; };
 		4371B0E5280423D500E23268 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeCardView.swift; path = EZPZ_ZZIN/ChallengeCardView.swift; sourceTree = SOURCE_ROOT; };
+		43C97D632805518E007F34AD /* ChallengeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSelectionView.swift; sourceTree = "<group>"; };
+		70F15D39280421FA0000FB11 /* CommonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailView.swift; sourceTree = "<group>"; };
+		70F15D3B28044ED20000FB11 /* CommonLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLastView.swift; sourceTree = "<group>"; };
 		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
+		7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDeleteView.swift; sourceTree = "<group>"; };
+		7EC9CA1628056E7200085EDB /* ChangeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameView.swift; sourceTree = "<group>"; };
 		A88321CD280404300037CB6F /* EZPZ_ZZIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZPZ_ZZIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZ_ZZINApp.swift; sourceTree = "<group>"; };
 		A88321D4280404310037CB6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 		A88321E6280405550037CB6F /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				43C97D632805518E007F34AD /* ChallengeSelectionView.swift */,
 				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
 				D50921D92804157D0061ED4A /* ChallengedetailView.swift */,
 			);
@@ -194,6 +197,8 @@
 			isa = PBXGroup;
 			children = (
 				7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */,
+				7EC9CA1628056E7200085EDB /* ChangeNameView.swift */,
+				7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -315,9 +320,11 @@
 				4371B0E02804238900E23268 /* CustomDividerView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
+				7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
 				70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */,
 				D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */,
+				7EC9CA1528056D6500085EDB /* ChallengeDeleteView.swift in Sources */,
 				A8832201280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift in Sources */,
 				4371B0DE2804237300E23268 /* PhotoPicker.swift in Sources */,
 				A883220628040CB70037CB6F /* OnBoardingDesignTemplateView.swift in Sources */,
@@ -328,6 +335,7 @@
 				A88321F3280407FF0037CB6F /* EzpzStyle.swift in Sources */,
 				4371B0E4280423BD00E23268 /* CardView.swift in Sources */,
 				A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */,
+				43C97D642805518E007F34AD /* ChallengeSelectionView.swift in Sources */,
 				A88321F0280407050037CB6F /* OnBoardingAssets.swift in Sources */,
 				D50921DC2804158B0061ED4A /* ChallengecompleteView.swift in Sources */,
 				D50921DA2804157D0061ED4A /* ChallengedetailView.swift in Sources */,

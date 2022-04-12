@@ -15,6 +15,8 @@ struct ChallengedetailView: View {
     @State var fifthCheck = false
     @State var sixthCheck = false
     @State var checkBool = false
+    @State private var showingActionSheet = false
+    @State private var showAlert = false
     
     var body: some View {
         ZStack{
@@ -35,6 +37,14 @@ struct ChallengedetailView: View {
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom,2)
                             Spacer()
+                            Button(action: {
+                                //add action
+                            }) {
+                                Image(systemName: "gearshape")
+                                    .padding(.trailing, 17.0)
+                                    .foregroundColor(ColorManage.ezpzLightgrey)
+                                }
+                            
                         }
                         HStack{
                             Text("2022.03.12~2022.05.30")
@@ -71,14 +81,15 @@ struct ChallengedetailView: View {
                         Divider()
                             .background(ColorManage.ezpzLightgrey)
                         ForEach(1..<7) { i in
-                        CheckboxField(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $firstCheck).padding(.leading , 17).padding([.top, .bottom], 6)
+                            
+                        CheckboxField1(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $firstCheck).padding(.leading , 17).padding([.top, .bottom], 6)
                         Divider()
                             .background(ColorManage.ezpzSmokegrey)
                         }
                         HStack{
                         Text("+    할 일 추가하기")
                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                            .foregroundColor(ColorManage.ezpzDarkgrey)
+                            .foregroundColor(ColorManage.ezpzSmokegrey)
                                 .multilineTextAlignment(.leading).padding([.leading], 20)
                             Spacer()
                         }
@@ -101,14 +112,14 @@ struct ChallengedetailView: View {
                     Divider()
                         .background(ColorManage.ezpzLightgrey)
                         ForEach(1..<7) { i in
-                        CheckboxField(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $firstCheck).padding(.leading , 17).padding([.top, .bottom], 6)
+                        CheckboxField1(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $firstCheck).padding(.leading , 17).padding([.top, .bottom], 6)
                         Divider()
                             .background(ColorManage.ezpzSmokegrey)
                         }
                     HStack{
                         Text("+    할 일 추가하기")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                            .foregroundColor(ColorManage.ezpzDarkgrey)
+                            .foregroundColor(ColorManage.ezpzSmokegrey)
                                 .multilineTextAlignment(.leading).padding([.leading], 20)
                             Spacer()
                         }
@@ -128,4 +139,90 @@ struct ChallengedetailView_Previews: PreviewProvider {
     static var previews: some View {
         ChallengedetailView()
     }
+}
+
+struct CheckboxField1: View {
+    let id: String       //변수 타입 선언
+    let label: String
+    let size: CGFloat
+    let color: Color
+    let textSize: Int
+
+    @Binding var isMarked: Bool
+    @State private var showingActionSheet = false
+    @State private var showAlert = false
+    
+    init(
+    id: String,
+    label:String,
+    size: CGFloat = 15,
+    color: Color = ColorManage.ezpzPink,
+    textSize: Int = 17,
+    isMarked: Binding<Bool>
+    ) {
+        self.id = id
+        self.label = label
+        self.size = size
+        self.color = color
+        self.textSize = textSize
+        self._isMarked = isMarked
+    }
+    
+    
+    var body: some View {
+        Button(action:{
+            isMarked.toggle()
+        }) {
+            HStack(alignment: .center, spacing: 10) {
+                if (isMarked){
+                Image(systemName: "checkmark.square")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 20, height: 20)
+                } else{
+                    Image(systemName: "square")
+                    .renderingMode(.original)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 20, height: 20)
+                }
+                if (self.isMarked){
+                    Text(label)
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: size))
+                    .foregroundColor(ColorManage.ezpzLightgrey)
+                    .strikethrough()
+                } else{
+                    Text(label)
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: size))
+                    .foregroundColor(ColorManage.ezpzLightgrey)
+                }
+                Spacer()
+                Button(action: {self.showingActionSheet.toggle()}) {
+                    Image(systemName: "ellipsis")
+                        .padding(.trailing, 17.0)
+                        .foregroundColor(ColorManage.ezpzPink)
+                    }
+                .confirmationDialog(
+                    "도전명 변경 및 도전 기간을 수정할 수 있어요!",
+                    isPresented: $showingActionSheet,
+                    actions: {
+                        Button("도전 수정하기") {
+                            
+                        }
+                        Button("도전 삭제하기", role: .destructive ) {
+                            showAlert = true
+                        }
+                        Button("Cancel", role: .cancel) { }
+                    })
+                .alert(isPresented: $showAlert) {
+                    Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
+                        //some action
+                        
+                    } ), secondaryButton: .cancel(Text("돌아가기")))
+                        }
+            }.foregroundColor(self.color)
+        }
+        .foregroundColor(Color.white)
+    }
+    
 }

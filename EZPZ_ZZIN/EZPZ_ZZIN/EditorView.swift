@@ -136,6 +136,7 @@ struct EditorView: View {
                     .cornerRadius(10)
                     .onTapGesture {
                         item.text = text
+                        print(item.text ?? "")
                         try? viewContext.save()
                     }
             }
