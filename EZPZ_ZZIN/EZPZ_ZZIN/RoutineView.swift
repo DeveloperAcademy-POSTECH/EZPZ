@@ -15,6 +15,7 @@ struct RoutineView: View {
     @State var fifthCheck = false
     @State var sixthCheck = false
     @State var checkBool = false
+    @State var isShowingChallengeSelectionView: Bool = false
 
     var body: some View {
         ZStack{
@@ -69,17 +70,20 @@ struct RoutineView: View {
                     }
                     
                     if (firstCheck) {
-                    Button(action: {
-                        print("오늘 한 일 돌아보기")
-                        
-                    }) {
+                        Button(action: {
+                            print("오늘 한 일 돌아보기")
+                            isShowingChallengeSelectionView = true
+                        }) {
                             Text("오늘 한 일 돌아보기")
-                            .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                 .frame(width: 356 , height: 40)
                                 .foregroundColor(ColorManage.ezpzLime)
                                 .background(ColorManage.ezpzDeepgrey)
                                 .cornerRadius(10)
-                    }
+                        }
+                        .sheet(isPresented: $isShowingChallengeSelectionView) {
+                            ChallengeSelectionView()
+                        }
                     }
                 }.padding([.top,.bottom], 20)
                 VStack{
