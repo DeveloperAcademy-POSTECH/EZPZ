@@ -26,7 +26,7 @@ struct CommonTendencyView: View {
     @Binding var challengeIcon : String
     var body: some View {
         
-        let allString = "\(name)님의 성향을 알려주세요"
+        let allString = "\(name)님의\n성향을 알려주세요"
         let partialString = "성향"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
