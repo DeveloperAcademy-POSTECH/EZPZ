@@ -329,6 +329,11 @@ struct CommonUserChallengeDateView: View {
                 Divider()
                 } .padding([.leading,.trailing])
                    // .padding([.leading,.trailing])
+                
+                withAnimation {
+                CommonNextBtn(mainText: "일단 스킵", pageNum: $pageNum)
+                }//조건 추가해야됨 스킵
+                
                 Spacer()
                 Spacer()
             }
