@@ -80,7 +80,7 @@ struct ChallengeSelectionView: View {
         journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
         journalEntity.text = "일지를 입력해 주세요"
         journalEntity.emoji = ""
-        try? viewContext.save()
+        // try? viewContext.save()
         return journalEntity
     }
 
