@@ -23,6 +23,7 @@ struct CommonDetailView: View {
 struct CommonTendencyView: View {
     @Binding var name: String
     @Binding var pageNum : Int
+    @Binding var challengeIcon : String
     var body: some View {
         
         let allString = "\(name)님의 성향을 알려주세요"
@@ -48,22 +49,22 @@ struct CommonTendencyView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움",pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단",pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
@@ -84,6 +85,7 @@ struct CommonTendencyView: View {
 struct CommonUserGroupView: View {
     @Binding var name: String
     @Binding var pageNum : Int
+    @Binding var challengeIcon : String
     var body: some View {
         
         let allString = "\(name)님은\n어디에 속하시나요?"
@@ -110,22 +112,22 @@ struct CommonUserGroupView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인",  pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생",  pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서",  pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",  pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
@@ -180,6 +182,8 @@ struct CommonWantChallenge: View {
 
 struct CommonUserFieldView: View {
     @Binding var pageNum : Int
+    @Binding var challengeIcon : String
+
     var body: some View {
         
         let allString = "도전하고 싶은\n분야를 골라주세요"
@@ -206,20 +210,20 @@ struct CommonUserFieldView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "⚽️", msgText: "운동", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "🥗", msgText: "건강", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "📒", msgText: "공부", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "⏳", msgText: "습관", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon)
                             .padding(.trailing,UIScreen.main.bounds.width / 2 + 2)
                         
                         
@@ -380,9 +384,7 @@ struct CommonUserChallengeDateView: View {
                         //.foregroundColor(ColorManage.ezpzSmokegrey)
                         .padding(.bottom,UIScreen.main.bounds.height / 10)
                 }
-           
-                
-                
+
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
