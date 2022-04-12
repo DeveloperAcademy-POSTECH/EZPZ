@@ -6,7 +6,7 @@
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="toJournal" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="toChallenge" inverseEntity="JournalEntity"/>
+        <relationship name="toJournal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="toChallenge" inverseEntity="JournalEntity"/>
     </entity>
     <entity name="JournalEntity" representedClassName="JournalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
