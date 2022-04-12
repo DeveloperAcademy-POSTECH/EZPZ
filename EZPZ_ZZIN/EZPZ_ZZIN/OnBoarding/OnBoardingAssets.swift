@@ -113,11 +113,14 @@ struct CommonTendencynBtn: View{
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
     @Binding var pageNum : Int
+    @Binding var challengeIcon : String
+    
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
+            challengeIcon = iCon
             withAnimation { 
                 pageNum += 1
             }
@@ -178,3 +181,4 @@ struct CommonNextBtn : View{
         .padding(.bottom,UIScreen.main.bounds.height / 10)
     }
 }
+

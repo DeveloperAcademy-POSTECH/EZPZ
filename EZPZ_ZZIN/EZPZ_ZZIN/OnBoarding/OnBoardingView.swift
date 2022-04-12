@@ -27,7 +27,7 @@ struct OnBoardingView: View {
     @State var endDate = Date()
     @State var toDayDate = Date()
     @State var selectedPage = 1
-    
+    @State var challengeIcon = ""
     var body: some View {
         let gagtePage = Double(selectedPage * 10)
         ZStack{
@@ -55,13 +55,13 @@ struct OnBoardingView: View {
 
                     //온보딩과 아닌것으로 분할
                     Group{
-                        CommonTendencyView(name: $userName ,pageNum: $selectedPage).tag(4)
-                        CommonUserGroupView(name: $userName ,pageNum: $selectedPage).tag(5)
+                        CommonTendencyView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(4)
+                        CommonUserGroupView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(5)
                         CommonWantChallenge(pageNum: $selectedPage).tag(6)
-                        CommonUserFieldView(pageNum: $selectedPage).tag(7)
+                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon).tag(7)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(8)
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(9)
-                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate).tag(10)
+                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon).tag(10)
                     }
                     .gesture(DragGesture())
                 }
