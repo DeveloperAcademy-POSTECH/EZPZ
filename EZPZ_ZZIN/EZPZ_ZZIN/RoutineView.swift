@@ -28,7 +28,7 @@ struct RoutineView: View {
                         .foregroundColor(ColorManage.ezpzLightgrey)
                 }.frame(height: 45)
                 HStack{
-                    ScrollView(.horizontal) {
+                    ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                                 ForEach(1..<30) { i in
                                     ZStack{
