@@ -19,13 +19,13 @@ struct EzpzProgressView: View {
         ProgressView(value: gauge, total: 100)
             .tint(EzpzStyle.EzpzColor.ezpzLime)
             .frame(width: UIScreen.main.bounds.width / 3)
-//            .progressViewStyle(LinearProgressViewStyle(tint:Color("ezpzLime")))
+        //            .progressViewStyle(LinearProgressViewStyle(tint:Color("ezpzLime")))
             .padding(.leading)
-//            .padding(.trailing,200)
+        //            .padding(.trailing,200)
         
         
-//        ProgressView(value: progressStatus,total: 1 )
-               
+        //        ProgressView(value: progressStatus,total: 1 )
+        
     }
     
 }
@@ -53,11 +53,15 @@ struct OnBoardingMainBtn: View{
     var msgText = "iCon과 msgText를 설정해주세요."
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
+    @Binding var pageNum : Int
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
+            withAnimation { //애니메이션을 주는 코드 //-Ruyha 어이가 없네 어캐 이게 한줄로 끝나냐
+                pageNum += 1
+            }
         }) {
             Text(iCon + "  " + msgText )
                 .foregroundColor(Color.white)
@@ -68,9 +72,7 @@ struct OnBoardingMainBtn: View{
             RoundedRectangle(cornerRadius: 10)
                 .strokeBorder(
                     LinearGradient(gradient: Gradient(colors: textcolor),
-                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1))
-                    ,lineWidth: overLineWidth
-                    
+                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1)),lineWidth: overLineWidth
                 )
         )
         .padding([.leading,.trailing])
@@ -110,20 +112,23 @@ struct CommonTendencynBtn: View{
     
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
-
+    @Binding var pageNum : Int
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
+            withAnimation { 
+                pageNum += 1
+            }
         }) {
             HStack{
                 Text(iCon)
                 Spacer()
                 Text(msgText)
-                    
+                
             } .foregroundColor(Color.white)
-          
+            
         }
         .padding()
         .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width / 2, alignment: .leading)
@@ -140,3 +145,36 @@ struct CommonTendencynBtn: View{
 }
 
 
+struct CommonNextBtn : View{
+    var mainText = "텍스트를 입력해주세요."
+    
+    @State var textcolor = [Color("ezpzDisdable")]
+    @State var overLineWidth : CGFloat = 1
+    @Binding var pageNum : Int
+    
+    var body: some View {
+        Button(action: {
+            // 페이지가 다음으로 넘어가야함
+            textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+            overLineWidth = 3.0
+            withAnimation { //애니메이션을 주는 코드 //-Ruyha 어이가 없네 어캐 이게 한줄로 끝나냐
+                pageNum += 1
+            }
+        }) {
+            Text(mainText)
+                .foregroundColor(ColorManage.ezpzLime)
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(
+                    LinearGradient(gradient: Gradient(colors: textcolor),
+                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1)),lineWidth: overLineWidth
+                )
+        )//.background(RoundedRectangle(cornerRadius: 10).fill(ColorManage.ezpzLime)) //핑크 말고 다른방식으로 채우면 될 듯 한데....
+        //뭔가 가능할 것 같은데.. 킹받네..
+        .padding([.leading,.trailing])
+        .padding(.bottom,UIScreen.main.bounds.height / 10)
+    }
+}

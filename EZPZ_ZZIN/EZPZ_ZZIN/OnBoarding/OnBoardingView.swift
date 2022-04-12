@@ -26,15 +26,7 @@ struct OnBoardingView: View {
     @State var startDate = Date()
     @State var endDate = Date()
     
-    //    @State var startDate: Date = 2022.02.01
-    //    @State var endDate: Date =  2022.02.01
-    //    func p() -> EmptyView {
-    //        print("asdfasfd"  + userName)
-    //        return EmptyView()
-    //    }
-    //
-    
-    @State private var selectedPage = 1
+    @State var selectedPage = 1
     
     var body: some View {
         let gagtePage = Double(selectedPage * 10)
@@ -52,9 +44,9 @@ struct OnBoardingView: View {
                     Group{
                         // selectedPage 이거를 페이지 마다 전달해서
                         // 특정 상황일떄 값을 추가 하든 해서 다음페이지로 이동시키면 될듯
-                        OnBoardingStartView().tag(1)
-                        OnBoardingWellcomeView().tag(2)
-                        OnBoardingUserNameView(name: $userName).tag(3)
+                        OnBoardingStartView(pageNum: $selectedPage).tag(1)
+                        OnBoardingWellcomeView(pageNum: $selectedPage).tag(2)
+                        OnBoardingUserNameView(name: $userName,pageNum: $selectedPage).tag(3)
                     }
                     .gesture(DragGesture())
                     // .simultaneousGesture(DragGesture())
@@ -63,12 +55,12 @@ struct OnBoardingView: View {
 
                     //온보딩과 아닌것으로 분할
                     Group{
-                        CommonTendencyView(name: $userName).tag(4)
-                        CommonUserGroupView(name: $userName).tag(5)
-                        CommonWantChallenge().tag(6)
-                        CommonUserFieldView().tag(7)
-                        CommonUserChallengeView(challenge: $challenge).tag(8)
-                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate).tag(9)
+                        CommonTendencyView(name: $userName ,pageNum: $selectedPage).tag(4)
+                        CommonUserGroupView(name: $userName ,pageNum: $selectedPage).tag(5)
+                        CommonWantChallenge(pageNum: $selectedPage).tag(6)
+                        CommonUserFieldView(pageNum: $selectedPage).tag(7)
+                        CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(8)
+                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage).tag(9)
                         CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate).tag(10)
                     }
                     .gesture(DragGesture())

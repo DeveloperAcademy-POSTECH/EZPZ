@@ -21,11 +21,11 @@ struct OnBoardigDetailView: View {
 // 실행또한 가능합니다. static var previews: some View { } 안에
 // 뷰를 넣어주면 됩니다.
 // TMI: UIkit은 이거 없어서 저는 빌드 계속 돌리면서 확인했습니다. ㅠㅠ
-struct OnBoardigDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnBoardingStartView()
-    }
-}
+//struct OnBoardigDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        OnBoardingStartView()
+//    }
+//}
 
 
 
@@ -35,7 +35,7 @@ struct OnBoardingStartView: View {
     
     var allString = "EZPZ를 통해 무엇을 \n하고 싶은신가요?"
     var partialString = "EZPZ를 통해"
-    
+    @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -46,8 +46,8 @@ struct OnBoardingStartView: View {
                     .padding([.leading,.trailing,.bottom])
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Spacer()
-                OnBoardingMainBtn(iCon: "🚀", msgText: "작심삼일 탈출하기")
-                OnBoardingMainBtn(iCon: "🧩", msgText: "이루고 싶었던 목표를 성취하기")
+                OnBoardingMainBtn(iCon: "🚀", msgText: "작심삼일 탈출하기", pageNum: $pageNum)
+                OnBoardingMainBtn(iCon: "🧩", msgText: "이루고 싶었던 목표를 성취하기", pageNum: $pageNum)
                     .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -62,7 +62,7 @@ struct OnBoardingStartView: View {
 struct OnBoardingWellcomeView: View {
     var allString = "잘 오셨어요!\nEZPZ가 도와드릴게요!"
     var partialString = "EZPZ가 도와드릴게요!"
-    
+    @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         
@@ -79,7 +79,7 @@ struct OnBoardingWellcomeView: View {
                 Spacer()
                 Spacer()
                 Spacer()
-             
+                CommonNextBtn(mainText: "EZPZ 시작하기", pageNum: $pageNum)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
@@ -91,6 +91,7 @@ struct OnBoardingUserNameView: View {
     var allString = "이름을\n알려주세요."
     var partialString = "이름"
     @Binding var name: String
+    @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -112,13 +113,21 @@ struct OnBoardingUserNameView: View {
                 Text("이름")
                     .padding([.leading,.trailing])
                 TextField("이름 또는 닉네임을 적어주세요.", text: $name)
+                    .keyboardType(.namePhonePad)
+                    .submitLabel(.done)
                     .padding([.leading,.trailing])
                 Divider()
                     .padding([.leading,.trailing])
-
                 Spacer()
                 Spacer()
                 Spacer()
+                if name != ""{
+                    withAnimation {
+                    CommonNextBtn(mainText: "NEXT", pageNum: $pageNum)
+                    }
+                }
+              
+            
                 
 
             }

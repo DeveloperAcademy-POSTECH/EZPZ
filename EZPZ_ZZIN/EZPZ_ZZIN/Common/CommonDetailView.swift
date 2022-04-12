@@ -22,6 +22,7 @@ struct CommonDetailView: View {
 
 struct CommonTendencyView: View {
     @Binding var name: String
+    @Binding var pageNum : Int
     var body: some View {
        
         let allString = "\(name)의 성향을 알려주세요."
@@ -47,17 +48,17 @@ struct CommonTendencyView: View {
 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함")
-                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음")
+                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움")
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단")
+                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
 
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함")
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.")
+                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
 
                 }
@@ -76,6 +77,7 @@ struct CommonTendencyView: View {
 
 struct CommonUserGroupView: View {
     @Binding var name: String
+    @Binding var pageNum : Int
     var body: some View {
        
         let allString = "\(name)은\n어디에 속하시나요?"
@@ -102,17 +104,17 @@ struct CommonUserGroupView: View {
 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년")
-                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생")
+                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인")
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생")
+                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
 
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서")
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.")
+                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
 
                 }
@@ -134,7 +136,7 @@ struct CommonWantChallenge: View {
     
     var allString = "하고 싶은 도전이\n있나요?"
     var partialString = "하고 싶은 도전"
-    
+    @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -148,8 +150,8 @@ struct CommonWantChallenge: View {
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 
                 Spacer()
-                OnBoardingMainBtn(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!")
-                OnBoardingMainBtn(iCon: "🤙", msgText: "아니요! 추천받을래요.")
+                OnBoardingMainBtn(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum)
+                OnBoardingMainBtn(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum)
                     .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -164,6 +166,7 @@ struct CommonWantChallenge: View {
 
 
 struct CommonUserFieldView: View {
+    @Binding var pageNum : Int
     var body: some View {
        
         let allString = "도전하고 싶은\n분야를 골라주세요."
@@ -190,16 +193,16 @@ struct CommonUserFieldView: View {
 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "⚽️", msgText: "운동")
-                        CommonTendencynBtn(iCon: "🥗", msgText: "건강")
+                        CommonTendencynBtn(iCon: "⚽️", msgText: "운동", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "🥗", msgText: "건강", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
                     HStack{
-                        CommonTendencynBtn(iCon: "📒", msgText: "공부")
-                        CommonTendencynBtn(iCon: "⏳", msgText: "습관")
+                        CommonTendencynBtn(iCon: "📒", msgText: "공부", pageNum: $pageNum)
+                        CommonTendencynBtn(iCon: "⏳", msgText: "습관", pageNum: $pageNum)
                     }.padding([.leading,.trailing],5)
 
                     HStack{
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.")
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요.", pageNum: $pageNum)
                             .padding(.trailing,UIScreen.main.bounds.width / 2)
 
                        
@@ -222,6 +225,7 @@ struct CommonUserChallengeView: View {
     var allString = "어떤 도전을\n하시나요?"
     var partialString = "어떤 도전"
     @Binding var challenge: String
+    @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -244,6 +248,8 @@ struct CommonUserChallengeView: View {
                 Text("도전명")
                     .padding([.leading,.trailing])
                 TextField("도전명을 입력해주세요.", text: $challenge)
+                    .keyboardType(.namePhonePad)
+                    .submitLabel(.done)
                     .padding([.leading,.trailing])
                 Divider()
                     .padding([.leading,.trailing])
@@ -251,6 +257,11 @@ struct CommonUserChallengeView: View {
                 Spacer()
                 Spacer()
                 Spacer()
+                if challenge != ""{
+                    withAnimation {
+                    CommonNextBtn(mainText: "NEXT", pageNum: $pageNum)
+                    }
+                }
 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -272,6 +283,7 @@ struct CommonUserChallengeDateView: View {
 
     @Binding var startDate : Date
     @Binding var endDate : Date
+    @Binding var pageNum : Int
 
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -286,8 +298,6 @@ struct CommonUserChallengeDateView: View {
         ZStack{
             VStack(alignment: .leading){
                 
-       
-                
                 Text(mainText)
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
@@ -299,7 +309,7 @@ struct CommonUserChallengeDateView: View {
                     .padding([.leading,.trailing])
                 Group{
                     VStack {
-                        DatePicker(selection: $startDate, displayedComponents: .date) {
+                        DatePicker(selection: $startDate, in: Date()...,displayedComponents: .date) {
                             Text("시작 날짜 :")
                             Text("\(startDate, formatter: CommonUserChallengeDateView.dateFormat)")
                         }
@@ -310,10 +320,10 @@ struct CommonUserChallengeDateView: View {
               
                 Group{
                 VStack {
-                    DatePicker(selection: $endDate, displayedComponents: .date) {
+                    DatePicker(selection: $endDate, in: startDate..., displayedComponents: .date) {
                         Text("종료 날짜 :")
                         Text("\(endDate, formatter: CommonUserChallengeDateView.dateFormat)")
-                    }
+                    } //아직 미완입니다.
                     
                 }
                 Divider()
