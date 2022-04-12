@@ -37,26 +37,14 @@ struct ChallengedetailView: View {
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom,2)
                             Spacer()
-                            Button(action: {self.showingActionSheet.toggle()}) {
+                            Button(action: {
+                                //add action
+                            }) {
                                 Image(systemName: "gearshape")
                                     .padding(.trailing, 17.0)
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                 }
-                            .confirmationDialog(
-                                "도전명 변경 및 도전 기간을 수정할 수 있어요!",
-                                isPresented: $showingActionSheet,
-                                actions: {
-                                    Button("도전 수정하기") {
-                                        
-                                    }
-                                    Button("도전 삭제하기") {
-                                        showAlert = true
-                                    }
-                                    Button("Cancel", role: .cancel) { }
-                                })
-                            .alert(isPresented: $showAlert) {
-                                        Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), dismissButton: .default(Text("삭제하기")))
-                                    }
+                            
                         }
                         HStack{
                             Text("2022.03.12~2022.05.30")
