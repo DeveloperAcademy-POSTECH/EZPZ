@@ -117,7 +117,7 @@ struct RoutineView: View {
                             .padding(.top, 5).padding(.bottom, 1)
                             .lineLimit(1)
                         Spacer()
-                    }.padding(.leading, 17)
+                    }
                     Divider()
                         .background(ColorManage.ezpzLightgrey)
                     ForEach(1..<8) { i in

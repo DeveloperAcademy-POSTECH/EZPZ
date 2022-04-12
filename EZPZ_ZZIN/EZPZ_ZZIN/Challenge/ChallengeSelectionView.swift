@@ -21,7 +21,7 @@ struct ChallengeSelectionView: View {
             ScrollView {
                 HStack {
                     Text("작성할 도전을 선택해주세요!")
-                        .font(.system(size: 18))
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                         .foregroundColor(Color("ezpzLightgrey"))
                         .padding(.leading, 10)
                     Spacer()
@@ -31,10 +31,10 @@ struct ChallengeSelectionView: View {
                 ForEach(items) { challengeEntity in
                     HStack {
                         Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                             .foregroundColor(Color("ezpzLime"))
                             .padding(.leading, 15)
+                            .padding([.top, .bottom], 6)
                         Spacer()
                     }
                     .onTapGesture {
