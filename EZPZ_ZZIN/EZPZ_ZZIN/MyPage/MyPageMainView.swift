@@ -18,6 +18,28 @@ struct MyPageMainView: View {
     @State private var showingAlert = false
     @State private var isPresented1: Bool = false
     @State private var isPresented2: Bool = false
+    @State private var isShowingPhotoPicker: Bool = false
+    
+    private func loadProfileImage() -> UIImage {
+        let defaultImage: UIImage = UIImage(named: "ezpz")!
+        if user.isEmpty {
+            print("유저가 등록되어있지 않음")
+            return defaultImage
+        }
+        guard let fileName = user[0].image else {
+            return defaultImage
+        }
+        let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = document.appendingPathComponent(fileName)
+        var result: UIImage = defaultImage
+        do {
+            let data = try Data(contentsOf: url)
+            result = UIImage(data: data)!
+        } catch {
+            print(error)
+        }
+        return result
+    }
     
     func getUsername() -> String {
         
@@ -30,7 +52,7 @@ struct MyPageMainView: View {
             return user[0].name ?? defaultUsername
         }
     }
-
+    
     var body: some View {
         ZStack {
             ColorManage.ezpzBlack.ignoresSafeArea()
@@ -41,7 +63,7 @@ struct MyPageMainView: View {
                         .fontWeight(.bold)
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding(.leading, 17.0)
-                        Spacer()
+                    Spacer()
                 }
                 .padding(.bottom, 20.0)
                 HStack {
@@ -55,30 +77,42 @@ struct MyPageMainView: View {
                         Image(systemName: "gearshape")
                             .padding(.trailing, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
-                        }
-                        .confirmationDialog(
-                            "Select",
-                            isPresented: $showingActionSheet,
-                            actions: {
-                                Button("닉네임 변경하기") {
-                                    self.isPresented1 = true
-                                }
-                                Button("프로필 이미지 변경하기") { }
-                                Button("프로필 이미지 삭제하기", role: .destructive) { }
-                                Button("Cancel", role: .cancel) { }
-                            })
-                        .sheet(isPresented: $isPresented1) {
-                            ChangeNameView(user: user[0], username: getUsername())
-                        }
                     }
+                    .confirmationDialog(
+                        "Select",
+                        isPresented: $showingActionSheet,
+                        actions: {
+                            Button("닉네임 변경하기") {
+                                self.isPresented1 = true
+                            }
+                            Button("프로필 이미지 변경하기") {
+                                isShowingPhotoPicker = true
+                            }
+                            Button("프로필 이미지 삭제하기", role: .destructive) {
+                                
+                            }
+                            Button("Cancel", role: .cancel) { }
+                        })
+                    .sheet(isPresented: $isPresented1) {
+                        ChangeNameView(user: user[0], username: getUsername())
+                    }
+                    .sheet(isPresented: $isShowingPhotoPicker) {
+                        ProfileImagePicker(user: user[0])
+                    }
+                }
                 ZStack {
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(ColorManage.ezpzDisdable)
                         .frame(width: 356, height: 110)
                     HStack {
-                        Circle()
+                        // 프로필 이미지
+                        Image(uiImage: loadProfileImage())
+                            .resizable()
+                            .scaledToFill()
                             .frame(width: 70, height: 70)
+                            .clipShape(Circle())
                             .padding(.leading, 37.0)
+                        
                         Text(getUsername())
                             .font(.system(size: 28))
                             .fontWeight(.bold)
@@ -121,11 +155,11 @@ struct MyPageMainView: View {
                         Button(action: {
                             // some action
                         }) {Text("푸시 알람 설정")
-                            .font(.system(size: 17))
-                            .fontWeight(.medium)
-                            .foregroundColor(ColorManage.ezpzLightgrey)
-                            .padding(.leading, 17.0)
-                            .padding([.top,.bottom], 5)
+                                .font(.system(size: 17))
+                                .fontWeight(.medium)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                                .padding(.leading, 17.0)
+                                .padding([.top,.bottom], 5)
                         }
                         Spacer()
                     }
@@ -135,12 +169,12 @@ struct MyPageMainView: View {
                         Button(action: {
                             // some action
                         }) {
-                        Text("라이센스 정보")
-                            .font(.system(size: 17))
-                            .fontWeight(.medium)
-                            .foregroundColor(ColorManage.ezpzLightgrey)
-                            .padding(.leading, 17.0)
-                            .padding([.top,.bottom], 5)
+                            Text("라이센스 정보")
+                                .font(.system(size: 17))
+                                .fontWeight(.medium)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                                .padding(.leading, 17.0)
+                                .padding([.top,.bottom], 5)
                         }
                         Spacer()
                     }
@@ -148,12 +182,12 @@ struct MyPageMainView: View {
                         .background(ColorManage.ezpzSmokegrey)
                     HStack {
                         Link(destination: URL(string: "https://frosted-zone-8df.notion.site/EZPZ-8187af3a5f8f4d41b0935eb2c230e87a")!, label: {
-                                Text("이용 약관")
-                                    .font(.system(size: 17))
-                                    .fontWeight(.medium)
-                                    .foregroundColor(ColorManage.ezpzLightgrey)
-                                    .padding(.leading, 17.0)
-                                    .padding([.top,.bottom], 5)
+                            Text("이용 약관")
+                                .font(.system(size: 17))
+                                .fontWeight(.medium)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                                .padding(.leading, 17.0)
+                                .padding([.top,.bottom], 5)
                         })
                         Spacer()
                     }
