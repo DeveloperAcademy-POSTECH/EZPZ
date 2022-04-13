@@ -23,7 +23,7 @@ struct MyPageMainView: View {
     private func loadProfileImage() -> UIImage {
         let defaultImage: UIImage = UIImage(named: "ezpz")!
         if user.isEmpty {
-            print("유저가 등록되어있지 않음")
+            print("사용자가 등록되어있지 않음")
             return defaultImage
         }
         guard let fileName = user[0].image else {
@@ -39,6 +39,33 @@ struct MyPageMainView: View {
             print(error)
         }
         return result
+    }
+    
+    func removeImage(imageString: String) {
+        let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let url = document.appendingPathComponent(imageString)
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func removeProfileImage() {
+        if user.isEmpty {
+            print("사용자가 등록되어있지 않음")
+            return
+        }
+        guard let fileName: String = user[0].image else {
+            return
+        }
+        removeImage(imageString: fileName)
+        user[0].image = nil
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
     }
     
     func getUsername() -> String {
@@ -89,7 +116,7 @@ struct MyPageMainView: View {
                                 isShowingPhotoPicker = true
                             }
                             Button("프로필 이미지 삭제하기", role: .destructive) {
-                                
+                                removeProfileImage()
                             }
                             Button("Cancel", role: .cancel) { }
                         })
@@ -102,7 +129,7 @@ struct MyPageMainView: View {
                 }
                 ZStack {
                     RoundedRectangle(cornerRadius: 10.0)
-                        .fill(ColorManage.ezpzDisdable)
+                        .fill(ColorManage.ezpzDarkgrey)
                         .frame(width: 356, height: 110)
                     HStack {
                         // 프로필 이미지
