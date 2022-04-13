@@ -20,17 +20,6 @@ struct ChallengeSelectionView: View {
             Color("ezpzBlack")
                 .edgesIgnoringSafeArea(.all)
             VStack{
-                HStack {
-                    Spacer()
-                    Button(action: {
-                        self.presentationMode.wrappedValue.dismiss()
-                        }) {
-                            Image(systemName: "xmark")
-                                .padding(.trailing, 30.0)
-                                .padding(.top, 60.0)
-                                .foregroundColor(ColorManage.ezpzLightgrey)
-                            }
-                    }
             ScrollView {
                 HStack {
                     Text("작성할 도전을 선택해주세요!")
