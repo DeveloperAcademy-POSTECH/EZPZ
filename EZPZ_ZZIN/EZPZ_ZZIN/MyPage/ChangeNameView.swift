@@ -10,44 +10,54 @@ import SwiftUI
 struct ChangeNameView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
-    private var items: FetchedResults<ChallengeEntity>
-    @State private var checkAmount = ""
+    @ObservedObject var user: UserEntity
+    @State var username: String
+    
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
             Color("ezpzBlack")
                 .edgesIgnoringSafeArea(.all)
-            ScrollView {
+            VStack {
                 HStack {
-                    Text("닉네임을 변경해주세요!")
-                        .font(.system(size: 18))
-                        .foregroundColor(Color("ezpzLightgrey"))
-                        .padding(.leading, 10)
                     Spacer()
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "xmark")
+                            .padding(.trailing, 30.0)
+                            .padding(.top, 60.0)
+                            .foregroundColor(ColorManage.ezpzLightgrey)
+                    }
                 }
-                .padding(.top, 20)
-                CustomDividerView()
-                ForEach(items) { challengeEntity in
+                ScrollView {
+                    HStack {
+                        Text("닉네임을 변경해주세요!")
+                            .font(.system(size: 18))
+                            .foregroundColor(Color("ezpzLightgrey"))
+                            .padding(.leading, 30)
+                        Spacer()
+                    }
+                    .padding(.top, 20)
+                    CustomDividerView()
                     VStack {
                         HStack {
-                        Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("ezpzLime"))
-                            .padding(.leading, 15)
-                        Spacer()
+                            TextField("사용자 이름", text: $username)
+                                .font(.system(size: 18))
+                                .foregroundColor(Color("ezpzLime"))
+                                .onChange(of: username) { name in
+                                    user.name = name
+                                    try? viewContext.save()
+                                }
+                            Spacer()
                         }
+                        .padding(.leading, 30)
                     }
                     CustomDividerView()
                 }
             }
         }
-    }
-}
-
-struct ChangeNameView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChangeNameView()
     }
 }

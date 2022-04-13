@@ -13,11 +13,24 @@ struct ChallengeSelectionView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
     private var items: FetchedResults<ChallengeEntity>
     @State private var sharedChallengeEntity: ChallengeEntity? = nil
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
     var body: some View {
         ZStack {
             Color("ezpzBlack")
                 .edgesIgnoringSafeArea(.all)
+            VStack{
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                        }) {
+                            Image(systemName: "xmark")
+                                .padding(.trailing, 30.0)
+                                .padding(.top, 60.0)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                            }
+                    }
             ScrollView {
                 HStack {
                     Text("작성할 도전을 선택해주세요!")
@@ -47,6 +60,7 @@ struct ChallengeSelectionView: View {
                         .padding(.top, 20)
                 }
             }
+        }
         }
     }
     
