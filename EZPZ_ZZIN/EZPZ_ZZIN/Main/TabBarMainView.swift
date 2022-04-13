@@ -52,11 +52,14 @@ struct TabBarMainView: View {
                     Text("마이페이지")
                 }.tag(3)
             
-            OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+          //  OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            AngGiMoTiView()
                 .tabItem {
                     Image(systemName: "list.dash")
-                    Text("온보딩체킹")
+                    Text("앙기모띠")
                 }.tag(4)
+            
+            
             
         }
         .accentColor(Color("ezpzPink")) // 탭바 아이템이 선택 되었을때의 색상을 설정해 줍니다.

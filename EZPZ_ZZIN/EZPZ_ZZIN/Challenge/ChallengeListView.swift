@@ -38,7 +38,7 @@ struct ChallengeWelcomeView: View {
             
                 
                 VStack{
-                    // 여기 패딩 넣으면... 왜 셀 크기가... 움직일까요...
+                    // 여기 패딩 넣으면... 왜 카드의 셀 크기가... 움직일까요...
                     Text("      오늘 할 일이 \(todoCount)개나 있어요!")
                         .frame(width: 370, alignment: .leading)
                         .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
@@ -53,11 +53,19 @@ struct ChallengeWelcomeView: View {
 }
 
 struct MyChallenges: View {
+    
+    @Binding var challengeCount: Int
 
+    // from Journal Tab
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
     private var items: FetchedResults<ChallengeEntity>
-    @Binding var challengeCount: Int
+    
+    // Alert
+    @State private var nowChallengesCount: Int = 0
+    // TODO: - Maximum 값 지정 필요
+    @State private var maximumChallengesCount: Int = 5
+    @State private var tooManyChallenges = false
 
     var body: some View {
             
@@ -98,9 +106,15 @@ struct MyChallenges: View {
             // 도전 추가 버튼
             // TODO: - 도전 추가 뷰로 연결 필요
             Button(action: {
-                print("도전 추가하기")
-            }) {
-                    Text(" +    새로운 도전 추가하기")
+                if (!tooManyChallenges) {
+                    print("도전 추가하기")
+                    nowChallengesCount += 1
+                    if (nowChallengesCount == maximumChallengesCount) {
+                        tooManyChallenges = true
+                    }
+                }
+                }){
+                    Text(" +    새로운 도전 추가하기 (최대 4개)")
                     .padding(.leading, 20)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                     .frame(width: 370, height: 40, alignment: .leading)
@@ -108,8 +122,19 @@ struct MyChallenges: View {
                     .background(ColorManage.ezpzDeepgrey)
                     .cornerRadius(10)
                 }
-        }.padding(.horizontal, 10)
-
+            }.padding(.horizontal, 10)
+            .alert(isPresented: $tooManyChallenges){
+                Alert(
+                    title: Text("도전이 많이 남아 있어요...!")
+                        .font(.custom("SpoqaHanSansNeo-Semibold",size: 22)),
+                    message: Text("남은 도전부터 해치워봐요!")
+                        .font(.custom("SpoqaHanSansNeo-Regular",size: 18)),
+                    dismissButton:
+                            .default(Text("확인")
+                                .font(.custom("SpoqaHanSansNeo-Semibold", size: 22)))
+                )
+                // "확인"버튼을 ezpzPink로 바꾸려고 했는데 .accentColor도 안되고 .tint도 안됩니다.
+            }.foregroundColor(ColorManage.ezpzDarkgrey)
         
     }
 }
