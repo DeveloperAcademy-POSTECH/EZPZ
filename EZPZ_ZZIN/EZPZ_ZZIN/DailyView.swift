@@ -11,13 +11,19 @@ struct DailyView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var challengeEntity: ChallengeEntity
+    @State var isNewestFirst: Bool = true
     
     func getJournals() -> [JournalEntity] {
         guard let set = challengeEntity.toJournal as? Set<JournalEntity> else {
             return []
         }
-        return set.sorted {
+        let sortedArray = set.sorted {
             $0.date! < $1.date!
+        }
+        if isNewestFirst {
+            return sortedArray
+        } else {
+            return sortedArray.reversed()
         }
     }
     
@@ -35,13 +41,30 @@ struct DailyView: View {
                         Spacer()
                     }
                     CustomDividerView()
-                    HStack {
-                        Spacer()
-                        Text("최신순")
-                            .font(.system(size: 16))
-                        Image(systemName: "arrow.down")
-                            .font(.system(size: 12))
-                            .padding(.trailing, 15)
+                    if isNewestFirst {
+                        HStack {
+                            Spacer()
+                            Text("최신순")
+                                .font(.system(size: 16))
+                            Image(systemName: "arrow.down")
+                                .font(.system(size: 12))
+                                .padding(.trailing, 15)
+                        }
+                        .onTapGesture {
+                            isNewestFirst.toggle()
+                        }
+                    } else {
+                        HStack {
+                            Spacer()
+                            Text("오래된순")
+                                .font(.system(size: 16))
+                            Image(systemName: "arrow.up")
+                                .font(.system(size: 12))
+                                .padding(.trailing, 15)
+                        }
+                        .onTapGesture {
+                            isNewestFirst.toggle()
+                        }
                     }
                     ForEach(getJournals()) { journalEntity in
                         NavigationLink(destination: EditorView(item: journalEntity)) {
