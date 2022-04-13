@@ -202,14 +202,17 @@ struct RoutineView: View {
     }
 
     func createNewJournalEntity(challengeEntity: ChallengeEntity) -> JournalEntity {
+        
+        // 랜덤으로 선택할 이모지들의 배열
+        let randomEmoji: [String] = ["😀", "👍", "🐶", "🦊", "🍄", "🚀"]
+        
         let journalEntity: JournalEntity = JournalEntity(context: viewContext)
         journalEntity.toChallenge = challengeEntity
         journalEntity.date = Date()
-        // TODO: 도전에 시작 날짜가 지정되어 있지 않을 때 예외 처리 다시 하기
         journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
         journalEntity.text = "일지를 입력해 주세요"
-        journalEntity.emoji = ""
-        // try? viewContext.save()
+        journalEntity.emoji = randomEmoji[Int.random(in: 0..<randomEmoji.count)]
+        
         return journalEntity
     }
 
