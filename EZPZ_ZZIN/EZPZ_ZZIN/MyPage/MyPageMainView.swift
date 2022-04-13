@@ -20,11 +20,10 @@ struct MyPageMainView: View {
     @State private var isPresented2: Bool = false
     @State private var isShowingPhotoPicker: Bool = false
     
-
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
     private var items: FetchedResults<ChallengeEntity>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    @State private var showAlert = false
+    @State private var sharedChallengeEntity: ChallengeEntity? = nil
     
     // 이 함수로 전달한 ChallengeEntity를 삭제한다.
     private func deleteChallengeEntity(challengeEntity: ChallengeEntity) {
@@ -259,7 +258,7 @@ struct MyPageMainView: View {
                                 Color("ezpzBlack")
                                     .edgesIgnoringSafeArea(.all)
                                 VStack {
-
+                                    
                                     ScrollView {
                                         HStack {
                                             Text("포기할 도전을 선택해주세요!")
@@ -273,7 +272,7 @@ struct MyPageMainView: View {
                                         ForEach(items) { challengeEntity in
                                             HStack {
                                                 Button(action: {
-                                                    showAlert = true
+                                                    sharedChallengeEntity = challengeEntity
                                                 }) {
                                                     Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
                                                         .font(.system(size: 18))
@@ -281,10 +280,12 @@ struct MyPageMainView: View {
                                                         .foregroundColor(Color("ezpzLime"))
                                                         .padding(.leading, 30)
                                                 }
-                                                .alert(isPresented: $showAlert) {
+                                                .alert(item: $sharedChallengeEntity) { entity in
                                                     Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
-                                                        //some action
-                                                        deleteChallengeEntity(challengeEntity: challengeEntity)
+                                                        
+                                                        // Action
+                                                        deleteChallengeEntity(challengeEntity: entity)
+                                                        
                                                     } ), secondaryButton: .cancel(Text("돌아가기")))
                                                 }
                                                 Spacer()
