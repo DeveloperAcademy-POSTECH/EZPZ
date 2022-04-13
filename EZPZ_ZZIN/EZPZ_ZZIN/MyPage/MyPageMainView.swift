@@ -118,23 +118,30 @@ struct MyPageMainView: View {
                     Divider()
                         .background(ColorManage.ezpzSmokegrey)
                     HStack {
-                        Text("푸시 알람 설정")
+                        Button(action: {
+                            // some action
+                        }) {Text("푸시 알람 설정")
                             .font(.system(size: 17))
                             .fontWeight(.medium)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17.0)
                             .padding([.top,.bottom], 5)
+                        }
                         Spacer()
                     }
                     Divider()
                         .background(ColorManage.ezpzSmokegrey)
                     HStack {
+                        Button(action: {
+                            // some action
+                        }) {
                         Text("라이센스 정보")
                             .font(.system(size: 17))
                             .fontWeight(.medium)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17.0)
                             .padding([.top,.bottom], 5)
+                        }
                         Spacer()
                     }
                     Divider()

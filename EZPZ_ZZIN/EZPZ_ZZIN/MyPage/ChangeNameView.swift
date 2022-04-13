@@ -13,6 +13,7 @@ struct ChangeNameView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
     private var items: FetchedResults<ChallengeEntity>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
@@ -43,11 +44,15 @@ struct ChangeNameView: View {
                 ForEach(items) { challengeEntity in
                     VStack {
                         HStack {
-                        Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
-                            .font(.system(size: 18))
-                            .fontWeight(.bold)
-                            .foregroundColor(Color("ezpzLime"))
-                            .padding(.leading, 30)
+                            Button(action: {
+                                // showAlert = true
+                            }) {
+                                Text("사용자 이름")
+                                    .font(.system(size: 18))
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color("ezpzLime"))
+                                    .padding(.leading, 30)
+                            }
                         Spacer()
                         }
                     }

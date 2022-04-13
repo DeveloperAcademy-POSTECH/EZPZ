@@ -13,6 +13,7 @@ struct ChallengeDeleteView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
     private var items: FetchedResults<ChallengeEntity>
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State private var showAlert = false
     
     var body: some View {
         ZStack {
@@ -42,11 +43,21 @@ struct ChallengeDeleteView: View {
             CustomDividerView()
                 ForEach(items) { challengeEntity in
                     HStack {
+                        Button(action: {
+                            showAlert = true
+                        }) {
                         Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
                             .font(.system(size: 18))
                             .fontWeight(.bold)
                             .foregroundColor(Color("ezpzLime"))
                             .padding(.leading, 30)
+                        }
+                        .alert(isPresented: $showAlert) {
+                            Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
+                                //some action
+                                
+                            } ), secondaryButton: .cancel(Text("돌아가기")))
+                                }
                         Spacer()
                     }
                     CustomDividerView()
