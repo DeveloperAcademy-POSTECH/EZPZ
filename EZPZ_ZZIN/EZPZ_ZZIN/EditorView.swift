@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ImageEmojiView: View {
+    
+    let emoji: String
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -18,7 +21,7 @@ struct ImageEmojiView: View {
                     Spacer()
                     Circle()
                         .overlay(
-                            Image(systemName: "circle.dashed")
+                            Text(emoji)
                                 .font(.system(size: 35))
                                 .foregroundColor(Color("ezpzPink"))
                         )
@@ -42,9 +45,9 @@ struct ImageEmojiView: View {
 }
 
 struct ImageView: View {
+    
     let imageString: String
-    @Binding var isShowingPhotoPicker: Bool
-    @State var emojiText: String = ""
+    let emoji: String
     
     func loadImage() -> UIImage? {
         let document = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
@@ -66,17 +69,13 @@ struct ImageView: View {
                 .scaledToFill()
                 .frame(width: UIScreen.main.bounds.size.width, height: 380)
                 .clipped()
-                .onTapGesture {
-                    isShowingPhotoPicker = true
-                }
             VStack {
                 HStack {
                     Spacer()
                     Circle()
                         .overlay(
-                            Image(systemName: "circle.dashed")
+                            Text(emoji)
                                 .font(.system(size: 35))
-                                .foregroundColor(Color("ezpzPink"))
                         )
                         .frame(width: 50, height: 50)
                         .foregroundColor(Color("ezpzLightgrey"))
@@ -118,9 +117,12 @@ struct EditorView: View {
                     Spacer()
                 }
                 if let fileName = item.image {
-                    ImageView(imageString: fileName, isShowingPhotoPicker: $isShowingPhotoPicker)
+                    ImageView(imageString: fileName, emoji: item.emoji ?? "🚎")
+                        .onTapGesture {
+                            isShowingPhotoPicker = true
+                        }
                 } else {
-                    ImageEmojiView()
+                    ImageEmojiView(emoji: item.emoji ?? "")
                         .onTapGesture {
                             isShowingPhotoPicker = true
                         }
