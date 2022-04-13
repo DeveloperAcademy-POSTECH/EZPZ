@@ -28,7 +28,7 @@ struct CommonStartChallengeView: View {
     @Binding var challengeIcon : String
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
-
+    @Environment(\.presentationMode) var presentationMode
     var allString = "새로운 도전을\n만들었어요!"
     var partialString = "새로운 도전"
 //
@@ -83,9 +83,11 @@ struct CommonStartChallengeView: View {
                         overLineWidth = 3.0
                         //데이터 저장
                         createChallenge()
+                        presentationMode.wrappedValue.dismiss()
                     }) {
                         Text("리스트업으로 가기")
                             .foregroundColor(ColorManage.ezpzLime)
+                        
                     }
                     .padding()
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
