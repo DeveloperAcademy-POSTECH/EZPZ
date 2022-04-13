@@ -18,6 +18,8 @@
 		43C97D642805518E007F34AD /* ChallengeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C97D632805518E007F34AD /* ChallengeSelectionView.swift */; };
 		70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D39280421FA0000FB11 /* CommonDetailView.swift */; };
 		70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3B28044ED20000FB11 /* CommonLastView.swift */; };
+		70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3D2806FC970000FB11 /* EZPZStartView.swift */; };
+		70F15D402807010D0000FB11 /* EZPZManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3F2807010D0000FB11 /* EZPZManager.swift */; };
 		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
 		7EC9CA1528056D6500085EDB /* ChallengeDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */; };
 		7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1628056E7200085EDB /* ChangeNameView.swift */; };
@@ -56,6 +58,8 @@
 		43C97D632805518E007F34AD /* ChallengeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSelectionView.swift; sourceTree = "<group>"; };
 		70F15D39280421FA0000FB11 /* CommonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailView.swift; sourceTree = "<group>"; };
 		70F15D3B28044ED20000FB11 /* CommonLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLastView.swift; sourceTree = "<group>"; };
+		70F15D3D2806FC970000FB11 /* EZPZStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZStartView.swift; sourceTree = "<group>"; };
+		70F15D3F2807010D0000FB11 /* EZPZManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZManager.swift; sourceTree = "<group>"; };
 		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDeleteView.swift; sourceTree = "<group>"; };
 		7EC9CA1628056E7200085EDB /* ChangeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameView.swift; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			children = (
 				D509223E28044D990061ED4A /* EZPZ-ZZIN-Info.plist */,
 				A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */,
+				70F15D3D2806FC970000FB11 /* EZPZStartView.swift */,
 				A88321D9280404310037CB6F /* Persistence.swift */,
 				A88321E3280404530037CB6F /* Main */,
 				A88321E4280405400037CB6F /* OnBoarding */,
@@ -129,6 +134,7 @@
 				A88321D4280404310037CB6F /* Assets.xcassets */,
 				A88321DB280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld */,
 				A88321D6280404310037CB6F /* Preview Content */,
+				70F15D3F2807010D0000FB11 /* EZPZManager.swift */,
 			);
 			path = EZPZ_ZZIN;
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F15D402807010D0000FB11 /* EZPZManager.swift in Sources */,
 				A88321EA280405A20037CB6F /* TabBarMainView.swift in Sources */,
 				A88321DA280404310037CB6F /* Persistence.swift in Sources */,
 				70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */,
@@ -319,6 +326,7 @@
 				7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */,
 				4371B0E02804238900E23268 /* CustomDividerView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
+				70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,

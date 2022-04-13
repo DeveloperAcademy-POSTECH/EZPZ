@@ -62,6 +62,7 @@ struct OnBoardingMainBtn: View{
             withAnimation { //애니메이션을 주는 코드 //-Ruyha 어이가 없네 어캐 이게 한줄로 끝나냐
                 pageNum += 1
             }
+            
         }) {
             Text(iCon + "  " + msgText )
                 .foregroundColor(Color.white)
