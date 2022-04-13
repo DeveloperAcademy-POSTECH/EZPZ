@@ -24,6 +24,7 @@
 		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
 		7EC9CA1528056D6500085EDB /* ChallengeDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */; };
 		7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1628056E7200085EDB /* ChangeNameView.swift */; };
+		A835DAE228071E3A00665707 /* ChallengeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A835DAE128071E3A00665707 /* ChallengeListView.swift */; };
 		A88321D1280404300037CB6F /* EZPZ_ZZINApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */; };
 		A88321D5280404310037CB6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88321D4280404310037CB6F /* Assets.xcassets */; };
 		A88321D8280404310037CB6F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A88321D7280404310037CB6F /* Preview Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDeleteView.swift; sourceTree = "<group>"; };
 		7EC9CA1628056E7200085EDB /* ChangeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameView.swift; sourceTree = "<group>"; };
+		A835DAE128071E3A00665707 /* ChallengeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeListView.swift; sourceTree = "<group>"; };
 		A88321CD280404300037CB6F /* EZPZ_ZZIN.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EZPZ_ZZIN.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88321D0280404300037CB6F /* EZPZ_ZZINApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZ_ZZINApp.swift; sourceTree = "<group>"; };
 		A88321D4280404310037CB6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -77,12 +79,11 @@
 		A88321EF280407050037CB6F /* OnBoardingAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingAssets.swift; sourceTree = "<group>"; };
 		A88321F2280407FF0037CB6F /* EzpzStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EzpzStyle.swift; sourceTree = "<group>"; };
 		A8832200280409950037CB6F /* OnBoardingDesignTemplateAppleFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateAppleFontView.swift; sourceTree = "<group>"; };
-		A883220228040AB20037CB6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A883220528040CB70037CB6F /* OnBoardingDesignTemplateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateView.swift; sourceTree = "<group>"; };
 		A883220728040DCC0037CB6F /* OnBoardingDesignTemplateSystemFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingDesignTemplateSystemFontView.swift; sourceTree = "<group>"; };
 		D50921D7280414DB0061ED4A /* RoutineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RoutineView.swift; path = EZPZ_ZZIN/RoutineView.swift; sourceTree = SOURCE_ROOT; };
-		D50921D92804157D0061ED4A /* ChallengedetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengedetailView.swift; path = EZPZ_ZZIN/ChallengedetailView.swift; sourceTree = SOURCE_ROOT; };
-		D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengecompleteView.swift; path = EZPZ_ZZIN/ChallengecompleteView.swift; sourceTree = SOURCE_ROOT; };
+		D50921D92804157D0061ED4A /* ChallengedetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengedetailView.swift; path = EZPZ_ZZIN/Challenge/ChallengeDetail/ChallengedetailView.swift; sourceTree = SOURCE_ROOT; };
+		D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChallengecompleteView.swift; path = EZPZ_ZZIN/Challenge/ChallengeEdit/ChallengecompleteView.swift; sourceTree = SOURCE_ROOT; };
 		D509223428044D640061ED4A /* SpoqaHanSansNeo-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Light.otf"; sourceTree = "<group>"; };
 		D509223528044D650061ED4A /* SpoqaHanSansNeo-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Bold.otf"; sourceTree = "<group>"; };
 		D509223628044D650061ED4A /* SpoqaHanSansNeo-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Medium.otf"; sourceTree = "<group>"; };
@@ -102,10 +103,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A835DAE028071DF800665707 /* ChallengeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				D50921D92804157D0061ED4A /* ChallengedetailView.swift */,
+			);
+			path = ChallengeDetail;
+			sourceTree = "<group>";
+		};
+		A835DAE328071E4A00665707 /* ChallengeEdit */ = {
+			isa = PBXGroup;
+			children = (
+				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
+			);
+			path = ChallengeEdit;
+			sourceTree = "<group>";
+		};
 		A88321C4280404300037CB6F = {
 			isa = PBXGroup;
 			children = (
-				A883220228040AB20037CB6F /* Info.plist */,
 				A88321CF280404300037CB6F /* EZPZ_ZZIN */,
 				A88321CE280404300037CB6F /* Products */,
 			);
@@ -179,9 +195,10 @@
 		A88321E6280405550037CB6F /* Challenge */ = {
 			isa = PBXGroup;
 			children = (
+				A835DAE128071E3A00665707 /* ChallengeListView.swift */,
 				43C97D632805518E007F34AD /* ChallengeSelectionView.swift */,
-				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
-				D50921D92804157D0061ED4A /* ChallengedetailView.swift */,
+				A835DAE328071E4A00665707 /* ChallengeEdit */,
+				A835DAE028071DF800665707 /* ChallengeDetail */,
 			);
 			path = Challenge;
 			sourceTree = "<group>";
@@ -332,6 +349,7 @@
 				70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */,
+				A835DAE228071E3A00665707 /* ChallengeListView.swift in Sources */,
 				A88321EC280405F80037CB6F /* OnBoardingView.swift in Sources */,
 				70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */,
 				D50921D8280414DB0061ED4A /* RoutineView.swift in Sources */,

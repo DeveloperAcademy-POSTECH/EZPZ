@@ -34,7 +34,7 @@ struct TabBarMainView: View {
                     // 탭바 아이템의 텍스트 설정입니다.
                 }.tag(0)
             
-            ChallengedetailView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            ChallengeListView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("내도전")

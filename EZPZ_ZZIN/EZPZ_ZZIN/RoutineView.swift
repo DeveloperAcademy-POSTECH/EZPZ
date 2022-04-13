@@ -45,11 +45,11 @@ struct RoutineView: View {
                                             VStack{
                                                 Text("월")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
-                                                .foregroundColor(ColorManage.ezpzDisdable)
+                                                .foregroundColor(ColorManage.ezpzDisable)
                                                 .padding(.bottom, 4).padding(.top,3)
                                                 Text("\(i)")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                                        .foregroundColor(ColorManage.ezpzDisdable)
+                                                        .foregroundColor(ColorManage.ezpzDisable)
                                                 }
                                                 }
                                                     .foregroundColor(ColorManage.ezpzLightgrey)

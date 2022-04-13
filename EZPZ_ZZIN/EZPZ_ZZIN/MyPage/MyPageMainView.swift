@@ -311,7 +311,7 @@ struct ColorManage {
     static let ezpzBlack = Color("ezpzBlack")
     static let ezpzDarkgrey = Color("ezpzDarkgrey")
     static let ezpzDeepgrey = Color("ezpzDeepgrey")
-    static let ezpzDisdable = Color("ezpzDisdable")
+    static let ezpzDisable = Color("ezpzDisdable")
     static let ezpzLightgrey = Color("ezpzLightgrey")
     static let ezpzSmokegrey = Color("ezpzSmokegrey")
     static let ezpzGradient = Color("ezpzGradient")
