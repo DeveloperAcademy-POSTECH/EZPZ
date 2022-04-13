@@ -46,6 +46,7 @@
 		D509223B28044D660061ED4A /* SpoqaHanSansNeo-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223628044D650061ED4A /* SpoqaHanSansNeo-Medium.otf */; };
 		D509223C28044D660061ED4A /* SpoqaHanSansNeo-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223728044D660061ED4A /* SpoqaHanSansNeo-Regular.otf */; };
 		D509223D28044D660061ED4A /* SpoqaHanSansNeo-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = D509223828044D660061ED4A /* SpoqaHanSansNeo-Thin.otf */; };
+		D5D97D4D28072DE20046F9EC /* TodoeditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5D97D4C28072DE20046F9EC /* TodoeditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		D509223728044D660061ED4A /* SpoqaHanSansNeo-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Regular.otf"; sourceTree = "<group>"; };
 		D509223828044D660061ED4A /* SpoqaHanSansNeo-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SpoqaHanSansNeo-Thin.otf"; sourceTree = "<group>"; };
 		D509223E28044D990061ED4A /* EZPZ-ZZIN-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "EZPZ-ZZIN-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D5D97D4C28072DE20046F9EC /* TodoeditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoeditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
+				D5D97D4C28072DE20046F9EC /* TodoeditView.swift */,
 			);
 			path = ChallengeEdit;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				4371B0E22804239F00E23268 /* DailyView.swift in Sources */,
 				7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */,
 				4371B0E02804238900E23268 /* CustomDividerView.swift in Sources */,
+				D5D97D4D28072DE20046F9EC /* TodoeditView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
