@@ -68,7 +68,7 @@ struct MyPageMainView: View {
                                 Button("Cancel", role: .cancel) { }
                             })
                         .sheet(isPresented: $isPresented1) {
-                            ChangeNameView()
+                            ChangeNameView(user: user[0], username: getUsername())
                         }
                     }
                 ZStack {
