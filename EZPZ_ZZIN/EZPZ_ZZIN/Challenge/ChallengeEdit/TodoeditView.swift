@@ -21,6 +21,13 @@ struct TodoeditView: View {
             Color("ezpzBlack")
                 .edgesIgnoringSafeArea(.all)
             VStack{
+                HStack {
+                    Spacer()
+                        Image(systemName: "checkmark")
+                            .padding(.trailing, 30.0)
+                            .padding(.top, 20.0)
+                            .foregroundColor(ColorManage.ezpzDisable)
+                }
                 HStack{
                     Text("할 일")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
