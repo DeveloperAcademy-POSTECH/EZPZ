@@ -13,8 +13,6 @@ import SwiftUI
 
 struct OnBoardingView: View {
     
-    // let elements: [Any] = [ppap1.self, ppap2.self,ppap3.self]
-    
     init() {
         UIPageControl.appearance().isUserInteractionEnabled = false
         // 해당 뷰에서 TabView의 UIPageControl를 유저가 클릭해 다음페이지로 이동 못하게 제한함.
@@ -22,12 +20,13 @@ struct OnBoardingView: View {
     
     @State var userName: String = ""
     @State var challenge: String = ""
-    
     @State var startDate = Date()
     @State var endDate = Date()
     @State var toDayDate = Date()
     @State var selectedPage = 1
     @State var challengeIcon = ""
+    @State var isTemplateRecommended: Bool = false
+    
     var body: some View {
         let gagtePage = Double(selectedPage * 10)
         ZStack{
@@ -56,19 +55,19 @@ struct OnBoardingView: View {
                     //온보딩과 아닌것으로 분할
                     Group{
                         CommonTendencyView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(4)
-                        CommonUserGroupView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(5)
-                        CommonWantChallenge(pageNum: $selectedPage).tag(6)
+                        CommonUserGroupView(name: userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(5)
+                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended).tag(6)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon).tag(7)
                         
                         // TODO: - 하고싶은 도전이 있는 경우와 없는 경우 어떻게 나눌지
                         // 하고싶은 도전이 있는 경우 : 도전 명 바로 입력하기
-//                        CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(8)
+                        // CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(8)
                         // 하고싶은 도전이 없는 경우 : 도전 템플릿 추천받기
                         CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(8)
                         
                         
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(9)
-                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon).tag(10)
+                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(10)
                     }
                     .gesture(DragGesture())
                 }

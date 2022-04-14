@@ -14,6 +14,7 @@ struct CommonView: View {
     @State var startDate = Date()
     @State var endDate = Date()
     @State var toDayDate = Date()
+    @State var isTemplateRecommended: Bool = false
 
     // CoreData 관련 코드
     @Environment(\.managedObjectContext) private var viewContext
@@ -36,8 +37,8 @@ struct CommonView: View {
                 TabView(selection: $selectedPage) {
                     Group{
                         CommonTendencyView(name:.constant(getUsername()),pageNum: $selectedPage, challengeIcon: .constant("")).tag(1)
-                        CommonUserGroupView(name: .constant(getUsername()) ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(2)
-                        CommonWantChallenge(pageNum: $selectedPage).tag(3)
+                        CommonUserGroupView(name: getUsername() ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(2)
+                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended).tag(3)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon).tag(4)
                         
                         // TODO: - 하고싶은 도전이 있는 경우와 없는 경우 어떻게 나눌지
@@ -47,7 +48,7 @@ struct CommonView: View {
                         CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(5)
 
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(6)
-                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon).tag(7)
+                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(7)
                     }
                     .gesture(DragGesture())
                 }

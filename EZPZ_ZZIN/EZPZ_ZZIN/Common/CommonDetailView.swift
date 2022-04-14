@@ -7,19 +7,6 @@
 
 import SwiftUI
 
-struct CommonDetailView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-//struct CommonDetailView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        CommonTendencyView(name: textValue)
-//    }//대충 프리뷰
-//}
-
-
 struct CommonTendencyView: View {
     @Binding var name: String
     @Binding var pageNum : Int
@@ -83,7 +70,7 @@ struct CommonTendencyView: View {
 
 
 struct CommonUserGroupView: View {
-    @Binding var name: String
+    let name: String
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
     var body: some View {
@@ -151,6 +138,8 @@ struct CommonWantChallenge: View {
     var allString = "하고 싶은 도전이\n있나요?"
     var partialString = "하고 싶은 도전"
     @Binding var pageNum : Int
+    @Binding var isTemplateRecommended: Bool
+    
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -158,15 +147,20 @@ struct CommonWantChallenge: View {
         
         VStack(alignment: .leading){
             
-            
             Text(mainText)
                 .padding([.leading,.trailing,.bottom])
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
             
             Spacer()
-            OnBoardingMainBtn(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum)
-                .padding(.bottom,2)
-            OnBoardingMainBtn(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum)
+            OnBoardingMainButtonWithCustomAction(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum) {
+                print("네, 하고 싶은 도전이 있어요!")
+                isTemplateRecommended = false
+            }
+            .padding(.bottom,2)
+            OnBoardingMainButtonWithCustomAction(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum, customAction: {
+                print("아니요! 추천받을래요.")
+                isTemplateRecommended = true
+            })
                 .padding(.bottom,UIScreen.main.bounds.height / 10)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -316,6 +310,7 @@ struct TemplateView: View {
             
                 Text(mainTitle)
                     .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                    .foregroundColor(Color("ezpzLightgrey"))
                     .padding(.bottom, 15)
                     .padding(.top, 30)
 
@@ -399,11 +394,18 @@ struct CommonChallengeTemplateView: View {
 
                 
                 
-                ScrollView(.horizontal, showsIndicators: false){
-                    HStack(spacing: 10){
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
                         
                         ForEach(0..<Templates.count) { i in
                             Templates[i]
+                                .onTapGesture {
+                                    withAnimation {
+                                        challenge = Templates[i].title
+                                        pageNum += 1
+                                    }
+                                }
+                                
                         }
                             
                     }.padding(.leading, 15)
@@ -529,20 +531,3 @@ struct CommonUserChallengeDateView: View {
         
     }
 }
-
-
-
-
-
-//
-//var body: some View {
-//    VStack {
-//        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
-//            Text("날짜를 선택하세요")
-//        }
-//
-//        Text("오늘의 날짜는 \(birthDate, formatter: ContentView.dateFormat) 입니다.")
-//    }
-//    .padding()
-//}
-//}

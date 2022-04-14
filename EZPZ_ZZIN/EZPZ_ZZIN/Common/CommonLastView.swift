@@ -8,16 +8,6 @@
 import Foundation
 import SwiftUI
 
-
-struct CommonStartChallengeView_Previews: PreviewProvider {
-    static var previews: some View {
-      
-        CommonStartChallengeView(userName:  .constant("John"), challenge:  .constant("John"), startDate:  .constant(Date()), endDate:  .constant(Date()), challengeIcon:  .constant("🍄"))
-    }//대충 프리뷰
-}
-
-
-
 struct CommonStartChallengeView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
@@ -31,7 +21,9 @@ struct CommonStartChallengeView: View {
     @Environment(\.presentationMode) var presentationMode
     var allString = "새로운 도전을\n만들었어요!"
     var partialString = "새로운 도전"
-//
+    
+    let isTemplateRecommended: Bool
+    let todoStrings: [String] = []
     
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -67,11 +59,7 @@ struct CommonStartChallengeView: View {
                
                 }
                
-                
                 Spacer()
-                
-                
-                
                 
                 Text("이제 리스트업 하러 가볼까요?")
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
@@ -81,9 +69,12 @@ struct CommonStartChallengeView: View {
                         // 페이지가 다음으로 넘어가야함
                         textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
                         overLineWidth = 3.0
-                        //데이터 저장
+                        
+                        // 도전 생성
                         createChallenge()
+                        
                         presentationMode.wrappedValue.dismiss()
+                        
                     }) {
                         Text("리스트업으로 가기")
                             .foregroundColor(ColorManage.ezpzLime)
@@ -109,9 +100,7 @@ struct CommonStartChallengeView: View {
         
     }
 
-
-    
-    func createChallenge() {
+    private func createChallenge() {
         let newChallenge: ChallengeEntity = ChallengeEntity(context: viewContext)
         newChallenge.start = startDate
         newChallenge.end = endDate
@@ -121,6 +110,19 @@ struct CommonStartChallengeView: View {
         let newUser: UserEntity = UserEntity(context: viewContext)
         newUser.name = userName
         newUser.timestamp = Date()
+        
+        // 템플릿을 추천받은 경우 Todo 추가
+        if isTemplateRecommended {
+            for label in todoStrings {
+                let newTodo: TodoEntity = TodoEntity(context: viewContext)
+                newTodo.timestamp = Date()
+                newTodo.isChecked = false
+                newTodo.mask = (1 << 7) - 1
+                newTodo.label = label
+                newTodo.toChallenge = newChallenge
+            }
+        }
+        
         do {
             try viewContext.save()
         } catch {

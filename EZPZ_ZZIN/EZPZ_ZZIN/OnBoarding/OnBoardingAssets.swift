@@ -80,6 +80,45 @@ struct OnBoardingMainBtn: View{
     }
 }
 
+struct OnBoardingMainButtonWithCustomAction: View{
+    var iCon = "아이콘"
+    var msgText = "iCon과 msgText를 설정해주세요."
+    @State var textcolor = [Color("ezpzDisdable")]
+    @State var overLineWidth : CGFloat = 1
+    @Binding var pageNum : Int
+    
+    var customAction: () -> () = {}
+    
+    var body : some View {
+        Button(action: {
+            
+            // CustomAction
+            customAction()
+            
+            // 페이지가 다음으로 넘어가야함
+            textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+            overLineWidth = 3.0
+            withAnimation { //애니메이션을 주는 코드 //-Ruyha 어이가 없네 어캐 이게 한줄로 끝나냐
+                pageNum += 1
+            }
+            
+        }) {
+            Text(iCon + "  " + msgText )
+                .foregroundColor(Color.white)
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(
+                    LinearGradient(gradient: Gradient(colors: textcolor),
+                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1)),lineWidth: overLineWidth
+                )
+        )
+        .padding([.leading,.trailing])
+    }
+}
+
 func partialColorString(allString: String,allStringColor: Color ,partialString: String, partialStringColor: Color ) -> AttributedString {
     // 문자열의 부분 색상을 바꿔주는 함수입니다.
     // 온보딩에 자주 쓰이는데 똑같은 코드가 여기 저기 쓰이는걸 병적으로 싫어해서 한번 만들어 봤습니다.

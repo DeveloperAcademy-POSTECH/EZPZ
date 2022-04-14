@@ -23,7 +23,6 @@
 		70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3D2806FC970000FB11 /* EZPZStartView.swift */; };
 		70F15D402807010D0000FB11 /* EZPZManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3F2807010D0000FB11 /* EZPZManager.swift */; };
 		70F15D43280717D40000FB11 /* CommonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D42280717D40000FB11 /* CommonView.swift */; };
-		70F15D45280717EA0000FB11 /* AngGiMoTiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D44280717EA0000FB11 /* AngGiMoTiView.swift */; };
 		7E8FCB00280417D1004807C7 /* MyPageMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */; };
 		7EC9CA1528056D6500085EDB /* ChallengeDeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */; };
 		7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EC9CA1628056E7200085EDB /* ChangeNameView.swift */; };
@@ -69,7 +68,6 @@
 		70F15D3D2806FC970000FB11 /* EZPZStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZStartView.swift; sourceTree = "<group>"; };
 		70F15D3F2807010D0000FB11 /* EZPZManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZManager.swift; sourceTree = "<group>"; };
 		70F15D42280717D40000FB11 /* CommonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonView.swift; sourceTree = "<group>"; };
-		70F15D44280717EA0000FB11 /* AngGiMoTiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AngGiMoTiView.swift; sourceTree = "<group>"; };
 		7E8FCAFF280417D1004807C7 /* MyPageMainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageMainView.swift; sourceTree = "<group>"; };
 		7EC9CA1428056D6100085EDB /* ChallengeDeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDeleteView.swift; sourceTree = "<group>"; };
 		7EC9CA1628056E7200085EDB /* ChangeNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeNameView.swift; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 				70F15D39280421FA0000FB11 /* CommonDetailView.swift */,
 				70F15D3B28044ED20000FB11 /* CommonLastView.swift */,
 				70F15D42280717D40000FB11 /* CommonView.swift */,
-				70F15D44280717EA0000FB11 /* AngGiMoTiView.swift */,
 				A88321F42804081D0037CB6F /* Fonts */,
 			);
 			path = Common;
@@ -361,7 +358,6 @@
 				D5D97D4D28072DE20046F9EC /* TodoeditView.swift in Sources */,
 				A88321DD280404310037CB6F /* EZPZ_ZZIN.xcdatamodeld in Sources */,
 				70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */,
-				70F15D45280717EA0000FB11 /* AngGiMoTiView.swift in Sources */,
 				A88321EE280406F00037CB6F /* OnBoardingDetailView.swift in Sources */,
 				7EC9CA1728056EAF00085EDB /* ChangeNameView.swift in Sources */,
 				A835DAE228071E3A00665707 /* ChallengeListView.swift in Sources */,
