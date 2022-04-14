@@ -34,7 +34,7 @@ struct TabBarMainView: View {
                     // 탭바 아이템의 텍스트 설정입니다.
                 }.tag(0)
             
-            ChallengeListView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            ChallengeListView() //내도전
                 .tabItem {
                     Image(systemName: "list.dash")
                     Text("내도전")
@@ -46,18 +46,11 @@ struct TabBarMainView: View {
                     Text("돌아보기")
                 }.tag(2)
             
-            MyPageMainView()  //마이페이지 뷰를 만든뒤 뷰이름을 교체해 주세요.
+            MyPageMainView()  //마이페이지
                 .tabItem {
                     Image(systemName: "gearshape")
                     Text("마이페이지")
                 }.tag(3)
-            
-          //  OnBoardingView() //내도전 뷰를 만든뒤 뷰이름을 교체해 주세요.
-            AngGiMoTiView()
-                .tabItem {
-                    Image(systemName: "list.dash")
-                    Text("앙기모띠")
-                }.tag(4)
             
             
             
@@ -66,10 +59,3 @@ struct TabBarMainView: View {
             
     }
 }
-
-//struct TabBarView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TabBarMainView(tabbarIndex: <#Binding<Int>#>)
-//        
-//    }
-//}

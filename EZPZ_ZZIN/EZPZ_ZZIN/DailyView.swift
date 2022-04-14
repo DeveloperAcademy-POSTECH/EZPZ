@@ -34,7 +34,7 @@ struct DailyView: View {
             ScrollView {
                 VStack {
                     HStack {
-                        Text("\(challengeEntity.start!, formatter: dateFormatter) ~ \(challengeEntity.end!, formatter: dateFormatter)")
+                        Text("\(challengeEntity.start ?? Date(), formatter: dateFormatter) ~ \(challengeEntity.end ?? Date(), formatter: dateFormatter)")
                             .font(.system(size: 18))
                             .fontWeight(.medium)
                             .padding(.leading, 20)

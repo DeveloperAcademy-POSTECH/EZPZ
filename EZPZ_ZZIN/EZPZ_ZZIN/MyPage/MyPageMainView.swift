@@ -247,55 +247,10 @@ struct MyPageMainView: View {
                             .opacity(0.5)
                             .padding(.leading, 17.0)
                             .padding([.top,.bottom], 5)
+                    }.sheet(isPresented: $isPresented2) {
+                        ChallengeDeleteView()
                     }
                     Spacer()
-                        .sheetResize(
-                            isPresented: $isPresented2,
-                            detents: [.medium(),.large()]
-                        ) {
-                        } content: {
-                            ZStack {
-                                Color("ezpzBlack")
-                                    .edgesIgnoringSafeArea(.all)
-                                VStack {
-                                    
-                                    ScrollView {
-                                        HStack {
-                                            Text("포기할 도전을 선택해주세요!")
-                                                .font(.system(size: 18))
-                                                .foregroundColor(Color("ezpzLightgrey"))
-                                                .padding(.leading, 30)
-                                            Spacer()
-                                        }
-                                        .padding(.top, 20)
-                                        CustomDividerView()
-                                        ForEach(items) { challengeEntity in
-                                            HStack {
-                                                Button(action: {
-                                                    sharedChallengeEntity = challengeEntity
-                                                }) {
-                                                    Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
-                                                        .font(.system(size: 18))
-                                                        .fontWeight(.bold)
-                                                        .foregroundColor(Color("ezpzLime"))
-                                                        .padding(.leading, 30)
-                                                }
-                                                .alert(item: $sharedChallengeEntity) { entity in
-                                                    Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
-                                                        
-                                                        // Action
-                                                        deleteChallengeEntity(challengeEntity: entity)
-                                                        
-                                                    } ), secondaryButton: .cancel(Text("돌아가기")))
-                                                }
-                                                Spacer()
-                                            }
-                                            CustomDividerView()
-                                        }
-                                    }
-                                }
-                            }
-                        }
                 }
                 Divider()
                     .background(ColorManage.ezpzSmokegrey)
