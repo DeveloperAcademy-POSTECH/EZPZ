@@ -15,6 +15,7 @@ struct OnBoardingView: View {
     
     init() {
         UIPageControl.appearance().isUserInteractionEnabled = false
+        UIPageControl.appearance().isHidden = true
         // 해당 뷰에서 TabView의 UIPageControl를 유저가 클릭해 다음페이지로 이동 못하게 제한함.
        }
     
