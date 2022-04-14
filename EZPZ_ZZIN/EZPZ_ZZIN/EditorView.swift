@@ -130,6 +130,10 @@ struct EditorView: View {
                 TextEditor(text: $text)
                     .disableAutocorrection(true)
                     .textInputAutocapitalization(.never)
+                    .onChange(of: text) {
+                        item.text = $0
+                        try? viewContext.save()
+                    }
                 Text("저장하기")
                     .foregroundColor(Color("ezpzLime"))
                     .font(.system(size: 17))
