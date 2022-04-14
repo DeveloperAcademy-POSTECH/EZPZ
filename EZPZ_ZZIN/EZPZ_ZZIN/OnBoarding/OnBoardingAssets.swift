@@ -215,13 +215,13 @@ struct CommonTendencynBtn2: View{
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
             challengeIcon = iCon
-            withAnimation {
                 if isTemplateRecommended {
-                    pageNum += 1
+                    withAnimation {
+                        pageNum += 1
+                    }
                 } else {
                     pageNum += 2
                 }
-            }
         }) {
             HStack{
                 Text(iCon)
