@@ -242,6 +242,9 @@ struct CommonUserFieldView: View {
 }
 
 
+// TODO: - 하고싶은 도전의 유무에 따라 도전 명을 입력하는 뷰와 템플릿 뷰 중에서 하나로 가야하는 상황인데, 어떤 기준으로 나눌 지
+// 유저가 직접 도전 만들기
+
 struct CommonUserChallengeView: View {
     var allString = "어떤 도전을\n하시나요?"
     var partialString = "어떤 도전"
@@ -292,6 +295,139 @@ struct CommonUserChallengeView: View {
         
     }
 }
+
+
+
+
+
+// CommonChallengeTemplateView안에 들어갈
+struct TemplateView: View {
+    
+    // 템플릿 밖
+    var mainTitle: String
+    
+    // 템플릿 안
+    var title: String
+    var categoryInform: String
+    var todoRows: [String]
+    var body: some View {
+        
+        VStack(alignment: .leading) {
+            
+                Text(mainTitle)
+                    .font(.custom("SpoqaHanSansNeo-Bold", size: 17))
+                    .padding(.bottom, 15)
+                    .padding(.top, 30)
+
+                VStack{
+                    ZStack{
+                        Rectangle()
+                            .foregroundColor(.white)
+                            .frame(width: UIScreen.main.bounds.width * 4 / 5)
+                            .cornerRadius(10)
+                        
+                        VStack(alignment: .leading, spacing: 10){
+                            HStack(alignment: .top){
+                                Text(title)
+                                    .font(.custom("SpoqaHanSansNeo-Bold", size: 24))
+                                    .padding(.leading, 20)
+                                    .padding(.top, 20)
+                            }
+                            Text(categoryInform)
+                                .font(.custom("SpoqaHanSansNeo-regular", size: 13))
+                                .foregroundColor(ColorManage.ezpzSmokegrey)
+                                .padding(.leading, 20)
+                                .padding(.bottom, 18)
+                            
+                            
+                            ForEach(todoRows, id: \.self) { todo in
+                                Text(todo)
+                                    .padding(.leading, 20)
+                                Divider()
+                                    .background(ColorManage.ezpzSmokegrey)
+                            }
+                                
+                            }
+                            Spacer()
+                        }.foregroundColor(ColorManage.ezpzBlack)
+                            .frame(height: UIScreen.main.bounds.height * 5 / 11)
+                            
+                    
+
+                }
+            
+            
+        }
+    }
+}
+
+
+
+// 템플릿 추천 받기
+
+struct CommonChallengeTemplateView: View {
+    var allString = "도전하고싶은\n템플릿을 골라주세요"
+    var partialString = "템플릿"
+    @Binding var challenge: String
+    @Binding var pageNum : Int
+    
+    // example
+    var Templates: [TemplateView] = [
+        TemplateView(mainTitle: "👍 멘탈 케어 템플릿", title: "마음이 건강", categoryInform: "카테고리 건강", todoRows: ["저녁 먹고 차 마시기", "자기 전에 명상하기", "아침에 출근하면서 노래 듣기"]),
+        TemplateView(mainTitle: "👍 멘탈 케어 템플릿", title: "마음이 건강", categoryInform: "카테고리 건강", todoRows: ["저녁 먹고 차 마시기", "자기 전에 명상하기", "아침에 출근하면서 노래 듣기"]),
+        TemplateView(mainTitle: "👍 멘탈 케어 템플릿", title: "마음이 건강", categoryInform: "카테고리 건강", todoRows: ["저녁 먹고 차 마시기", "자기 전에 명상하기", "아침에 출근하면서 노래 듣기"])
+    ]
+    
+
+    
+    var body: some View {
+        let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
+        // OnBoardingAssets의 partialColorString()참고
+        
+        ZStack{
+            VStack(alignment: .leading){
+                
+                
+                
+                Text(mainText)
+                    .padding([.leading,.trailing])
+                    .padding(.bottom,5)
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
+                Text("템플릿은 나중에 내 마음대로 수정 가능해요!.")
+                    .padding([.leading,.trailing])
+                
+
+                
+                
+                ScrollView(.horizontal){
+                    HStack(spacing: 10){
+                        
+                        ForEach(0..<Templates.count) { i in
+                            Templates[i]
+                        }
+                            
+                    }.padding(.leading, 15)
+                        
+                } // ScrollView
+                    
+            } // VStack
+                
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+        .background(Color("ezpzBlack"))
+            
+    }
+        
+    
+    
+}
+
+
+
+
+
+
+
 
 
 struct CommonUserChallengeDateView: View {
