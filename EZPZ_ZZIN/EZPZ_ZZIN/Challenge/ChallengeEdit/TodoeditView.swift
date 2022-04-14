@@ -16,6 +16,7 @@ struct TodoeditView: View {
     @State var todoTitle: String = ""
     private var label: String
     private let mask: Int64
+    @Binding var flag: Int
     
     @State var mondayCheck = false
     @State var tuesdayCheck = false
@@ -25,10 +26,11 @@ struct TodoeditView: View {
     @State var saturdayCheck = false
     @State var sundayCheck = false
     
-    init(todoEntity: TodoEntity, label: String, mask: Int64) {
+    init(todoEntity: TodoEntity, label: String, mask: Int64, flag: Binding<Int>) {
         self.todoEntity = todoEntity
         self.label = label
         self.mask = mask
+        self._flag = flag
     }
     
     private func bitmask() -> Int64 {
@@ -85,6 +87,7 @@ struct TodoeditView: View {
                     Spacer()
                     Button {
                         saveTodoEntity()
+                        flag ^= 1
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "checkmark")

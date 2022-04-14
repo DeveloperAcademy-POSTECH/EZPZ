@@ -11,11 +11,11 @@ struct ChallengedetailView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    @State var isShowingReviewButton: Bool = false
-    
     @State var checkBool = false
     @State private var showAlert = false
     @State private var isShowingNewTodoSheet = false
+    @State private var flag: Int = 0
+    @State private var isShowingJournalEditorView: Bool = false
     
     @ObservedObject var challengeEntity: ChallengeEntity
     
@@ -46,6 +46,70 @@ struct ChallengedetailView: View {
         return result
     }
     
+    private func countCheckedTodaysTodo() -> Int {
+        guard let set = challengeEntity.toTodo as? Set<TodoEntity> else {
+            return 0
+        }
+        let sortedArray = set.sorted {
+            $0.timestamp! < $1.timestamp!
+        }
+        var count: Int = 0
+        let cal = Calendar(identifier: .gregorian)
+        let now = Date()
+        let comps = cal.dateComponents([.weekday], from: now)
+        let position = (comps.weekday! + 5) % 7
+        let mask: Int64 = Int64(1 << position)
+        for todoEntity in sortedArray {
+            if (todoEntity.mask & mask) != 0 && todoEntity.isChecked {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    private func getJournals(challengeEntity: ChallengeEntity) -> [JournalEntity] {
+        guard let set = challengeEntity.toJournal as? Set<JournalEntity> else {
+            return []
+        }
+        return set.sorted {
+            $0.date! < $1.date!
+        }
+    }
+
+    private func getTodaysJournalEntity(challengeEntity: ChallengeEntity) -> JournalEntity {
+        let journals = getJournals(challengeEntity: challengeEntity)
+        if journals.isEmpty {
+            return createNewJournalEntity(challengeEntity: challengeEntity)
+        }
+        let lastJournal: JournalEntity = journals[journals.count - 1]
+        if getNthDay(startDate: challengeEntity.start ?? Date(), currentDate: lastJournal.date ?? Date()) == getNthDay(startDate: challengeEntity.start ?? Date()) {
+            return lastJournal
+        } else {
+            return createNewJournalEntity(challengeEntity: challengeEntity)
+        }
+    }
+
+    private func createNewJournalEntity(challengeEntity: ChallengeEntity) -> JournalEntity {
+        
+        // 랜덤으로 선택할 이모지들의 배열
+        let randomEmoji: [String] = ["😀", "👍", "🐶", "🦊", "🍄", "🚀"]
+        
+        let journalEntity: JournalEntity = JournalEntity(context: viewContext)
+        journalEntity.toChallenge = challengeEntity
+        journalEntity.date = Date()
+        journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
+        journalEntity.text = "일지를 입력해 주세요"
+        journalEntity.emoji = randomEmoji[Int.random(in: 0..<randomEmoji.count)]
+        
+        return journalEntity
+    }
+
+    private func getNthDay(startDate: Date, currentDate: Date = Date()) -> Int {
+        let difference: Double = startDate.distance(to: currentDate)
+        let day: Int = Int(difference / (24 * 60 * 60))
+        return day + 1
+    }
+    
     var body: some View {
         ZStack{
             ColorManage.ezpzBlack
@@ -62,9 +126,10 @@ struct ChallengedetailView: View {
                             Spacer()
                         }
                         
-                        if (isShowingReviewButton){
+                        if flag >= 0 && countCheckedTodaysTodo() > 0 {
                             Button(action: {
                                 print("오늘 한 일 돌아보기")
+                                isShowingJournalEditorView = true
                             }) {
                                 Text("오늘 한 일 돌아보기")
                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
@@ -73,87 +138,94 @@ struct ChallengedetailView: View {
                                     .background(ColorManage.ezpzDarkgrey)
                                     .cornerRadius(10)
                             }
+                            .sheet(isPresented: $isShowingJournalEditorView) {
+                                let journalEntity: JournalEntity = getTodaysJournalEntity(challengeEntity: challengeEntity)
+                                EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")
+                                    .padding(.top, 20)
+                            }
                         }
                     }
                     .padding(.bottom, 20)
                     
-                    // BEGIN 오늘 할 일
-                    
-                    VStack{
-                        Group{
-                            HStack{
-                                Text("📍  오늘 할 일")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .foregroundColor(ColorManage.ezpzLime)
-                                    .lineLimit(1).padding(.leading, 17.0)
-                                    .padding([.bottom], 5)
-                                Spacer()
-                            }
-                            Divider()
-                                .background(ColorManage.ezpzLightgrey)
-                            ForEach(getTodo(forToday: true)) { todoEntity in
-                                CheckboxField1(todoEntity: todoEntity)
-                                    .padding(.leading , 17)
-                                    .padding([.top, .bottom], 6)
+                    if flag >= 0 {
+                        // BEGIN 오늘 할 일
+                        
+                        VStack{
+                            Group{
+                                HStack{
+                                    Text("📍  오늘 할 일")
+                                        .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                        .foregroundColor(ColorManage.ezpzLime)
+                                        .lineLimit(1).padding(.leading, 17.0)
+                                        .padding([.bottom], 5)
+                                    Spacer()
+                                }
+                                Divider()
+                                    .background(ColorManage.ezpzLightgrey)
+                                ForEach(getTodo(forToday: true)) { todoEntity in
+                                    CheckboxField1(todoEntity: todoEntity, flag: $flag)
+                                        .padding(.leading , 17)
+                                        .padding([.top, .bottom], 6)
+                                    Divider()
+                                        .background(ColorManage.ezpzSmokegrey)
+                                }
+                                HStack{
+                                    Text("+    할 일 추가하기")
+                                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                                        .foregroundColor(ColorManage.ezpzSmokegrey)
+                                        .multilineTextAlignment(.leading).padding([.leading], 20)
+                                    Spacer()
+                                }
+                                .onTapGesture {
+                                    isShowingNewTodoSheet = true
+                                }
                                 Divider()
                                     .background(ColorManage.ezpzSmokegrey)
                             }
-                            HStack{
-                                Text("+    할 일 추가하기")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                                    .foregroundColor(ColorManage.ezpzSmokegrey)
-                                    .multilineTextAlignment(.leading).padding([.leading], 20)
-                                Spacer()
+                            
+                        }
+                        .padding(.bottom, 25)
+                        
+                        // END 오늘 할일
+                        
+                        // BEGIN 나중에 할 일
+                        
+                        VStack{
+                            Group{
+                                HStack{
+                                    Text("🗓  나중에 할 일")
+                                        .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                        .foregroundColor(ColorManage.ezpzLime)
+                                        .lineLimit(1).padding(.leading, 17.0)
+                                        .padding([.top,.bottom], 5)
+                                    Spacer()
+                                }
+                                Divider()
+                                    .background(ColorManage.ezpzLightgrey)
+                                ForEach(getTodo(forToday: false)) { todoEntity in
+                                    CheckboxField1(todoEntity: todoEntity, flag: $flag)
+                                        .padding(.leading , 17)
+                                        .padding([.top, .bottom], 6)
+                                    Divider()
+                                        .background(ColorManage.ezpzSmokegrey)
+                                }
+                                HStack{
+                                    Text("+    할 일 추가하기")
+                                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                                        .foregroundColor(ColorManage.ezpzSmokegrey)
+                                        .multilineTextAlignment(.leading).padding([.leading], 20)
+                                    Spacer()
+                                }
+                                .onTapGesture {
+                                    isShowingNewTodoSheet = true
+                                }
+                                Divider()
+                                    .background(ColorManage.ezpzSmokegrey)
                             }
-                            .onTapGesture {
-                                isShowingNewTodoSheet = true
-                            }
-                            Divider()
-                                .background(ColorManage.ezpzSmokegrey)
                         }
                         
+                        // END 나중에 할일
                     }
-                    .padding(.bottom, 25)
-                    
-                    // END 오늘 할일
-                    
-                    // BEGIN 나중에 할 일
-                    
-                    VStack{
-                        Group{
-                            HStack{
-                                Text("🗓  나중에 할 일")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .foregroundColor(ColorManage.ezpzLime)
-                                    .lineLimit(1).padding(.leading, 17.0)
-                                    .padding([.top,.bottom], 5)
-                                Spacer()
-                            }
-                            Divider()
-                                .background(ColorManage.ezpzLightgrey)
-                            ForEach(getTodo(forToday: false)) { todoEntity in
-                                CheckboxField1(todoEntity: todoEntity)
-                                    .padding(.leading , 17)
-                                    .padding([.top, .bottom], 6)
-                                Divider()
-                                    .background(ColorManage.ezpzSmokegrey)
-                            }
-                            HStack{
-                                Text("+    할 일 추가하기")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                                    .foregroundColor(ColorManage.ezpzSmokegrey)
-                                    .multilineTextAlignment(.leading).padding([.leading], 20)
-                                Spacer()
-                            }
-                            .onTapGesture {
-                                isShowingNewTodoSheet = true
-                            }
-                            Divider()
-                                .background(ColorManage.ezpzSmokegrey)
-                        }
-                    }
-                    
-                    // END 나중에 할일
                 }
             }
         }
@@ -168,25 +240,20 @@ struct CheckboxField1: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    let size: CGFloat
-    let color: Color
-    let textSize: Int
+    @ObservedObject var todoEntity: TodoEntity
+    @Binding var flag: Int
+    let size: CGFloat = 15
+    let color: Color = Color("ezpzPink")
+    let textSize: Int = 17
     
     @State private var showingActionSheet = false
     @State private var showAlert = false
     @State private var isShowingTodoEditView: Bool = false
-    @ObservedObject var todoEntity: TodoEntity
-    
-    init(todoEntity: TodoEntity, size: CGFloat = 15, color: Color = ColorManage.ezpzPink, textSize: Int = 17) {
-        self.todoEntity = todoEntity
-        self.size = size
-        self.color = color
-        self.textSize = textSize
-    }
     
     var body: some View {
         Button(action:{
             todoEntity.isChecked.toggle()
+            flag ^= 1
             try? viewContext.save()
         }) {
             HStack(alignment: .center, spacing: 10) {
@@ -247,7 +314,7 @@ struct CheckboxField1: View {
         }
         .foregroundColor(Color.white)
         .sheet(isPresented: $isShowingTodoEditView) {
-            TodoeditView(todoEntity: todoEntity, label: todoEntity.label ?? "", mask: todoEntity.mask)
+            TodoeditView(todoEntity: todoEntity, label: todoEntity.label ?? "", mask: todoEntity.mask, flag: $flag)
         }
     }
     
