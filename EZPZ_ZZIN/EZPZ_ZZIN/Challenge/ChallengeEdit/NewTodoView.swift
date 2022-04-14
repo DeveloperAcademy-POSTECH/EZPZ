@@ -90,7 +90,7 @@ struct NewTodoView: View {
                             .foregroundColor(ColorManage.ezpzLightgrey)
                     }
                 }
-                .padding(.all, 20)
+                .padding(.bottom, 20)
                 HStack{
                     Text("할 일")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))

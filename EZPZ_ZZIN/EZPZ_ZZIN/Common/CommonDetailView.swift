@@ -185,11 +185,9 @@ struct CommonUserFieldView: View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
-        ZStack{
+        ZStack {
             
-            VStack(alignment: .leading){
-                
-                
+            VStack(alignment: .leading) {
                 
                 Text(mainText)
                     .padding([.leading,.trailing])

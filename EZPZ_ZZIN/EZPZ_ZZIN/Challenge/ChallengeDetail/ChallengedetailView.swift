@@ -174,6 +174,7 @@ struct CheckboxField1: View {
     
     @State private var showingActionSheet = false
     @State private var showAlert = false
+    @State private var isShowingTodoEditView: Bool = false
     @ObservedObject var todoEntity: TodoEntity
     
     init(todoEntity: TodoEntity, size: CGFloat = 15, color: Color = ColorManage.ezpzPink, textSize: Int = 17) {
@@ -222,7 +223,7 @@ struct CheckboxField1: View {
                     isPresented: $showingActionSheet,
                     actions: {
                         Button("할 일 수정하기") {
-                            
+                            isShowingTodoEditView = true
                         }
                         Button("할 일 삭제하기", role: .destructive ) {
                             showAlert = true
@@ -233,6 +234,7 @@ struct CheckboxField1: View {
                     Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
                         
                         // Action
+                        viewContext.delete(todoEntity)
                         do {
                             try viewContext.save()
                         } catch {
@@ -244,6 +246,9 @@ struct CheckboxField1: View {
             }.foregroundColor(self.color)
         }
         .foregroundColor(Color.white)
+        .sheet(isPresented: $isShowingTodoEditView) {
+            TodoeditView(todoEntity: todoEntity, label: todoEntity.label ?? "", mask: todoEntity.mask)
+        }
     }
     
 }
