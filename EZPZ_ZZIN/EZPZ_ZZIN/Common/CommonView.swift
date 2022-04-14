@@ -39,16 +39,13 @@ struct CommonView: View {
                         CommonTendencyView(name:.constant(getUsername()),pageNum: $selectedPage, challengeIcon: .constant("")).tag(1)
                         CommonUserGroupView(name: getUsername() ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(2)
                         CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended).tag(3)
-                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon).tag(4)
+                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended).tag(4)
                         
-                        // TODO: - 하고싶은 도전이 있는 경우와 없는 경우 어떻게 나눌지
-                        // 하고싶은 도전이 있는 경우 : 도전 명 바로 입력하기
-//                        CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(5)
-                        // 하고싶은 도전이 없는 경우 : 도전 템플릿 추천받기
                         CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(5)
-
-                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(6)
-                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(7)
+                        CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(6)
+                        
+                        CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(7)
+                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(8)
                     }
                     .gesture(DragGesture())
                 }

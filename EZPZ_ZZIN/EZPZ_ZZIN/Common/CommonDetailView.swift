@@ -177,6 +177,7 @@ struct CommonWantChallenge: View {
 struct CommonUserFieldView: View {
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
+    @Binding var isTemplateRecommended: Bool
 
     var body: some View {
         
@@ -202,20 +203,20 @@ struct CommonUserFieldView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn2(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn2(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn2(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn2(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn2(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
                             .padding(.trailing,UIScreen.main.bounds.width / 2 + 2)
                         
                         
@@ -370,8 +371,6 @@ struct CommonChallengeTemplateView: View {
         TemplateView(mainTitle: "👍 멘탈 케어 템플릿", title: "마음이 건강", categoryInform: "카테고리 건강", todoRows: ["저녁 먹고 차 마시기", "자기 전에 명상하기", "아침에 출근하면서 노래 듣기"]),
         TemplateView(mainTitle: "👍 멘탈 케어 템플릿", title: "마음이 건강", categoryInform: "카테고리 건강", todoRows: ["저녁 먹고 차 마시기", "자기 전에 명상하기", "아침에 출근하면서 노래 듣기"])
     ]
-    
-
     
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))

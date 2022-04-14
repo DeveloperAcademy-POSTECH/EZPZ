@@ -187,6 +187,53 @@ struct CommonTendencynBtn: View{
     }
 }
 
+struct CommonTendencynBtn2: View{
+    var iCon = "아이콘"
+    var msgText = "iCon과 msgText를 설정해주세요."
+    var checkLeading = true
+    
+    @State var textcolor = [Color("ezpzDisdable")]
+    @State var overLineWidth : CGFloat = 1
+    @Binding var pageNum : Int
+    @Binding var challengeIcon : String
+    @Binding var isTemplateRecommended: Bool
+    
+    var body : some View {
+        Button(action: {
+            // 페이지가 다음으로 넘어가야함
+            textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
+            overLineWidth = 3.0
+            challengeIcon = iCon
+            withAnimation {
+                if isTemplateRecommended {
+                    pageNum += 1
+                } else {
+                    pageNum += 2
+                }
+            }
+        }) {
+            HStack{
+                Text(iCon)
+                Spacer()
+                Text(msgText)
+                
+            } .foregroundColor(Color.white)
+            
+        }
+        .padding()
+        .frame(minWidth: 0, maxWidth: UIScreen.main.bounds.width / 2, alignment: .leading)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .strokeBorder(
+                    LinearGradient(gradient: Gradient(colors: textcolor),
+                                   startPoint: UnitPoint(x: 0, y: 3) , endPoint: UnitPoint(x: 1, y: 1))
+                    ,lineWidth: overLineWidth
+                    
+                )
+        )
+    }
+}
+
 
 struct CommonNextBtn : View{
     var mainText = "텍스트를 입력해주세요."
