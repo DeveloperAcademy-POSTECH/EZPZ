@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RoutineView: View {
+    
     @State var firstCheck = false
     @State var secondCheck = false
     @State var thirdCheck = false
@@ -27,7 +28,24 @@ struct RoutineView: View {
     @State private var sharedChallengeEntity: ChallengeEntity? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TodoEntity.timestamp, ascending: true)])
+    private var todoEntityFetchedResults: FetchedResults<TodoEntity>
     
+    private func countTodaysTodos() -> Int {
+        var count: Int = 0
+        let cal = Calendar(identifier: .gregorian)
+        let now = Date()
+        let comps = cal.dateComponents([.weekday], from: now)
+        let position = (comps.weekday! + 5) % 7
+        let mask: Int64 = Int64(1 << position)
+        for todoEntity in todoEntityFetchedResults {
+            if (todoEntity.mask & mask) != 0 {
+                count += 1
+            }
+        }
+        return count
+    }
+
     var body: some View {
         ZStack{
             ColorManage.ezpzBlack
@@ -39,7 +57,7 @@ struct RoutineView: View {
                         Button(action: {
                             monthState = monthState - 1
                         }) {
-                        Image(systemName: "lessthan")
+                        Image(systemName: "chevron.backward")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .padding(.leading, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
@@ -52,7 +70,7 @@ struct RoutineView: View {
                         Button(action: {
                             monthState = monthState + 1
                         }) {
-                        Image(systemName: "greaterthan")
+                        Image(systemName: "chevron.forward")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .padding(.trailing, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
@@ -117,7 +135,7 @@ struct RoutineView: View {
                                 Spacer()
                             }
                             HStack{
-                                Text("오늘 할 일이 3개 있어요!")
+                                Text("오늘 할 일이 \(countTodaysTodos())개 있어요!")
                                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                     .padding(.leading, 17)
