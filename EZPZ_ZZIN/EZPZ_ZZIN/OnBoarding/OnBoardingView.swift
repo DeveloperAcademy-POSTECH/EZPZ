@@ -60,7 +60,7 @@ struct OnBoardingView: View {
                         CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(6)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(7)
                         
-                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(8)
+                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum).tag(8)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(9)
                         
                         

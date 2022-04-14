@@ -42,7 +42,7 @@ struct CommonView: View {
                         CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(3)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(4)
                         
-                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(5)
+                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum).tag(5)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(6)
                         
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(7)
