@@ -399,7 +399,7 @@ struct CommonChallengeTemplateView: View {
 
                 
                 
-                ScrollView(.horizontal){
+                ScrollView(.horizontal, showsIndicators: false){
                     HStack(spacing: 10){
                         
                         ForEach(0..<Templates.count) { i in
