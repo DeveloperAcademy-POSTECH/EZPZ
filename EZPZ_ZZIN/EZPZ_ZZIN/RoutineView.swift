@@ -15,9 +15,11 @@ struct RoutineView: View {
     @State var fifthCheck = false
     @State var sixthCheck = false
     @State var checkBool = false
+    @State var monthState = 3
     @State var array: [Bool] = Array(repeating: false, count: 30)
-    // [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, ]
-    @State var dayArray = ["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", ]
+    @State var dayState = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3]
+    @State var dayArray = ["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일"]
+    @State var monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
     @State var isPresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
@@ -34,19 +36,27 @@ struct RoutineView: View {
             ScrollView() {
                 VStack{
                     HStack{
+                        Button(action: {
+                            monthState = monthState - 1
+                        }) {
                         Image(systemName: "lessthan")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .padding(.leading, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
+                        }
                         Spacer()
-                        Text("2022년 4월")
+                        Text("2022년 \(monthArray[monthState])월")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                         Spacer()
+                        Button(action: {
+                            monthState = monthState + 1
+                        }) {
                         Image(systemName: "greaterthan")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .padding(.trailing, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
+                        }
                     }.frame(height: 45)
                     }
                     HStack{
@@ -70,12 +80,12 @@ struct RoutineView: View {
                                         }
                                         VStack{
                                             if array[i]{
-                                            Text("\(dayArray[i+4])")
+                                            Text("\(dayArray[i+dayState[monthState]])")
                                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                                 .foregroundColor(ColorManage.ezpzPink)
                                                 .padding(.bottom, 4).padding(.top,3)
                                             }else{
-                                                Text("\(dayArray[i+4])")
+                                                Text("\(dayArray[i+dayState[monthState]])")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                                     .foregroundColor(ColorManage.ezpzDisable)
                                                     .padding(.bottom, 4).padding(.top,3)
