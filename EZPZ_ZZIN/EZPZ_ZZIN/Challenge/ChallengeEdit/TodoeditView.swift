@@ -22,12 +22,19 @@ struct TodoeditView: View {
                 .edgesIgnoringSafeArea(.all)
             VStack{
                 HStack {
+                    Image(systemName: "xmark")
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                        .padding(.leading, 17.0)
+                        .padding(.top, 20.0)
+                        .foregroundColor(ColorManage.ezpzLightgrey)
                     Spacer()
                         Image(systemName: "checkmark")
-                            .padding(.trailing, 30.0)
+                        .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .padding(.trailing, 17.0)
                             .padding(.top, 20.0)
-                            .foregroundColor(ColorManage.ezpzDisable)
+                            .foregroundColor(ColorManage.ezpzLightgrey)
                 }
+                .padding(.bottom, 20)
                 HStack{
                     Text("할 일")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))

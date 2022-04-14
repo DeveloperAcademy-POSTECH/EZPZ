@@ -73,6 +73,9 @@ struct NewTodoView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "xmark")
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .padding(.leading, 17.0)
+                            .padding(.top, 20.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                     }
                     Spacer()
@@ -81,6 +84,9 @@ struct NewTodoView: View {
                         presentationMode.wrappedValue.dismiss()
                     } label: {
                         Image(systemName: "checkmark")
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .padding(.trailing, 17.0)
+                            .padding(.top, 20.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                     }
                 }
