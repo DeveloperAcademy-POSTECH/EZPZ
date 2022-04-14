@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E230" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21E258" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="ChallengeEntity" representedClassName="ChallengeEntity" syncable="YES" codeGenerationType="class">
         <attribute name="emoji" optional="YES" attributeType="String"/>
         <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -7,6 +7,7 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="toJournal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="JournalEntity" inverseName="toChallenge" inverseEntity="JournalEntity"/>
+        <relationship name="toTodo" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="TodoEntity" inverseName="toChallenge" inverseEntity="TodoEntity"/>
     </entity>
     <entity name="JournalEntity" representedClassName="JournalEntity" syncable="YES" codeGenerationType="class">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -16,14 +17,22 @@
         <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="toChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChallengeEntity" inverseName="toJournal" inverseEntity="ChallengeEntity"/>
     </entity>
+    <entity name="TodoEntity" representedClassName="TodoEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="isChecked" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="label" optional="YES" attributeType="String"/>
+        <attribute name="mask" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="toChallenge" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChallengeEntity" inverseName="toTodo" inverseEntity="ChallengeEntity"/>
+    </entity>
     <entity name="UserEntity" representedClassName="UserEntity" syncable="YES" codeGenerationType="class">
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <elements>
-        <element name="ChallengeEntity" positionX="-63" positionY="18" width="128" height="119"/>
+        <element name="ChallengeEntity" positionX="-63" positionY="18" width="128" height="134"/>
         <element name="JournalEntity" positionX="-63" positionY="-18" width="128" height="119"/>
         <element name="UserEntity" positionX="-45" positionY="63" width="128" height="74"/>
+        <element name="TodoEntity" positionX="-54" positionY="54" width="128" height="104"/>
     </elements>
 </model>

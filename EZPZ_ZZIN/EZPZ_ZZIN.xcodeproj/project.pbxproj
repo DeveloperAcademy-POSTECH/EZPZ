@@ -17,6 +17,7 @@
 		4371B0E6280423D500E23268 /* ChallengeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4371B0E5280423D500E23268 /* ChallengeCardView.swift */; };
 		43C97D642805518E007F34AD /* ChallengeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43C97D632805518E007F34AD /* ChallengeSelectionView.swift */; };
 		43DC0A22280702A7005B9BBA /* ProfileImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43DC0A21280702A7005B9BBA /* ProfileImagePicker.swift */; };
+		43EC2C902807CFF6000C4297 /* NewTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43EC2C8F2807CFF6000C4297 /* NewTodoView.swift */; };
 		70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D39280421FA0000FB11 /* CommonDetailView.swift */; };
 		70F15D3C28044ED20000FB11 /* CommonLastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3B28044ED20000FB11 /* CommonLastView.swift */; };
 		70F15D3E2806FC970000FB11 /* EZPZStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F15D3D2806FC970000FB11 /* EZPZStartView.swift */; };
@@ -62,6 +63,7 @@
 		4371B0E5280423D500E23268 /* ChallengeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChallengeCardView.swift; path = EZPZ_ZZIN/ChallengeCardView.swift; sourceTree = SOURCE_ROOT; };
 		43C97D632805518E007F34AD /* ChallengeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeSelectionView.swift; sourceTree = "<group>"; };
 		43DC0A21280702A7005B9BBA /* ProfileImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImagePicker.swift; sourceTree = "<group>"; };
+		43EC2C8F2807CFF6000C4297 /* NewTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTodoView.swift; sourceTree = "<group>"; };
 		70F15D39280421FA0000FB11 /* CommonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonDetailView.swift; sourceTree = "<group>"; };
 		70F15D3B28044ED20000FB11 /* CommonLastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLastView.swift; sourceTree = "<group>"; };
 		70F15D3D2806FC970000FB11 /* EZPZStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EZPZStartView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 			children = (
 				D50921DB2804158B0061ED4A /* ChallengecompleteView.swift */,
 				D5D97D4C28072DE20046F9EC /* TodoeditView.swift */,
+				43EC2C8F2807CFF6000C4297 /* NewTodoView.swift */,
 			);
 			path = ChallengeEdit;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				70F15D402807010D0000FB11 /* EZPZManager.swift in Sources */,
 				A88321EA280405A20037CB6F /* TabBarMainView.swift in Sources */,
 				A88321DA280404310037CB6F /* Persistence.swift in Sources */,
+				43EC2C902807CFF6000C4297 /* NewTodoView.swift in Sources */,
 				70F15D3A280421FA0000FB11 /* CommonDetailView.swift in Sources */,
 				4371B0E6280423D500E23268 /* ChallengeCardView.swift in Sources */,
 				4371B0E22804239F00E23268 /* DailyView.swift in Sources */,

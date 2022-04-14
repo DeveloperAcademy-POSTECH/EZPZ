@@ -11,18 +11,51 @@ import Foundation
 
 struct ChallengeWelcomeView: View {
     
-    @Binding var userName: String
-    @Binding var todoCount: Int
+    @Environment(\.managedObjectContext) private var viewContext
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \UserEntity.timestamp, ascending: true)])
+    private var user: FetchedResults<UserEntity>
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \TodoEntity.timestamp, ascending: true)])
+    private var todos: FetchedResults<TodoEntity>
+    
+    private func getUsername() -> String {
+        // 유저 이름이 설정되지 않았을 때의 기본 값
+        let defaultUsername: String = "린다"
+        
+        if user.isEmpty {
+            return defaultUsername
+        } else {
+            return user[0].name ?? defaultUsername
+        }
+    }
+    
+    private func getTodaysTodo() -> [TodoEntity] {
+        var result = [TodoEntity]()
+        let cal = Calendar(identifier: .gregorian)
+        let now = Date()
+        let comps = cal.dateComponents([.weekday], from: now)
+        let position = (comps.weekday! + 5) % 7
+        let mask: Int64 = Int64(1 << position)
+        for todoEntity in todos {
+            if (todoEntity.mask & mask) != 0 {
+                result.append(todoEntity)
+            }
+        }
+        return result
+    }
+    
+    private func countTodaysTodo() -> Int {
+        let array = getTodaysTodo()
+        return array.count
+    }
     
     var body: some View {
-        
-        let userWelcomeString = "\(userName)님, 안녕하세요"
-        let welcomeString = partialColorString(allString: userWelcomeString, allStringColor: .white, partialString: userName, partialStringColor: Color("ezpzLime"))
         
         VStack {
             Spacer(minLength: 90)
             VStack(alignment: .leading, spacing: 10){
-                Text(welcomeString).padding([.leading,.trailing])
+                Text(partialColorString(allString: "\(getUsername())님, 안녕하세요", allStringColor: .white, partialString: getUsername(), partialStringColor: Color("ezpzLime"))).padding([.leading,.trailing])
                     .padding(.bottom, 12)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
             }.frame(maxWidth: .infinity, alignment: .leading)
@@ -30,20 +63,17 @@ struct ChallengeWelcomeView: View {
             
             
             ZStack{
-                
                 Rectangle()
                     .cornerRadius(10)
                     .frame(width: 370 , height: 40)
                     .foregroundColor(ColorManage.ezpzDarkgrey)
                 
-                
                 VStack{
                     // 여기 패딩 넣으면... 왜 카드의 셀 크기가... 움직일까요...
-                    Text("      오늘 할 일이 \(todoCount)개나 있어요!")
+                    Text("      오늘 할 일이 \(countTodaysTodo())개 있어요!")
                         .frame(width: 370, alignment: .leading)
                         .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                         .foregroundColor(.white)
-                    
                 }
                 
             }
@@ -90,7 +120,7 @@ struct MyChallenges: View {
                     if !isDPlus(endDate: item.end) {
                         
                         // TODO: - 각 도전별 도전 디테일 뷰로 연결 필요
-                        NavigationLink(destination: ChallengedetailView()) {
+                        NavigationLink(destination: ChallengedetailView(challengeEntity: item)) {
                             ChallengeCardView(challengeEntity: item)
                                 .padding(.top, 5)
                         }
@@ -152,13 +182,6 @@ struct MyChallenges: View {
 
 struct ChallengeListView: View {
     
-    
-    // TODO : - 유저 이름 바인딩 필요
-    @State var userName: String = "기본이름"
-    // TODO : - 오늘 해야하는 투두의 개수 바인딩 필요
-    @State var todoCount: Int = 3
-    
-    
     var body: some View {
         
         NavigationView {
@@ -170,7 +193,7 @@ struct ChallengeListView: View {
                 ScrollView{
                     
                     VStack{
-                        ChallengeWelcomeView(userName: $userName, todoCount: $todoCount)
+                        ChallengeWelcomeView()
                         MyChallenges()
                         
                     } // VStack
