@@ -15,6 +15,9 @@ struct RoutineView: View {
     @State var fifthCheck = false
     @State var sixthCheck = false
     @State var checkBool = false
+    @State var array: [Bool] = Array(repeating: false, count: 30)
+    // [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, ]
+    @State var dayArray = ["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", ]
     @State var isPresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
@@ -36,7 +39,7 @@ struct RoutineView: View {
                             .padding(.leading, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                         Spacer()
-                        Text("2022년 3월")
+                        Text("2022년 4월")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                         Spacer()
@@ -45,25 +48,51 @@ struct RoutineView: View {
                             .padding(.trailing, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                     }.frame(height: 45)
+                    }
                     HStack{
                         ScrollView(.horizontal, showsIndicators: false) {
                             HStack {
-                                ForEach(1..<30) { i in
+
+                                ForEach(0..<30) { i in
+                                    Button(action: {
+                                    array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+                                        array[i].toggle()
+                                    }) {
                                     ZStack{
+                                        if array[i]{
                                         RoundedRectangle(cornerRadius: 10.0)
-                                            .fill(ColorManage.ezpzDeepgrey)
+                                                .fill(Color.black)
                                             .frame(width: 50, height: 70)
+                                        }else{
+                                            RoundedRectangle(cornerRadius: 10.0)
+                                                .fill(ColorManage.ezpzDeepgrey)
+                                                .frame(width: 50, height: 70)
+                                        }
                                         VStack{
-                                            Text("월")
+                                            if array[i]{
+                                            Text("\(dayArray[i+4])")
                                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
-                                                .foregroundColor(ColorManage.ezpzDisable)
+                                                .foregroundColor(ColorManage.ezpzPink)
                                                 .padding(.bottom, 4).padding(.top,3)
-                                            Text("\(i)")
+                                            }else{
+                                                Text("\(dayArray[i+4])")
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
+                                                    .foregroundColor(ColorManage.ezpzDisable)
+                                                    .padding(.bottom, 4).padding(.top,3)
+                                            }
+                                            if array[i]{
+                                            Text("\(i+1)")
                                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                                .foregroundColor(ColorManage.ezpzDisable)
+                                                .foregroundColor(ColorManage.ezpzPink)
+                                            }else{
+                                                Text("\(i+1)")
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                                    .foregroundColor(ColorManage.ezpzDisable)
+                                            }
                                         }
                                     }
                                     .foregroundColor(ColorManage.ezpzLightgrey)
+                                    }
                                 }
                             }
                         }
@@ -150,7 +179,6 @@ struct RoutineView: View {
                 ChallengeSelectionView()
             }
         }
-    }
     func getJournals(challengeEntity: ChallengeEntity) -> [JournalEntity] {
         guard let set = challengeEntity.toJournal as? Set<JournalEntity> else {
             return []
