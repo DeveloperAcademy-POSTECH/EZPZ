@@ -23,7 +23,8 @@ struct CommonStartChallengeView: View {
     var partialString = "새로운 도전"
     
     let isTemplateRecommended: Bool
-    let todoStrings: [String] = []
+    @Binding var templateType: Int
+    @Binding var templateIndex: Int
     
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
@@ -113,13 +114,46 @@ struct CommonStartChallengeView: View {
         
         // 템플릿을 추천받은 경우 Todo 추가
         if isTemplateRecommended {
-            for label in todoStrings {
-                let newTodo: TodoEntity = TodoEntity(context: viewContext)
-                newTodo.timestamp = Date()
-                newTodo.isChecked = false
-                newTodo.mask = (1 << 7) - 1
-                newTodo.label = label
-                newTodo.toChallenge = newChallenge
+            if templateType == 0 {
+                let labels: [String] = A[templateIndex].todoRows
+                for label in labels {
+                    let newTodo: TodoEntity = TodoEntity(context: viewContext)
+                    newTodo.timestamp = Date()
+                    newTodo.isChecked = false
+                    newTodo.mask = (1 << 7) - 1
+                    newTodo.label = label
+                    newTodo.toChallenge = newChallenge
+                }
+            } else if templateType == 1 {
+                let labels: [String] = B[templateIndex].todoRows
+                for label in labels {
+                    let newTodo: TodoEntity = TodoEntity(context: viewContext)
+                    newTodo.timestamp = Date()
+                    newTodo.isChecked = false
+                    newTodo.mask = (1 << 7) - 1
+                    newTodo.label = label
+                    newTodo.toChallenge = newChallenge
+                }
+            } else if templateType == 2 {
+                let labels: [String] = C[templateIndex].todoRows
+                for label in labels {
+                    let newTodo: TodoEntity = TodoEntity(context: viewContext)
+                    newTodo.timestamp = Date()
+                    newTodo.isChecked = false
+                    newTodo.mask = (1 << 7) - 1
+                    newTodo.label = label
+                    newTodo.toChallenge = newChallenge
+                }
+            } else if templateType == 3 {
+                let labels: [String] = D[templateIndex].todoRows
+                for label in labels {
+                    let newTodo: TodoEntity = TodoEntity(context: viewContext)
+                    newTodo.timestamp = Date()
+                    newTodo.isChecked = false
+                    newTodo.mask = (1 << 7) - 1
+                    newTodo.label = label
+                    newTodo.toChallenge = newChallenge
+                }
             }
         }
         

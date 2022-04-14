@@ -27,6 +27,8 @@ struct OnBoardingView: View {
     @State var challengeIcon = ""
     @State var isTemplateRecommended: Bool = false
     @State var accumulativeSum: Int = 0
+    @State var templateType: Int = 0
+    @State var templateIndex: Int = 0
     
     var body: some View {
         let gagtePage = Double(selectedPage * 10)
@@ -60,12 +62,12 @@ struct OnBoardingView: View {
                         CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(6)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(7)
                         
-                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum).tag(8)
+                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum, templateType: $templateType, templateIndex: $templateIndex).tag(8)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(9)
                         
                         
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(10)
-                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(11)
+                        CommonStartChallengeView(userName: $userName, challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended, templateType: $templateType, templateIndex: $templateIndex).tag(11)
                     }
                     .gesture(DragGesture())
                 }

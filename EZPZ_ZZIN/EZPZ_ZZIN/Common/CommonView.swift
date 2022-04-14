@@ -16,6 +16,8 @@ struct CommonView: View {
     @State var toDayDate = Date()
     @State var isTemplateRecommended: Bool = false
     @State var accumulativeSum: Int = 0
+    @State var templateType: Int = 0
+    @State var templateIndex: Int = 0
 
     // CoreData 관련 코드
     @Environment(\.managedObjectContext) private var viewContext
@@ -42,11 +44,11 @@ struct CommonView: View {
                         CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(3)
                         CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(4)
                         
-                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum).tag(5)
+                        CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage, accumulativeSum: $accumulativeSum, templateType: $templateType, templateIndex: $templateIndex).tag(5)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(6)
                         
                         CommonUserChallengeDateView(startDate: $startDate, endDate: $endDate, pageNum: $selectedPage, toDayDate: $toDayDate).tag(7)
-                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended).tag(8)
+                        CommonStartChallengeView(userName: .constant(getUsername()), challenge: $challenge, startDate: $startDate, endDate:  $endDate,challengeIcon: $challengeIcon, isTemplateRecommended: isTemplateRecommended, templateType: $templateType, templateIndex: $templateIndex).tag(8)
                     }
                     .gesture(DragGesture())
                 }
