@@ -17,7 +17,7 @@ struct RoutineView: View {
     @State var sixthCheck = false
     @State var checkBool = false
     @State var monthState = 3
-    @State var array: [Bool] = Array(repeating: false, count: 30)
+    @State var array: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     @State var dayState = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3]
     @State var dayArray = ["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일"]
     @State var monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
@@ -92,8 +92,9 @@ struct RoutineView: View {
                     HStack{
                         Button(action: {
                             monthState = monthState - 1
+                            array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
                         }) {
-                            Image(systemName: "chevron.backward")
+                            Text("<")
                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                 .padding(.leading, 17.0)
                                 .foregroundColor(ColorManage.ezpzLightgrey)
@@ -105,8 +106,9 @@ struct RoutineView: View {
                         Spacer()
                         Button(action: {
                             monthState = monthState + 1
+                            array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
                         }) {
-                            Image(systemName: "chevron.forward")
+                            Text(">")
                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                 .padding(.trailing, 17.0)
                                 .foregroundColor(ColorManage.ezpzLightgrey)
