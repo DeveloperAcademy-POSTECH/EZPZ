@@ -114,6 +114,7 @@ struct TodoeditView: View {
                 
                 Divider()
                     .padding([.leading, .trailing], 17)
+                    .padding(.bottom, 25)
                 ZStack{
                     RoundedRectangle(cornerRadius: 10.0)
                         .fill(ColorManage.ezpzDeepgrey)
@@ -143,7 +144,7 @@ struct TodoeditView: View {
                             }
                         }
                     }
-                }.padding(.bottom, 20)
+                }.padding(.bottom, 40)
                 Group{
                     HStack{
                         Text("일정")
