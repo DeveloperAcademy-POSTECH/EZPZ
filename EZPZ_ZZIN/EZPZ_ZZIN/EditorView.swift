@@ -95,10 +95,10 @@ struct EditorView: View {
     @State private var isShowingPhotoPicker = false
     @State private var text: String
     
-    init(item: JournalEntity) {
+    init(item: JournalEntity, text: String) {
         
         self.item = item
-        text = item.text ?? "돌아보기를 작성해주세요"
+        self.text = text
         
         // TextEditor의 배경을 투명하게 만들어준다.
         UITextView.appearance().backgroundColor = .clear

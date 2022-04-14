@@ -135,48 +135,52 @@ struct RoutineView: View {
                 Spacer()
             }
             }
-            .sheetResize(
-                isPresented: $isPresented,
-                detents: [.medium(),.large()]
-            ) {
-            } content: {
-                ZStack {
-                    Color("ezpzBlack")
-                        .edgesIgnoringSafeArea(.all)
-                    VStack{
-                    ScrollView {
-                        HStack {
-                            Text("작성할 도전을 선택해주세요!")
-                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                .foregroundColor(Color("ezpzLightgrey"))
-                                .padding(.leading, 10)
-                            Spacer()
-                        }
-                        .padding(.top, 20)
-                        CustomDividerView()
-                        ForEach(items) { challengeEntity in
-                            HStack {
-                                Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .foregroundColor(Color("ezpzLime"))
-                                    .padding(.leading, 15)
-                                    .padding([.top, .bottom], 6)
-                                Spacer()
-                            }
-                            .onTapGesture {
-                                sharedChallengeEntity = challengeEntity
-                            }
-                            CustomDividerView()
-                        }
-                        .sheet(item: $sharedChallengeEntity) {
-                            EditorView(item: getTodaysJournalEntity(challengeEntity: $0))
-                                .padding(.top, 20)
-                        }
-                    }
-                }
-                }
-                
+            .sheet(isPresented: $isPresented) {
+                ChallengeSelectionView()
             }
+//            .sheetResize(
+//                isPresented: $isPresented,
+//                detents: [.medium(),.large()]
+//            ) {
+//            } content: {
+//                ZStack {
+//                    Color("ezpzBlack")
+//                        .edgesIgnoringSafeArea(.all)
+//                    VStack{
+//                    ScrollView {
+//                        HStack {
+//                            Text("작성할 도전을 선택해주세요!")
+//                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+//                                .foregroundColor(Color("ezpzLightgrey"))
+//                                .padding(.leading, 10)
+//                            Spacer()
+//                        }
+//                        .padding(.top, 20)
+//                        CustomDividerView()
+//                        ForEach(items) { challengeEntity in
+//                            HStack {
+//                                Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
+//                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+//                                    .foregroundColor(Color("ezpzLime"))
+//                                    .padding(.leading, 15)
+//                                    .padding([.top, .bottom], 6)
+//                                Spacer()
+//                            }
+//                            .onTapGesture {
+//                                sharedChallengeEntity = challengeEntity
+//                            }
+//                            CustomDividerView()
+//                        }
+//                        .sheet(item: $sharedChallengeEntity) {
+//                            let journalEntity: JournalEntity = getTodaysJournalEntity(challengeEntity: $0)
+//                            EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")
+//                                .padding(.top, 20)
+//                        }
+//                    }
+//                }
+//                }
+//
+//            }
         }
     }
     func getJournals(challengeEntity: ChallengeEntity) -> [JournalEntity] {

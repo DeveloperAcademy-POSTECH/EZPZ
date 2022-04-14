@@ -56,7 +56,8 @@ struct ChallengeSelectionView: View {
                     CustomDividerView()
                 }
                 .sheet(item: $sharedChallengeEntity) {
-                    EditorView(item: getTodaysJournalEntity(challengeEntity: $0))
+                    let journalEntity: JournalEntity = getTodaysJournalEntity(challengeEntity: $0)
+                    EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")
                         .padding(.top, 20)
                 }
             }

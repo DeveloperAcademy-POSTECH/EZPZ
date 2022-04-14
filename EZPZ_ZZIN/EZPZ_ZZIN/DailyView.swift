@@ -67,7 +67,7 @@ struct DailyView: View {
                         }
                     }
                     ForEach(getJournals()) { journalEntity in
-                        NavigationLink(destination: EditorView(item: journalEntity)) {
+                        NavigationLink(destination: EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")) {
                             CardView(journalEntity: journalEntity)
                                 .padding(.horizontal, 10)
                         }
