@@ -155,8 +155,14 @@ struct CommonTendencynBtn: View{
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
     
+    
+    let customAction: () -> ()
+    
     var body : some View {
         Button(action: {
+            
+            customAction()
+            
             // 페이지가 다음으로 넘어가야함
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
@@ -198,9 +204,14 @@ struct CommonTendencynBtn2: View{
     @Binding var challengeIcon : String
     @Binding var isTemplateRecommended: Bool
     
+    let customAction: () -> ()
+    
     var body : some View {
         Button(action: {
             // 페이지가 다음으로 넘어가야함
+            
+            customAction()
+            
             textcolor = [Color("ezpzGradientPink"),Color("ezpzGradientLime")]
             overLineWidth = 3.0
             challengeIcon = iCon

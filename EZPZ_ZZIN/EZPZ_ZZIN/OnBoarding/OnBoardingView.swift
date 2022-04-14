@@ -26,6 +26,7 @@ struct OnBoardingView: View {
     @State var selectedPage = 1
     @State var challengeIcon = ""
     @State var isTemplateRecommended: Bool = false
+    @State var accumulativeSum: Int = 0
     
     var body: some View {
         let gagtePage = Double(selectedPage * 10)
@@ -54,10 +55,10 @@ struct OnBoardingView: View {
 
                     //온보딩과 아닌것으로 분할
                     Group{
-                        CommonTendencyView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(4)
-                        CommonUserGroupView(name: userName ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(5)
-                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended).tag(6)
-                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended).tag(7)
+                        CommonTendencyView(name: $userName ,pageNum: $selectedPage, challengeIcon: .constant(""), accumulativeSum: $accumulativeSum).tag(4)
+                        CommonUserGroupView(name: userName ,pageNum: $selectedPage, challengeIcon: .constant(""), accumulativeSum: $accumulativeSum).tag(5)
+                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(6)
+                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(7)
                         
                         CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(8)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(9)

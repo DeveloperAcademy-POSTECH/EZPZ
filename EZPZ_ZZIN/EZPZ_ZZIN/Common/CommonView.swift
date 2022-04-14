@@ -15,6 +15,7 @@ struct CommonView: View {
     @State var endDate = Date()
     @State var toDayDate = Date()
     @State var isTemplateRecommended: Bool = false
+    @State var accumulativeSum: Int = 0
 
     // CoreData 관련 코드
     @Environment(\.managedObjectContext) private var viewContext
@@ -36,10 +37,10 @@ struct CommonView: View {
                 
                 TabView(selection: $selectedPage) {
                     Group{
-                        CommonTendencyView(name:.constant(getUsername()),pageNum: $selectedPage, challengeIcon: .constant("")).tag(1)
-                        CommonUserGroupView(name: getUsername() ,pageNum: $selectedPage, challengeIcon: .constant("")).tag(2)
-                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended).tag(3)
-                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended).tag(4)
+                        CommonTendencyView(name:.constant(getUsername()),pageNum: $selectedPage, challengeIcon: .constant(""), accumulativeSum: $accumulativeSum).tag(1)
+                        CommonUserGroupView(name: getUsername() ,pageNum: $selectedPage, challengeIcon: .constant(""), accumulativeSum: $accumulativeSum).tag(2)
+                        CommonWantChallenge(pageNum: $selectedPage, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(3)
+                        CommonUserFieldView(pageNum: $selectedPage, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended, accumulativeSum: $accumulativeSum).tag(4)
                         
                         CommonChallengeTemplateView(challenge: $challenge, pageNum: $selectedPage).tag(5)
                         CommonUserChallengeView(challenge: $challenge, pageNum: $selectedPage).tag(6)

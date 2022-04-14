@@ -11,6 +11,7 @@ struct CommonTendencyView: View {
     @Binding var name: String
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
+    @Binding var accumulativeSum: Int
     var body: some View {
         
         let allString = "\(name)님의\n성향을 알려주세요"
@@ -36,22 +37,34 @@ struct CommonTendencyView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum, challengeIcon: $challengeIcon)
-                            .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 0
+                        }
+                            .padding(.trailing, 2)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 2
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움",pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 4
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단",pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 8
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 10
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 12
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
@@ -70,9 +83,12 @@ struct CommonTendencyView: View {
 
 
 struct CommonUserGroupView: View {
+    
     let name: String
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
+    @Binding var accumulativeSum: Int
+    
     var body: some View {
         
         let allString = "\(name)님은\n어디에 속하시나요?"
@@ -99,22 +115,34 @@ struct CommonUserGroupView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 0
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 1
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인",  pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인",  pageNum: $pageNum, challengeIcon: $challengeIcon)  {
+                            accumulativeSum += 2
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생",  pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 3
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서",  pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 4
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",  pageNum: $pageNum, challengeIcon: $challengeIcon)
+                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                            accumulativeSum += 5
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
@@ -139,6 +167,7 @@ struct CommonWantChallenge: View {
     var partialString = "하고 싶은 도전"
     @Binding var pageNum : Int
     @Binding var isTemplateRecommended: Bool
+    @Binding var accumulativeSum: Int
     
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
@@ -154,11 +183,13 @@ struct CommonWantChallenge: View {
             Spacer()
             OnBoardingMainButtonWithCustomAction(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum) {
                 print("네, 하고 싶은 도전이 있어요!")
+                accumulativeSum += 3
                 isTemplateRecommended = false
             }
             .padding(.bottom,2)
             OnBoardingMainButtonWithCustomAction(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum, customAction: {
                 print("아니요! 추천받을래요.")
+                accumulativeSum += 0
                 isTemplateRecommended = true
             })
                 .padding(.bottom,UIScreen.main.bounds.height / 10)
@@ -175,9 +206,11 @@ struct CommonWantChallenge: View {
 
 
 struct CommonUserFieldView: View {
+    
     @Binding var pageNum : Int
     @Binding var challengeIcon : String
     @Binding var isTemplateRecommended: Bool
+    @Binding var accumulativeSum: Int
 
     var body: some View {
         
@@ -203,20 +236,30 @@ struct CommonUserFieldView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn2(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
+                        CommonTendencynBtn2(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                            accumulativeSum += 0
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn2(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
+                        CommonTendencynBtn2(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                            accumulativeSum += 1
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn2(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
+                        CommonTendencynBtn2(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                            accumulativeSum += 2
+                        }
                             .padding(.trailing,2)
-                        CommonTendencynBtn2(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
+                        CommonTendencynBtn2(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                            accumulativeSum += 3
+                        }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn2(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended)
+                        CommonTendencynBtn2(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                            accumulativeSum += 4
+                        }
                             .padding(.trailing,UIScreen.main.bounds.width / 2 + 2)
                         
                         
