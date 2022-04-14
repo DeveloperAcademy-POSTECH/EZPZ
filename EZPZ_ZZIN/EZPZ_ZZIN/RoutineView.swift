@@ -22,6 +22,7 @@ struct RoutineView: View {
     @State private var sharedChallengeEntity: ChallengeEntity? = nil
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
+    
     var body: some View {
         ZStack{
             ColorManage.ezpzBlack
@@ -30,8 +31,18 @@ struct RoutineView: View {
             ScrollView() {
                 VStack{
                     HStack{
+                        Image(systemName: "lessthan")
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .padding(.leading, 17.0)
+                            .foregroundColor(ColorManage.ezpzLightgrey)
+                        Spacer()
                         Text("2022년 3월")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .foregroundColor(ColorManage.ezpzLightgrey)
+                        Spacer()
+                        Image(systemName: "greaterthan")
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                            .padding(.trailing, 17.0)
                             .foregroundColor(ColorManage.ezpzLightgrey)
                     }.frame(height: 45)
                     HStack{
