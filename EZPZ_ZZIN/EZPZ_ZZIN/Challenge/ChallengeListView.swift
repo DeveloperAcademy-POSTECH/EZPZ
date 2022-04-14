@@ -24,9 +24,9 @@ struct ChallengeWelcomeView: View {
             VStack(alignment: .leading, spacing: 10){
                 Text(welcomeString).padding([.leading,.trailing])
                     .padding(.bottom, 12)
-                .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
             }.frame(maxWidth: .infinity, alignment: .leading)
-
+            
             
             
             ZStack{
@@ -35,7 +35,7 @@ struct ChallengeWelcomeView: View {
                     .cornerRadius(10)
                     .frame(width: 370 , height: 40)
                     .foregroundColor(ColorManage.ezpzDarkgrey)
-            
+                
                 
                 VStack{
                     // 여기 패딩 넣으면... 왜 카드의 셀 크기가... 움직일까요...
@@ -47,7 +47,7 @@ struct ChallengeWelcomeView: View {
                 }
                 
             }
-
+            
         }.padding(.bottom, 24)
     }
 }
@@ -55,7 +55,7 @@ struct ChallengeWelcomeView: View {
 struct MyChallenges: View {
     
     @Binding var challengeCount: Int
-
+    
     // from Journal Tab
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
@@ -66,9 +66,9 @@ struct MyChallenges: View {
     // TODO: - Maximum 값 지정 필요
     @State private var maximumChallengesCount: Int = 5
     @State private var tooManyChallenges = false
-
+    
     var body: some View {
-            
+        
         VStack{
             VStack(alignment: .leading, spacing: 10){
                 Text("내 도전")
@@ -80,10 +80,10 @@ struct MyChallenges: View {
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .padding(.leading, 17)
-                    Spacer()
-            
+                Spacer()
+                
             }.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-        
+            
             
         }
         
@@ -103,6 +103,20 @@ struct MyChallenges: View {
                 }
             }
             
+            
+            NavigationLink(destination:  CommonView()) {
+                Text(" +    새로운 도전 추가하기 (최대 4개)")
+                    .padding(.leading, 20)
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                    .frame(width: 370, height: 40, alignment: .leading)
+                    .foregroundColor(ColorManage.ezpzDisable)
+                    .background(ColorManage.ezpzDeepgrey)
+                    .cornerRadius(10)
+            } .navigationBarHidden(true)
+                .navigationBarTitle("",displayMode: .inline)
+            
+            
+            
             // 도전 추가 버튼
             // TODO: - 도전 추가 뷰로 연결 필요
             Button(action: {
@@ -113,16 +127,16 @@ struct MyChallenges: View {
                         tooManyChallenges = true
                     }
                 }
-                }){
-                    Text(" +    새로운 도전 추가하기 (최대 4개)")
+            }){
+                Text(" +    새로운 도전 추가하기 (최대 4개)")
                     .padding(.leading, 20)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                     .frame(width: 370, height: 40, alignment: .leading)
                     .foregroundColor(ColorManage.ezpzDisable)
                     .background(ColorManage.ezpzDeepgrey)
                     .cornerRadius(10)
-                }
-            }.padding(.horizontal, 10)
+            }
+        }.padding(.horizontal, 10)
             .alert(isPresented: $tooManyChallenges){
                 Alert(
                     title: Text("도전이 많이 남아 있어요...!")
@@ -150,25 +164,26 @@ struct ChallengeListView: View {
     // TODO : - 도전 개수 바인딩 필요 (items.count나 forEach로 카운팅을 해주려고 했는데 잘 안되네요ㅜㅜ)
     @State var challengeCount: Int = 1
     
-        
+    
     var body: some View {
-        
-        ZStack{
-            
-            ColorManage.ezpzBlack
-                .ignoresSafeArea()
-            
-            ScrollView{
+        NavigationView {
+            ZStack{
                 
-                VStack{
-                    ChallengeWelcomeView(userName: $userName, todoCount: $todoCount)
-                    MyChallenges(challengeCount: $challengeCount)
-
-                } // VStack
-            } // ScrollView
-            
-        } // ZStack
+                ColorManage.ezpzBlack
+                    .ignoresSafeArea()
+                
+                ScrollView{
+                    
+                    VStack{
+                        ChallengeWelcomeView(userName: $userName, todoCount: $todoCount)
+                        MyChallenges(challengeCount: $challengeCount)
+                        
+                    } // VStack
+                } // ScrollView
+                
+            } // ZStack
+        }
         
     }
 }
-            
+
