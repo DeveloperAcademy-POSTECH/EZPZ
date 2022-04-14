@@ -90,9 +90,6 @@ struct MyChallenges: View {
     private var items: FetchedResults<ChallengeEntity>
     
     // Alert
-    @State private var nowChallengesCount: Int = 0
-    // TODO: - Maximum 값 지정 필요
-    @State private var maximumChallengesCount: Int = 5
     @State private var tooManyChallenges = false
     @State private var isShowingNewChallengeView: Bool = false
     
@@ -118,8 +115,6 @@ struct MyChallenges: View {
                 ForEach(items) { item in
                     
                     if !isDPlus(endDate: item.end) {
-                        
-                        // TODO: - 각 도전별 도전 디테일 뷰로 연결 필요
                         NavigationLink(destination: ChallengedetailView(challengeEntity: item)) {
                             ChallengeCardView(challengeEntity: item)
                                 .padding(.top, 5)
@@ -141,14 +136,16 @@ struct MyChallenges: View {
                 // 도전 추가 버튼
                 
                 Button(action: {
-                    if (!tooManyChallenges) {
-                        isShowingNewChallengeView = true
-                        
-                        // TODO: CoreData Work
-                        nowChallengesCount += 1
-                        if (nowChallengesCount == maximumChallengesCount) {
-                            tooManyChallenges = true
+                    var count: Int = 0 // 지금 하고 있는 도전의 개수
+                    for challengeEntity in items {
+                        if !isDPlus(endDate: challengeEntity.end ?? Date()) {
+                            count += 1
                         }
+                    }
+                    if (count < 5) {
+                        isShowingNewChallengeView = true
+                    } else {
+                        tooManyChallenges = true
                     }
                 }){
                     Text(" +    새로운 도전 추가하기 (최대 5개)")
