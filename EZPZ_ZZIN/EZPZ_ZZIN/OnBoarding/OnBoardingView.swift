@@ -32,7 +32,7 @@ struct OnBoardingView: View {
     @State var templateIndex: Int = 0
     
     var body: some View {
-        let gagtePage = Double(selectedPage * 10)
+        let gagtePage = Double(selectedPage * 9)
         ZStack{
             
             ColorManage.ezpzBlack

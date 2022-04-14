@@ -31,7 +31,7 @@ struct CommonView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
 
     var body: some View {
-        let gagtePage = Double(selectedPage * 15)
+        let gagtePage = Double(selectedPage * 13)
         ZStack{
             
             ColorManage.ezpzBlack
