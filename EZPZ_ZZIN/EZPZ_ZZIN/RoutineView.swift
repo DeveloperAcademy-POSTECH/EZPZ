@@ -218,7 +218,7 @@ struct RoutineView: View {
                             
                         }
                     }
-                    .padding(.bottom, 40)
+                    .padding(.bottom, 30)
                 }
             }
         }
