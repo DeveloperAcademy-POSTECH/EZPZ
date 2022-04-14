@@ -45,7 +45,43 @@ struct RoutineView: View {
         }
         return count
     }
-
+    
+    private func countTodaysChekcedTodos() -> Int {
+        var count: Int = 0
+        let cal = Calendar(identifier: .gregorian)
+        let now = Date()
+        let comps = cal.dateComponents([.weekday], from: now)
+        let position = (comps.weekday! + 5) % 7
+        let mask: Int64 = Int64(1 << position)
+        for todoEntity in todoEntityFetchedResults {
+            if (todoEntity.mask & mask) != 0 && todoEntity.isChecked {
+                count += 1
+            }
+        }
+        return count
+    }
+    
+    private func getTodaysTodo(challengeEntity: ChallengeEntity) -> [TodoEntity] {
+        guard let set = challengeEntity.toTodo as? Set<TodoEntity> else {
+            return []
+        }
+        let sortedArray = set.sorted {
+            $0.timestamp! < $1.timestamp!
+        }
+        var result = [TodoEntity]()
+        let cal = Calendar(identifier: .gregorian)
+        let now = Date()
+        let comps = cal.dateComponents([.weekday], from: now)
+        let position = (comps.weekday! + 5) % 7
+        let mask: Int64 = Int64(1 << position)
+        for todoEntity in sortedArray {
+            if (todoEntity.mask & mask) != 0 {
+                result.append(todoEntity)
+            }
+        }
+        return result
+    }
+    
     var body: some View {
         ZStack{
             ColorManage.ezpzBlack
@@ -57,10 +93,10 @@ struct RoutineView: View {
                         Button(action: {
                             monthState = monthState - 1
                         }) {
-                        Image(systemName: "chevron.backward")
-                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                            .padding(.leading, 17.0)
-                            .foregroundColor(ColorManage.ezpzLightgrey)
+                            Image(systemName: "chevron.backward")
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                                .padding(.leading, 17.0)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
                         }
                         Spacer()
                         Text("2022년 \(monthArray[monthState])월")
@@ -70,27 +106,27 @@ struct RoutineView: View {
                         Button(action: {
                             monthState = monthState + 1
                         }) {
-                        Image(systemName: "chevron.forward")
-                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
-                            .padding(.trailing, 17.0)
-                            .foregroundColor(ColorManage.ezpzLightgrey)
+                            Image(systemName: "chevron.forward")
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
+                                .padding(.trailing, 17.0)
+                                .foregroundColor(ColorManage.ezpzLightgrey)
                         }
                     }.frame(height: 45)
-                    }
-                    HStack{
-                        ScrollView(.horizontal, showsIndicators: false) {
-                            HStack {
-
-                                ForEach(0..<30) { i in
-                                    Button(action: {
+                }
+                HStack{
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack {
+                            
+                            ForEach(0..<30) { i in
+                                Button(action: {
                                     array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
-                                        array[i].toggle()
-                                    }) {
+                                    array[i].toggle()
+                                }) {
                                     ZStack{
                                         if array[i]{
-                                        RoundedRectangle(cornerRadius: 10.0)
+                                            RoundedRectangle(cornerRadius: 10.0)
                                                 .fill(Color.black)
-                                            .frame(width: 50, height: 70)
+                                                .frame(width: 50, height: 70)
                                         }else{
                                             RoundedRectangle(cornerRadius: 10.0)
                                                 .fill(ColorManage.ezpzDeepgrey)
@@ -98,10 +134,10 @@ struct RoutineView: View {
                                         }
                                         VStack{
                                             if array[i]{
-                                            Text("\(dayArray[i+dayState[monthState]])")
-                                                .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
-                                                .foregroundColor(ColorManage.ezpzPink)
-                                                .padding(.bottom, 4).padding(.top,3)
+                                                Text("\(dayArray[i+dayState[monthState]])")
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
+                                                    .foregroundColor(ColorManage.ezpzPink)
+                                                    .padding(.bottom, 4).padding(.top,3)
                                             }else{
                                                 Text("\(dayArray[i+dayState[monthState]])")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
@@ -109,9 +145,9 @@ struct RoutineView: View {
                                                     .padding(.bottom, 4).padding(.top,3)
                                             }
                                             if array[i]{
-                                            Text("\(i+1)")
-                                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                                .foregroundColor(ColorManage.ezpzPink)
+                                                Text("\(i+1)")
+                                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                                    .foregroundColor(ColorManage.ezpzPink)
                                             }else{
                                                 Text("\(i+1)")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
@@ -120,93 +156,74 @@ struct RoutineView: View {
                                         }
                                     }
                                     .foregroundColor(ColorManage.ezpzLightgrey)
-                                    }
                                 }
                             }
                         }
                     }
-                    VStack{
-                        Group{
-                            HStack{
-                                Text("오늘 할 일")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
-                                    .foregroundColor(ColorManage.ezpzLightgrey)
-                                    .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)
-                                Spacer()
-                            }
-                            HStack{
-                                Text("오늘 할 일이 \(countTodaysTodos())개 있어요!")
-                                    .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
-                                    .foregroundColor(ColorManage.ezpzLightgrey)
-                                    .padding(.leading, 17)
-                                Spacer()
-                            }
+                }
+                VStack{
+                    Group{
+                        HStack{
+                            Text("오늘 할 일")
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                                .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)
+                            Spacer()
+                        }
+                        HStack{
+                            Text("오늘 할 일이 \(countTodaysTodos() - countTodaysChekcedTodos())개 있어요!")
+                                .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
+                                .foregroundColor(ColorManage.ezpzLightgrey)
+                                .padding(.leading, 17)
+                            Spacer()
+                        }
+                    }
+                    
+                    if (countTodaysChekcedTodos() > 0) {
+                        Button(action: {
+                            print("오늘 한 일 돌아보기")
+                            isPresented = true
+                        }) {
+                            Text("오늘 한 일 돌아보기")
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                .frame(width: 356 , height: 40)
+                                .foregroundColor(ColorManage.ezpzLime)
+                                .background(ColorManage.ezpzDeepgrey)
+                                .cornerRadius(10)
                         }
                         
-                        if (firstCheck) {
-                            Button(action: {
-                                print("오늘 한 일 돌아보기")
-                                isPresented = true
-                            }) {
-                                Text("오늘 한 일 돌아보기")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .frame(width: 356 , height: 40)
-                                    .foregroundColor(ColorManage.ezpzLime)
-                                    .background(ColorManage.ezpzDeepgrey)
-                                    .cornerRadius(10)
-                            }
-                            
-                        }
-                    }.padding([.top,.bottom], 20)
+                    }
+                }.padding([.top,.bottom], 20)
+                
+                ForEach(items) { challengeEntity in
                     VStack{
-                        Group{
-                            HStack{
-                                Text("🚴‍♀️ 100일 동안 5kg 빼기")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .foregroundColor(ColorManage.ezpzLime)
-                                    .lineLimit(1).padding(.leading, 17.0)
-                                    .padding(.top, 5).padding(.bottom, 1)
-                                Spacer()
-                            }
+                        HStack{
+                            Text("\(challengeEntity.emoji ?? "") \(challengeEntity.title ?? "")")
+                                .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
+                                .foregroundColor(ColorManage.ezpzLime)
+                                .lineLimit(1).padding(.leading, 17.0)
+                                .padding(.top, 5).padding(.bottom, 1)
+                            Spacer()
+                        }
+                        Divider()
+                            .background(ColorManage.ezpzLightgrey)
+                        ForEach(getTodaysTodo(challengeEntity: challengeEntity)) { todoEntity in
+                            CheckboxField(todoEntity: todoEntity)
+                                .padding(.leading , 17)
+                                .padding([.top, .bottom], 6)
                             Divider()
-                                .background(ColorManage.ezpzLightgrey)
-                            ForEach(1..<4) { i in
-                                CheckboxField(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $firstCheck).padding(.leading , 17).padding([.top, .bottom], 6)
-                                Divider()
-                                    .background(ColorManage.ezpzSmokegrey)
-                                
-                            }
+                                .background(ColorManage.ezpzSmokegrey)
+                            
                         }
                     }
                     .padding(.bottom, 40)
-                    VStack{
-                        Group{
-                            HStack{
-                                Text("⏰ 12시 이후 방해금지 모드 설정하기")
-                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                    .foregroundColor(ColorManage.ezpzLime)
-                                    .lineLimit(1).padding(.leading, 17.0)
-                                    .padding(.top, 5).padding(.bottom, 1)
-                                    .lineLimit(1)
-                                Spacer()
-                            }
-                            Divider()
-                                .background(ColorManage.ezpzLightgrey)
-                            ForEach(1..<8) { i in
-                                CheckboxField(id: "사이클 30분 타기", label: "사이클 30분 타기", isMarked: $secondCheck).padding(.leading , 17).padding([.top, .bottom], 6)
-                                Divider()
-                                    .background(ColorManage.ezpzSmokegrey)
-                                
-                            }                    }
-                    }
-                    
-                    Spacer()
                 }
             }
-            .sheet(isPresented: $isPresented) {
-                ChallengeSelectionView()
-            }
         }
+        .sheet(isPresented: $isPresented) {
+            ChallengeSelectionView()
+        }
+    }
     func getJournals(challengeEntity: ChallengeEntity) -> [JournalEntity] {
         guard let set = challengeEntity.toJournal as? Set<JournalEntity> else {
             return []
@@ -258,37 +275,21 @@ struct RoutineView_Previews: PreviewProvider {
 }
 
 struct CheckboxField: View {
-    let id: String       //변수 타입 선언
-    let label: String
-    let size: CGFloat
-    let color: Color
-    let textSize: Int
     
-    @Binding var isMarked: Bool
+    @Environment(\.managedObjectContext) private var viewContext
+    @ObservedObject var todoEntity: TodoEntity
     
-    init(
-        id: String,
-        label:String,
-        size: CGFloat = 15,
-        color: Color = ColorManage.ezpzPink,
-        textSize: Int = 17,
-        isMarked: Binding<Bool>
-    ) {
-        self.id = id
-        self.label = label
-        self.size = size
-        self.color = color
-        self.textSize = textSize
-        self._isMarked = isMarked
-    }
-    
+    var size: CGFloat = 15
+    var color: Color = Color("ezpzPink")
+    var textSize: Int = 17
     
     var body: some View {
         Button(action:{
-            isMarked.toggle()
+            todoEntity.isChecked.toggle()
+            try? viewContext.save()
         }) {
             HStack(alignment: .center, spacing: 10) {
-                if (isMarked){
+                if (todoEntity.isChecked){
                     Image(systemName: "checkmark.square")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -300,13 +301,13 @@ struct CheckboxField: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 20, height: 20)
                 }
-                if (self.isMarked){
-                    Text(label)
+                if (todoEntity.isChecked){
+                    Text(todoEntity.label ?? "")
                         .font(.custom("SpoqaHanSansNeo-Regular",size: size))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .strikethrough()
                 } else{
-                    Text(label)
+                    Text(todoEntity.label ?? "")
                         .font(.custom("SpoqaHanSansNeo-Regular",size: size))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                 }
