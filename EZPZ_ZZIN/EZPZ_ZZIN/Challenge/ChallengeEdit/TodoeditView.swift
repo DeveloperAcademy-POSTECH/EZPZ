@@ -148,14 +148,14 @@ struct TodoeditView: View {
                 Group{
                     HStack{
                         Text("일정")
-                            .font(.custom("SpoqaHanSansNeo-Bikd",size: 17))
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)
                         Spacer()
                     }.padding(.bottom, 0.1)
                     HStack{
                         Text("반복할 요일을 정해주세요")
-                            .font(.custom("SpoqaHanSansNeo-Bikd",size: 17))
+                            .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)
                         Spacer()

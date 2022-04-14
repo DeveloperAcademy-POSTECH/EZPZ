@@ -138,7 +138,7 @@ struct RoutineView: View {
                                             if array[i]{
                                                 Text("\(dayArray[i+dayState[monthState]])")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
-                                                    .foregroundColor(ColorManage.ezpzPink)
+                                                    .foregroundColor(ColorManage.ezpzLime)
                                                     .padding(.bottom, 4).padding(.top,3)
                                             }else{
                                                 Text("\(dayArray[i+dayState[monthState]])")
@@ -149,7 +149,7 @@ struct RoutineView: View {
                                             if array[i]{
                                                 Text("\(i+1)")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
-                                                    .foregroundColor(ColorManage.ezpzPink)
+                                                    .foregroundColor(ColorManage.ezpzLime)
                                             }else{
                                                 Text("\(i+1)")
                                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
