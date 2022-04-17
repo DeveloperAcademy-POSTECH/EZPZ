@@ -1,5 +1,4 @@
 # EZPZ_ZZIN
-zzin
 
 
 ![Logo](https://user-images.githubusercontent.com/103019341/163706391-9ac1bb28-92ea-45e4-8320-5148e1e6c769.png)
@@ -20,7 +19,7 @@ This app helps people who have difficulty with long-term challenges to succeed s
 
 ## :people_hugging: Authors
 
-- [@YourName](https://www.github.com/) | [@YourName](https://www.github.com/) | [@YourName](https://www.github.com/) | [@YourName](https://www.github.com/) | [@YourName](https://www.github.com/) | [@YourName](https://www.github.com/)
+- [@HyunjaeLee](https://www.github.com/HyunjaeLee) | [@RuyHa](https://www.github.com/RuyHa) | [@drin0131](https://www.github.com/drin0131) | [@Hongjaaa](https://www.github.com/Hongjaaa) | [@Juhwa-Lee1023](https://www.github.com/) | [@yeniful](https://www.github.com/yeniful)
 
 
 ## :framed_picture: Demo
