@@ -19,7 +19,7 @@ This app helps people who have difficulty with long-term challenges to succeed s
 
 ## :people_hugging: Authors
 
-- [@HyunjaeLee](https://www.github.com/HyunjaeLee) | [@RuyHa](https://www.github.com/RuyHa) | [@drin0131](https://www.github.com/drin0131) | [@Hongjaaa](https://www.github.com/Hongjaaa) | [@Juhwa-Lee1023](https://www.github.com/) | [@yeniful](https://www.github.com/yeniful)
+- [@HyunjaeLee](https://www.github.com/HyunjaeLee) | [@RuyHa](https://www.github.com/RuyHa) | [@drin0131](https://www.github.com/drin0131) | [@Hongjaaa](https://www.github.com/Hongjaaa) | [@Juhwa-Lee1023](https://www.github.com/Juhwa-Lee1023) | [@yeniful](https://www.github.com/yeniful)
 
 
 ## :framed_picture: Demo
