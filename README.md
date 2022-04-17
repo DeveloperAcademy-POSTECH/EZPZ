@@ -23,7 +23,7 @@ This app helps people who have difficulty with long-term challenges to succeed s
 
 
 ## :framed_picture: Demo
-![demo](https://youtu.be/dB69RGgH7Rc)
+[![demo](https://user-images.githubusercontent.com/103019341/163710342-68d42812-e042-4490-b799-821fe3eabcfc.png)](https://youtu.be/dB69RGgH7Rc)
 
 
 ## :fireworks: Screenshots
