@@ -7,16 +7,16 @@ zzin
 
 # :iphone: EZPZ
 
-A brief description of what this project does and who it's for
+This app helps people who have difficulty with long-term challenges to succeed systemtically.
 
 
 ## :pushpin: Features
 
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
-
+- It serves recommandation system for challenge templates
+- The app runs without internet connection
+- Other people won't see your activity(or reflections)
+- Simple & eyes comfortable design
+- User can review previous reflections whenever you want
 
 ## :people_hugging: Authors
 
@@ -24,8 +24,7 @@ A brief description of what this project does and who it's for
 
 
 ## :framed_picture: Demo
-
-Insert gif or link to demo
+![demo](https://user-images.githubusercontent.com/103019341/163706388-3084a7c2-8171-40b4-9a27-01935bb07676.png)
 
 
 ## :fireworks: Screenshots
@@ -39,11 +38,7 @@ Insert gif or link to demo
 
 
 ## :sparkles: Skills & Tech Stack
-swiftUI ...
-
-## :books: Documentation
-
-[Documentation](https://linktodocumentation)
+swiftUI, UIKit, CoreData
 
 
 ## :lock_with_ink_pen: License
