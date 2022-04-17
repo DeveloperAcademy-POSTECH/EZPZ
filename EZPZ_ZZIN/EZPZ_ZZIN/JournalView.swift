@@ -18,7 +18,7 @@ struct TopTabBarView: View {
             CustomDividerView()
             
             HStack {
-                Text("Current Challenge")
+                Text("Current")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                     .foregroundColor(isShowingCurrentChallenge ? Color("ezpzLightgrey") : Color("ezpzSmokegrey"))
@@ -27,7 +27,7 @@ struct TopTabBarView: View {
                         isShowingCurrentChallenge = true
                     }
                 Spacer()
-                Text(" Last challenge ")
+                Text("Last")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                     .foregroundColor(!isShowingCurrentChallenge ? Color("ezpzLightgrey") : Color("ezpzSmokegrey"))

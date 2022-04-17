@@ -177,7 +177,7 @@ struct RoutineView: View {
                             Spacer()
                         }
                         HStack{
-                            Text("\(countTodaysTodos() - countTodaysChekcedTodos()) things to do today!")
+                            Text("\(countTodaysTodos() - countTodaysChekcedTodos()) things To-Do today!")
                                 .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                                 .padding(.leading, 17)

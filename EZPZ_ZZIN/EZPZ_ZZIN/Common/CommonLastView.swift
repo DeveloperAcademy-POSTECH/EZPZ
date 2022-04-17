@@ -19,7 +19,7 @@ struct CommonStartChallengeView: View {
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
     @Environment(\.presentationMode) var presentationMode
-    var allString = "Set up \n a new challenge!"
+    var allString = "Set up \na new challenge!"
     var partialString = "Set up"
     
     let isTemplateRecommended: Bool
@@ -62,7 +62,7 @@ struct CommonStartChallengeView: View {
                
                 Spacer()
                 
-                Text("Let’s list the tasks up?")
+                Text("Let’s list the tasks up")
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                     .padding([.leading,.trailing])
                 
@@ -77,7 +77,7 @@ struct CommonStartChallengeView: View {
                         presentationMode.wrappedValue.dismiss()
                         
                     }) {
-                        Text("Goto list-up")
+                        Text("Go to My Challenge")
                             .foregroundColor(ColorManage.ezpzLime)
                         
                     }

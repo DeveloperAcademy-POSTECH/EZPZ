@@ -99,7 +99,7 @@ struct TodoeditView: View {
                 }
                 .padding(.bottom, 20)
                 HStack{
-                    Text("To do")
+                    Text("To-Do")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .padding(.leading, 17)
@@ -107,7 +107,7 @@ struct TodoeditView: View {
                 }
                 .padding(.bottom, 8)
                 
-                TextField("Create a To do.", text: $todoTitle)
+                TextField("Create a To-Do.", text: $todoTitle)
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .padding(.leading, 17)
@@ -132,7 +132,7 @@ struct TodoeditView: View {
                                 Spacer()
                             }.padding(.bottom, 3)
                             HStack{
-                                Text("Not a repetitive a To do")
+                                Text("Not a repetitive a To-Do")
                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                     .padding(.leading, 34)

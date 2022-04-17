@@ -30,7 +30,7 @@ struct TabBarMainView: View {
                 .tabItem { //탭바 아이탬에 대한 속성을 추가 합니다.
                     Image(systemName: "checkmark.square")
                     // 탭바 아이템의 이미지설정입니다.
-                    Text("Today's todo")
+                    Text("Today's To-Do")
                     // 탭바 아이템의 텍스트 설정입니다.
                 }.tag(0)
             

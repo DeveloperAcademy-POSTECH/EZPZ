@@ -100,7 +100,7 @@ struct MyPageMainView: View {
             ColorManage.ezpzBlack.ignoresSafeArea()
             VStack {
                 HStack {
-                    Text("Mypage")
+                    Text("My Page")
                         .font(.system(size: 28))
                         .fontWeight(.bold)
                         .foregroundColor(ColorManage.ezpzLightgrey)

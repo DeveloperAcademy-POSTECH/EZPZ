@@ -34,10 +34,10 @@ struct OnBoardingDesignTemplateView: View {
                     VStack(alignment: .leading, spacing: EzpzStyle.EzpzSpacing.defaultSpacing){
                         
                         HStack{
-                            Text("이름")
+                            Text("Let me")
                                 .font(EzpzStyle.EzpzFont.ezpzTitle1)
                                 .foregroundColor(EzpzStyle.EzpzColor.ezpzLime) +
-                            Text("을\n알려주세요.")
+                            Text("know your name.")
                                 .font(EzpzStyle.EzpzFont.ezpzTitle1)
                                 .foregroundColor(.white)
                             Spacer()

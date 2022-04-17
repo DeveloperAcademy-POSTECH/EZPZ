@@ -61,8 +61,8 @@ struct OnBoardingStartView: View {
 
 
 struct OnBoardingWellcomeView: View {
-    var allString = "Ezpz is \n just right for you!"
-    var partialString = "EZPZ will help you!"
+    var allString = "Ezpz is \njust right for you!"
+    var partialString = "right for you!"
     @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))

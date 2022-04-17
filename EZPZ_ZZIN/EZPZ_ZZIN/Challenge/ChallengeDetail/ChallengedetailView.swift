@@ -153,7 +153,7 @@ struct ChallengedetailView: View {
                         VStack{
                             Group{
                                 HStack{
-                                    Text("📍  Today’s todo")
+                                    Text("📍  Today’s To-Do")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                         .foregroundColor(ColorManage.ezpzLime)
                                         .lineLimit(1).padding(.leading, 17.0)
@@ -170,7 +170,7 @@ struct ChallengedetailView: View {
                                         .background(ColorManage.ezpzSmokegrey)
                                 }
                                 HStack{
-                                    Text("+    Add to do")
+                                    Text("+    Add To-Do")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                         .foregroundColor(ColorManage.ezpzSmokegrey)
                                         .multilineTextAlignment(.leading).padding([.leading], 20)
@@ -193,7 +193,7 @@ struct ChallengedetailView: View {
                         VStack{
                             Group{
                                 HStack{
-                                    Text("🗓  To do later")
+                                    Text("🗓  To-Do later")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                         .foregroundColor(ColorManage.ezpzLime)
                                         .lineLimit(1).padding(.leading, 17.0)
@@ -210,7 +210,7 @@ struct ChallengedetailView: View {
                                         .background(ColorManage.ezpzSmokegrey)
                                 }
                                 HStack{
-                                    Text("+    Add to do")
+                                    Text("+    Add To-Do")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                         .foregroundColor(ColorManage.ezpzSmokegrey)
                                         .multilineTextAlignment(.leading).padding([.leading], 20)
@@ -322,6 +322,6 @@ struct CheckboxField1: View {
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM.dd"
+    formatter.dateFormat = "M.d.YYYY"
     return formatter
 }()

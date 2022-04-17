@@ -14,8 +14,8 @@ struct CommonTendencyView: View {
     @Binding var accumulativeSum: Int
     var body: some View {
         
-        let allString = "\(name). What is your character"
-        let partialString = "Character"
+        let allString = "\(name).\n What is your character"
+        let partialString = "character"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
@@ -91,7 +91,7 @@ struct CommonUserGroupView: View {
     
     var body: some View {
         
-        let allString = "\(name) \n Where do you belong ?"
+        let allString = "\(name) \nWhere do you belong ?"
         let partialString = "belong"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
@@ -119,7 +119,7 @@ struct CommonUserGroupView: View {
                             accumulativeSum += 0
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "University student", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "☀️", msgText: "Univ. student", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 1
                         }
                     }.padding([.leading,.trailing],5)
@@ -163,8 +163,8 @@ struct CommonUserGroupView: View {
 
 struct CommonWantChallenge: View {
     
-    var allString = "Is there a challenge \n you want to try??"
-    var partialString = "try"
+    var allString = "Is there a challenge \nyou want to try??"
+    var partialString = "want to try"
     @Binding var pageNum : Int
     @Binding var isTemplateRecommended: Bool
     @Binding var accumulativeSum: Int
@@ -181,13 +181,13 @@ struct CommonWantChallenge: View {
                 .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
             
             Spacer()
-            OnBoardingMainButtonWithCustomAction(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum) {
+            OnBoardingMainButtonWithCustomAction(iCon: "🔥", msgText: "Yes, I have a challenge To-Do!", pageNum: $pageNum) {
                 print("Yes, I have a challenge to do!")
                 accumulativeSum += 3
                 isTemplateRecommended = false
             }
             .padding(.bottom,2)
-            OnBoardingMainButtonWithCustomAction(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum, customAction: {
+            OnBoardingMainButtonWithCustomAction(iCon: "🤙", msgText: "No! I need a recommendation.", pageNum: $pageNum, customAction: {
                 print("No, I need a recommendation.")
                 accumulativeSum += 0
                 isTemplateRecommended = true
@@ -214,8 +214,8 @@ struct CommonUserFieldView: View {
 
     var body: some View {
         
-        let allString = "Select a field \n you want to challenge"
-        let partialString = "challenge"
+        let allString = "Select a field \nyou want to challenge"
+        let partialString = "want to challenge"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
@@ -282,7 +282,7 @@ struct CommonUserFieldView: View {
 // 유저가 직접 도전 만들기
 
 struct CommonUserChallengeView: View {
-    var allString = "What challenge \n are you on?"
+    var allString = "What challenge \nare you on?"
     var partialString = "challenge"
     @Binding var challenge: String
     @Binding var pageNum : Int
@@ -306,6 +306,7 @@ struct CommonUserChallengeView: View {
                 
                 
                 Text("Challenge title")
+                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                     .padding([.leading,.trailing])
                 TextField("Enter a challenge title", text: $challenge)
                     .keyboardType(.namePhonePad)
@@ -436,7 +437,7 @@ struct CommonChallengeTemplateView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    var allString = "Select a \n challenge template"
+    var allString = "Select a \nchallenge template"
     var partialString = "template"
     @Binding var challenge: String
     @Binding var pageNum : Int
@@ -529,7 +530,7 @@ struct CommonChallengeTemplateView: View {
 }
 
 struct CommonUserChallengeDateView: View {
-    var allString = "Select a \n challenge term"
+    var allString = "Select a \nchallenge term"
     var partialString = "challenge term"
     
     //    @Binding var startDate = Date()
@@ -543,7 +544,7 @@ struct CommonUserChallengeDateView: View {
     
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "m. d. YYYY"
+        formatter.dateFormat = "M.d.YYYY"
         return formatter
     }()
     
@@ -558,7 +559,7 @@ struct CommonUserChallengeDateView: View {
                         .padding([.leading,.trailing])
                         .padding(.bottom,5)
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                    Text("Short-term challenges are also possible")
+                    Text("Short-term challenge is also possible")
                         .padding([.leading,.trailing])
                     Spacer()
                     Text("Start Date")
@@ -607,7 +608,7 @@ struct CommonUserChallengeDateView: View {
              
                 if  startDate != toDayDate &&  endDate != toDayDate && startDate <= endDate{
                     withAnimation {
-                        CommonNextBtn(mainText: "Save", pageNum: $pageNum)
+                        CommonNextBtn(mainText: "Done", pageNum: $pageNum)
                     }//조건 추가해야됨 스킵
                 }else if startDate != toDayDate && endDate != toDayDate && endDate < startDate{
                     Text("Please select the date again.")

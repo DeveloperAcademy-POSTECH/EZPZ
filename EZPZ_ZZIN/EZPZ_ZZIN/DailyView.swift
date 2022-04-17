@@ -81,6 +81,6 @@ struct DailyView: View {
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM.dd"
+    formatter.dateFormat = "M.d.yyyy"
     return formatter
 }()

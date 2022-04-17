@@ -97,7 +97,7 @@ struct MyChallenges: View {
         
         VStack{
             VStack(alignment: .leading, spacing: 10){
-                Text("My page")
+                Text("My Challenges")
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)

@@ -134,7 +134,7 @@ struct EditorView: View {
                         item.text = $0
                         try? viewContext.save()
                     }
-                Text("저장하기")
+                Text("Save")
                     .foregroundColor(Color("ezpzLime"))
                     .font(.system(size: 17))
                     .frame(width: 356, height: 40)
@@ -156,6 +156,6 @@ struct EditorView: View {
 
 private let dateFormatter: DateFormatter = {
     let formatter = DateFormatter()
-    formatter.dateFormat = "yyyy.MM.dd"
+    formatter.dateFormat = "M.d.yyyy"
     return formatter
 }()

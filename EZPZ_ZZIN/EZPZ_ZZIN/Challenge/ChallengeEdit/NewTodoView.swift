@@ -101,7 +101,7 @@ struct NewTodoView: View {
                 .padding(.bottom, 8)
                 
                 // 텍스트필드
-                TextField("Create a to do.", text: $todoTitle)
+                TextField("Create a To-Do.", text: $todoTitle)
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .padding(.leading, 17)
@@ -123,7 +123,7 @@ struct NewTodoView: View {
                                 Spacer()
                             }.padding(.bottom, 3)
                             HStack{
-                                Text("Not a repetitive a To do")
+                                Text("Not a repetitive a To-Do")
                                     .font(.custom("SpoqaHanSansNeo-Bikd",size: 17))
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                     .padding(.leading, 34)
@@ -199,11 +199,11 @@ struct NewTodoView: View {
                             }
                             VStack{
                                 if tuesdayCheck {
-                                    Text("Tues")
+                                    Text("Tue")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("Tues")
+                                    Text("Tue")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
