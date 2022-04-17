@@ -14,8 +14,8 @@ struct CommonTendencyView: View {
     @Binding var accumulativeSum: Int
     var body: some View {
         
-        let allString = "\(name)님의\n성향을 알려주세요"
-        let partialString = "성향"
+        let allString = "\(name). What is your character"
+        let partialString = "Character"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
@@ -28,7 +28,7 @@ struct CommonTendencyView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("아래의 성격 중 하나를 선택해주세요.")
+                Text("Select one of these personalities below.")
                     .padding([.leading,.trailing])
                 
                 Spacer()
@@ -37,32 +37,32 @@ struct CommonTendencyView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "진지함", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "🗿", msgText: "Serious", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 0
                         }
                             .padding(.trailing, 2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "텐션이 높음", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "☀️", msgText: "Upbeat", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 2
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "자유로움",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "🏖", msgText: "Free-spirited",pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 4
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "우유부단",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "Indecisive",pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 8
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "소심함", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "🙈", msgText: "Timid", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 10
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "👀", msgText: "None of these",pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 12
                         }
                     }.padding([.leading,.trailing],5)
@@ -91,8 +91,8 @@ struct CommonUserGroupView: View {
     
     var body: some View {
         
-        let allString = "\(name)님은\n어디에 속하시나요?"
-        let partialString = "어디"
+        let allString = "\(name) \n Where do you belong ?"
+        let partialString = "belong"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
@@ -106,7 +106,7 @@ struct CommonUserGroupView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("자신을 가장 잘 나타내는 키워드를 선택해주세요.")
+                Text("Select a keyword that describes yourself")
                     .padding([.leading,.trailing])
                 
                 Spacer()
@@ -115,32 +115,32 @@ struct CommonUserGroupView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn(iCon: "🗿", msgText: "청소년", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "🗿", msgText: "Teenager", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 0
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "☀️", msgText: "대학생", pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "☀️", msgText: "University student", pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 1
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn(iCon: "🏖", msgText: "직장인",  pageNum: $pageNum, challengeIcon: $challengeIcon)  {
+                        CommonTendencynBtn(iCon: "🏖", msgText: "Office worker",  pageNum: $pageNum, challengeIcon: $challengeIcon)  {
                             accumulativeSum += 2
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "취준생",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "😵‍💫", msgText: "Job-seeker",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 3
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn(iCon: "🙈", msgText: "프리랜서",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "🙈", msgText: "Freelancer",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 4
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn(iCon: "👀", msgText: "이 중에 없어요",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
+                        CommonTendencynBtn(iCon: "👀", msgText: "None of these",  pageNum: $pageNum, challengeIcon: $challengeIcon) {
                             accumulativeSum += 5
                         }
                     }.padding([.leading,.trailing],5)
@@ -163,8 +163,8 @@ struct CommonUserGroupView: View {
 
 struct CommonWantChallenge: View {
     
-    var allString = "하고 싶은 도전이\n있나요?"
-    var partialString = "하고 싶은 도전"
+    var allString = "Is there a challenge \n you want to try??"
+    var partialString = "try"
     @Binding var pageNum : Int
     @Binding var isTemplateRecommended: Bool
     @Binding var accumulativeSum: Int
@@ -182,13 +182,13 @@ struct CommonWantChallenge: View {
             
             Spacer()
             OnBoardingMainButtonWithCustomAction(iCon: "🔥", msgText: "네, 하고 싶은 도전이 있어요!", pageNum: $pageNum) {
-                print("네, 하고 싶은 도전이 있어요!")
+                print("Yes, I have a challenge to do!")
                 accumulativeSum += 3
                 isTemplateRecommended = false
             }
             .padding(.bottom,2)
             OnBoardingMainButtonWithCustomAction(iCon: "🤙", msgText: "아니요! 추천받을래요.", pageNum: $pageNum, customAction: {
-                print("아니요! 추천받을래요.")
+                print("No, I need a recommendation.")
                 accumulativeSum += 0
                 isTemplateRecommended = true
             })
@@ -214,8 +214,8 @@ struct CommonUserFieldView: View {
 
     var body: some View {
         
-        let allString = "도전하고 싶은\n분야를 골라주세요"
-        let partialString = "분야"
+        let allString = "Select a field \n you want to challenge"
+        let partialString = "challenge"
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
         // OnBoardingAssets의 partialColorString()참고
         
@@ -227,7 +227,7 @@ struct CommonUserFieldView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("아래의 카테고리 중 하나를 선택해 주세요.")
+                Text("Choose one of these categories.")
                     .padding([.leading,.trailing])
                 
                 Spacer()
@@ -236,28 +236,28 @@ struct CommonUserFieldView: View {
                 
                 VStack{
                     HStack{
-                        CommonTendencynBtn2(iCon: "⚽️", msgText: "운동", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                        CommonTendencynBtn2(iCon: "⚽️", msgText: "Workout", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
                             accumulativeSum += 0
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn2(iCon: "🥗", msgText: "건강", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                        CommonTendencynBtn2(iCon: "🥗", msgText: "Health", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
                             accumulativeSum += 1
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     HStack{
-                        CommonTendencynBtn2(iCon: "📒", msgText: "공부", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                        CommonTendencynBtn2(iCon: "📒", msgText: "Study", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
                             accumulativeSum += 2
                         }
                             .padding(.trailing,2)
-                        CommonTendencynBtn2(iCon: "⏳", msgText: "습관", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                        CommonTendencynBtn2(iCon: "⏳", msgText: "Habits", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
                             accumulativeSum += 3
                         }
                     }.padding([.leading,.trailing],5)
                         .padding(.bottom,2)
                     
                     HStack{
-                        CommonTendencynBtn2(iCon: "👀", msgText: "이 중에 없어요", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
+                        CommonTendencynBtn2(iCon: "👀", msgText: "None of them", pageNum: $pageNum, challengeIcon: $challengeIcon, isTemplateRecommended: $isTemplateRecommended) {
                             accumulativeSum += 4
                         }
                             .padding(.trailing,UIScreen.main.bounds.width / 2 + 2)
@@ -282,8 +282,8 @@ struct CommonUserFieldView: View {
 // 유저가 직접 도전 만들기
 
 struct CommonUserChallengeView: View {
-    var allString = "어떤 도전을\n하시나요?"
-    var partialString = "어떤 도전"
+    var allString = "What challenge \n are you on?"
+    var partialString = "challenge"
     @Binding var challenge: String
     @Binding var pageNum : Int
     var body: some View {
@@ -299,15 +299,15 @@ struct CommonUserChallengeView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("도전명을 알려주세요.")
+                Text("Let us know the title of the challenge.")
                     .padding([.leading,.trailing])
                 Spacer()
                 
                 
                 
-                Text("도전명")
+                Text("Challenge title")
                     .padding([.leading,.trailing])
-                TextField("도전명을 입력해주세요.", text: $challenge)
+                TextField("Enter a challenge title", text: $challenge)
                     .keyboardType(.namePhonePad)
                     .submitLabel(.done)
                     .padding([.leading,.trailing])
@@ -319,7 +319,7 @@ struct CommonUserChallengeView: View {
                 Spacer()
                 if challenge != ""{
                     withAnimation {
-                        CommonNextBtn(mainText: "다음", pageNum: $pageNum)
+                        CommonNextBtn(mainText: "Next", pageNum: $pageNum)
                     }
                 }
                 
@@ -436,8 +436,8 @@ struct CommonChallengeTemplateView: View {
     
     @Environment(\.managedObjectContext) private var viewContext
     
-    var allString = "도전하고싶은\n템플릿을 골라주세요"
-    var partialString = "템플릿"
+    var allString = "Select a \n challenge template"
+    var partialString = "template"
     @Binding var challenge: String
     @Binding var pageNum : Int
     @Binding var accumulativeSum: Int
@@ -455,7 +455,7 @@ struct CommonChallengeTemplateView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("템플릿은 나중에 내 마음대로 수정 가능해요!.")
+                Text("You can customize the template later!")
                     .padding([.leading, .trailing])
 
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -529,8 +529,8 @@ struct CommonChallengeTemplateView: View {
 }
 
 struct CommonUserChallengeDateView: View {
-    var allString = "도전 기간을\n선택해주세요"
-    var partialString = "도전 기간"
+    var allString = "Select a \n challenge term"
+    var partialString = "challenge term"
     
     //    @Binding var startDate = Date()
     //    @Binding var endDate = Date()
@@ -543,7 +543,7 @@ struct CommonUserChallengeDateView: View {
     
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY년 M월 d일"
+        formatter.dateFormat = "m. d. YYYY"
         return formatter
     }()
     
@@ -558,10 +558,10 @@ struct CommonUserChallengeDateView: View {
                         .padding([.leading,.trailing])
                         .padding(.bottom,5)
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                    Text("짧은 도전도 괜찮아요.")
+                    Text("Short-term challenges are also possible")
                         .padding([.leading,.trailing])
                     Spacer()
-                    Text("시작 날짜")
+                    Text("Start Date")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                         .padding([.leading,.trailing])
                     
@@ -570,7 +570,7 @@ struct CommonUserChallengeDateView: View {
                     VStack {
                         DatePicker(selection: $startDate, in: Date()...,displayedComponents: .date) {
                             if startDate == toDayDate{
-                                Text("시작 날짜를 선택해 주세요.")
+                                Text("Select a start date.")
                                     .font(.custom("SpoqaHanSansNeo",size: 16))
                                     .foregroundColor(ColorManage.ezpzSmokegrey)
                                 
@@ -583,14 +583,14 @@ struct CommonUserChallengeDateView: View {
                 } .padding([.leading,.trailing,.bottom])
                 
                 if startDate != toDayDate{
-                    Text("종료 날짜")
+                    Text("End date")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 16))
                         .padding([.leading,.trailing])
                     Group{
                         VStack {
                             DatePicker(selection: $endDate, in: startDate..., displayedComponents: .date) {
                                 if endDate == toDayDate{
-                                    Text("종료 날짜를 선택해 주세요.")
+                                    Text("Select a end date.")
                                         .font(.custom("SpoqaHanSansNeo",size: 16))
                                         .foregroundColor(ColorManage.ezpzSmokegrey)
                                 }else{
@@ -607,10 +607,10 @@ struct CommonUserChallengeDateView: View {
              
                 if  startDate != toDayDate &&  endDate != toDayDate && startDate <= endDate{
                     withAnimation {
-                        CommonNextBtn(mainText: "저장하기", pageNum: $pageNum)
+                        CommonNextBtn(mainText: "Save", pageNum: $pageNum)
                     }//조건 추가해야됨 스킵
                 }else if startDate != toDayDate && endDate != toDayDate && endDate < startDate{
-                    Text("날짜를 다시 설정해 주세요.")
+                    Text("Please select the date again.")
                         .font(.custom("SpoqaHanSansNeo",size: 16))
                         .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                         //.foregroundColor(ColorManage.ezpzSmokegrey)

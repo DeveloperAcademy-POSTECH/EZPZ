@@ -19,8 +19,8 @@ struct RoutineView: View {
     @State var monthState = 3
     @State var array: [Bool] = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
     @State var dayState = [5, 1, 1, 4, 6, 2, 4, 0, 3, 5, 1, 3]
-    @State var dayArray = ["월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일", "월", "화", "수", "목", "금", "토", "일"]
-    @State var monthArray = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"]
+    @State var dayArray = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun","Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun",]
+    @State var monthArray = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."]
     @State var isPresented: Bool = false
     @Environment(\.managedObjectContext) private var viewContext
     @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \ChallengeEntity.timestamp, ascending: true)])
@@ -91,7 +91,9 @@ struct RoutineView: View {
                 VStack{
                     HStack{
                         Button(action: {
+                            if(monthState != 0){
                             monthState = monthState - 1
+                            }
                             array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
                         }) {
                             Text("<")
@@ -100,12 +102,14 @@ struct RoutineView: View {
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                         }
                         Spacer()
-                        Text("2022년 \(monthArray[monthState])월")
+                        Text("\(monthArray[monthState]) 2022")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                         Spacer()
                         Button(action: {
+                            if(monthState != 11){
                             monthState = monthState + 1
+                            }
                             array = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
                         }) {
                             Text(">")
@@ -166,14 +170,14 @@ struct RoutineView: View {
                 VStack{
                     Group{
                         HStack{
-                            Text("오늘 할 일")
+                            Text("Today")
                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                                 .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)
                             Spacer()
                         }
                         HStack{
-                            Text("오늘 할 일이 \(countTodaysTodos() - countTodaysChekcedTodos())개 있어요!")
+                            Text("\(countTodaysTodos() - countTodaysChekcedTodos()) things to do today!")
                                 .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                                 .foregroundColor(ColorManage.ezpzLightgrey)
                                 .padding(.leading, 17)
@@ -183,10 +187,10 @@ struct RoutineView: View {
                     
                     if (countTodaysChekcedTodos() > 0) {
                         Button(action: {
-                            print("오늘 한 일 돌아보기")
+                            print("Reflect on today")
                             isPresented = true
                         }) {
-                            Text("오늘 한 일 돌아보기")
+                            Text("Reflect on today")
                                 .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                 .frame(width: 356 , height: 40)
                                 .foregroundColor(ColorManage.ezpzLime)
@@ -257,7 +261,7 @@ struct RoutineView: View {
         journalEntity.toChallenge = challengeEntity
         journalEntity.date = Date()
         journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
-        journalEntity.text = "일지를 입력해 주세요"
+        journalEntity.text = "Write a reflection"
         journalEntity.emoji = randomEmoji[Int.random(in: 0..<randomEmoji.count)]
         
         return journalEntity

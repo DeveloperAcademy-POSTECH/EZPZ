@@ -18,7 +18,7 @@ struct TopTabBarView: View {
             CustomDividerView()
             
             HStack {
-                Text("하고 있는 도전")
+                Text("Current Challenge")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                     .foregroundColor(isShowingCurrentChallenge ? Color("ezpzLightgrey") : Color("ezpzSmokegrey"))
@@ -27,7 +27,7 @@ struct TopTabBarView: View {
                         isShowingCurrentChallenge = true
                     }
                 Spacer()
-                Text(" 지난 도전 ")
+                Text(" Last challenge ")
                     .font(.system(size: 18))
                     .fontWeight(.bold)
                     .foregroundColor(!isShowingCurrentChallenge ? Color("ezpzLightgrey") : Color("ezpzSmokegrey"))
@@ -98,7 +98,7 @@ struct JournalView: View {
                     }
                 }
             }
-            .navigationTitle("돌아보기")
+            .navigationTitle("Reflect")
         }
         .tint(Color("ezpzLightgrey"))
     }

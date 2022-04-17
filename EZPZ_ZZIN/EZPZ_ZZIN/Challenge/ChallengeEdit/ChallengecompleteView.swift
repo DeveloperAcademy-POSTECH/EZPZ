@@ -15,7 +15,7 @@ struct ChallengecompleteView: View {
                 .ignoresSafeArea()
             VStack{
                 HStack{
-                Text("저장하고 돌아가기")
+                Text("Save")
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading)
@@ -25,14 +25,14 @@ struct ChallengecompleteView: View {
                 
                 Group{
                     HStack{
-                Text("도전 수정하기")
+                Text("Edit Challenge")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                         .multilineTextAlignment(.leading).padding([.leading], 17)
                         Spacer()
                     }
                     HStack{
-                        Text("바꾸고 싶은 부분을 누르면 바꿀 수 있어요!")
+                        Text("Tab the contents you want to change!")
                             .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)

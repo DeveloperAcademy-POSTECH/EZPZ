@@ -33,8 +33,8 @@ struct OnBoardigDetailView: View {
 
 struct OnBoardingStartView: View {
     
-    var allString = "EZPZ를 통해 무엇을 \n하고 싶은신가요?"
-    var partialString = "EZPZ를 통해"
+    var allString = "What do you want  \nWith EZPZ?"
+    var partialString = "With EZPZ"
     @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
@@ -46,9 +46,9 @@ struct OnBoardingStartView: View {
                     .padding([.leading,.trailing,.bottom])
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
                 Spacer()
-                OnBoardingMainBtn(iCon: "🚀", msgText: "작심삼일 탈출하기", pageNum: $pageNum)
+                OnBoardingMainBtn(iCon: "🚀", msgText: "Finish three days hump", pageNum: $pageNum)
                     .padding(.bottom,2)
-                OnBoardingMainBtn(iCon: "🧩", msgText: "이루고 싶었던 목표를 성취하기", pageNum: $pageNum)
+                OnBoardingMainBtn(iCon: "🧩", msgText: "Achieving your goals", pageNum: $pageNum)
                     .padding(.bottom,UIScreen.main.bounds.height / 10)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
@@ -61,8 +61,8 @@ struct OnBoardingStartView: View {
 
 
 struct OnBoardingWellcomeView: View {
-    var allString = "잘 오셨어요!\nEZPZ가 도와드릴게요!"
-    var partialString = "EZPZ가 도와드릴게요!"
+    var allString = "Ezpz is \n just right for you!"
+    var partialString = "EZPZ will help you!"
     @Binding var pageNum : Int
     var body: some View {
         let mainText = partialColorString(allString: allString, allStringColor: .white, partialString: partialString, partialStringColor: Color("ezpzLime"))
@@ -79,7 +79,7 @@ struct OnBoardingWellcomeView: View {
                 Spacer()
                 Spacer()
                 Spacer()
-                CommonNextBtn(mainText: "EZPZ 시작하기", pageNum: $pageNum)
+                CommonNextBtn(mainText: "To start EZPZ", pageNum: $pageNum)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
             .background(Color("ezpzBlack"))
@@ -88,8 +88,8 @@ struct OnBoardingWellcomeView: View {
 }
 
 struct OnBoardingUserNameView: View {
-    var allString = "이름을\n알려주세요"
-    var partialString = "이름"
+    var allString = "Tell me \nYour username"
+    var partialString = "Username"
     @Binding var name: String
     @Binding var pageNum : Int
     var body: some View {
@@ -104,15 +104,15 @@ struct OnBoardingUserNameView: View {
                     .padding([.leading,.trailing])
                     .padding(.bottom,5)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 34))
-                Text("닉네임도 좋아요.")
+                Text("Anyting is fine!")
                     .padding([.leading,.trailing])
                 Spacer()
 
             
                 
-                Text("이름")
+                Text("Username")
                     .padding([.leading,.trailing])
-                TextField("이름 또는 닉네임을 적어주세요.", text: $name)
+                TextField("Please write your username.", text: $name)
                     .keyboardType(.namePhonePad)
                     .submitLabel(.done)
                     .padding([.leading,.trailing])
@@ -123,7 +123,7 @@ struct OnBoardingUserNameView: View {
                 Spacer()
                 if name != ""{
                     withAnimation {
-                    CommonNextBtn(mainText: "다음", pageNum: $pageNum)
+                    CommonNextBtn(mainText: "Next", pageNum: $pageNum)
                     }
                 }
               

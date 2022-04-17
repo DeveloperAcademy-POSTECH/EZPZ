@@ -55,7 +55,7 @@ struct ChallengeWelcomeView: View {
         VStack {
             Spacer(minLength: 90)
             VStack(alignment: .leading, spacing: 10){
-                Text(partialColorString(allString: "\(getUsername())님, 안녕하세요", allStringColor: .white, partialString: getUsername(), partialStringColor: Color("ezpzLime"))).padding([.leading,.trailing])
+                Text(partialColorString(allString: "Hi, \(getUsername())", allStringColor: .white, partialString: getUsername(), partialStringColor: Color("ezpzLime"))).padding([.leading,.trailing])
                     .padding(.bottom, 12)
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
             }.frame(maxWidth: .infinity, alignment: .leading)
@@ -70,7 +70,7 @@ struct ChallengeWelcomeView: View {
                 
                 VStack{
                     // 여기 패딩 넣으면... 왜 카드의 셀 크기가... 움직일까요...
-                    Text("      오늘 할 일이 \(countTodaysTodo())개 있어요!")
+                    Text("      \(countTodaysTodo()) things to do today!")
                         .frame(width: 370, alignment: .leading)
                         .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                         .foregroundColor(.white)
@@ -97,12 +97,12 @@ struct MyChallenges: View {
         
         VStack{
             VStack(alignment: .leading, spacing: 10){
-                Text("내 도전")
+                Text("My page")
                     .font(.custom("SpoqaHanSansNeo-Bold",size: 28))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .multilineTextAlignment(.leading).padding([.leading], 17).padding(.bottom, 0.1)
                 
-                Text("현재 \(items.count)개의 도전을 하고있어요")
+                Text("You have already \(items.count) challenges")
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .padding(.leading, 17)
@@ -148,7 +148,7 @@ struct MyChallenges: View {
                         tooManyChallenges = true
                     }
                 }){
-                    Text(" +    새로운 도전 추가하기 (최대 5개)")
+                    Text(" +    New challenge addtion (Up to 5)")
                         .padding(.leading, 20)
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                         .frame(width: 370, height: 40, alignment: .leading)
@@ -159,12 +159,12 @@ struct MyChallenges: View {
                 .padding(.all, 10)
                 .alert(isPresented: $tooManyChallenges){
                     Alert(
-                        title: Text("도전이 많이 남아 있어요...!")
+                        title: Text("Too many challenges...!")
                             .font(.custom("SpoqaHanSansNeo-Semibold",size: 22)),
-                        message: Text("남은 도전부터 해치워봐요!")
+                        message: Text("Focus on previous ones before moving on to the next challenge!!")
                             .font(.custom("SpoqaHanSansNeo-Regular",size: 18)),
                         dismissButton:
-                                .default(Text("확인")
+                                .default(Text("Confirm")
                                     .font(.custom("SpoqaHanSansNeo-Semibold", size: 22)))
                     )
                     // "확인"버튼을 ezpzPink로 바꾸려고 했는데 .accentColor도 안되고 .tint도 안됩니다.

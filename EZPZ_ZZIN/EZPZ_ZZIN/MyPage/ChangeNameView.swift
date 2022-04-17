@@ -34,7 +34,7 @@ struct ChangeNameView: View {
                 }
                 ScrollView {
                     HStack {
-                        Text("닉네임을 변경해주세요!")
+                        Text("Please change the username!")
                             .font(.system(size: 18))
                             .foregroundColor(Color("ezpzLightgrey"))
                             .padding(.leading, 30)
@@ -44,7 +44,7 @@ struct ChangeNameView: View {
                     CustomDividerView()
                     VStack {
                         HStack {
-                            TextField("사용자 이름", text: $username)
+                            TextField("Username", text: $username)
                                 .font(.system(size: 18))
                                 .foregroundColor(Color("ezpzLime"))
                                 .onChange(of: username) { name in

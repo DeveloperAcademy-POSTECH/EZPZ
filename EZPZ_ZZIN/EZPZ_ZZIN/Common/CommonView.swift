@@ -71,7 +71,7 @@ struct CommonView: View {
     func getUsername() -> String {
         
         // 유저 이름이 설정되지 않았을 때의 기본 값
-        let defaultUsername: String = "린다"
+        let defaultUsername: String = "Rinda"
         
         if user.isEmpty {
             return defaultUsername
@@ -87,7 +87,7 @@ struct CommonView: View {
             HStack {
                 Image(systemName: "chevron.left")
                 .aspectRatio(contentMode: .fit)
-                Text("내 도전으로 이동") //translated Back button title
+                Text("To my challenges") //translated Back button title
             }
         }
     }

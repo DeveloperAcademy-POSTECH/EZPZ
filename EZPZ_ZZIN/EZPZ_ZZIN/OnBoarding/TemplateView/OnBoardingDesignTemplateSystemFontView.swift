@@ -34,17 +34,20 @@ struct OnBoardingDesignTemplateSystemFontView: View {
                     VStack(alignment: .leading, spacing: EzpzStyle.EzpzSpacing.defaultSpacing){
                         
                         HStack{
-                            Text("이름")
+                            Text("Your")
+                                .font(.largeTitle)
+                                .foregroundColor(.white)
+                            Text("username")
                                 .font(.largeTitle)
                                 .foregroundColor(EzpzStyle.EzpzColor.ezpzLime) +
-                            Text("을\n알려주세요.")
+                            Text("\nTell me.")
                                 .font(.largeTitle)
                                 .foregroundColor(.white)
                             Spacer()
                         }.fixedSize(horizontal: false, vertical: true)
                         
                         HStack{
-                            Text("닉네임도 좋아요!")
+                            Text("Anyting is fine!")
                                 .font(.body)
                                 .foregroundColor(.white)
                             Spacer()
@@ -53,14 +56,14 @@ struct OnBoardingDesignTemplateSystemFontView: View {
                         Spacer()
                         
                         HStack{
-                            Text("이름")
+                            Text("Username")
                                 .font(.headline)
                                 .foregroundColor(.white)
                             Spacer()
                         }
                         
                         TextField(
-                            "이름 또는 닉네임을 적어주세요.",
+                            "Please write your username.",
                             text: $userName)
                         
                         Divider().foregroundColor(EzpzStyle.EzpzColor.ezpzLightgrey)    /*.padding(EzpzStyle.EzpzSpacing.defaultSpacing)*/

@@ -98,7 +98,7 @@ struct ChallengedetailView: View {
         journalEntity.toChallenge = challengeEntity
         journalEntity.date = Date()
         journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
-        journalEntity.text = "일지를 입력해 주세요"
+        journalEntity.text = "Write a reflection"
         journalEntity.emoji = randomEmoji[Int.random(in: 0..<randomEmoji.count)]
         
         return journalEntity
@@ -128,10 +128,10 @@ struct ChallengedetailView: View {
                         
                         if flag >= 0 && countCheckedTodaysTodo() > 0 {
                             Button(action: {
-                                print("오늘 한 일 돌아보기")
+                                print("Reflect on today")
                                 isShowingJournalEditorView = true
                             }) {
-                                Text("오늘 한 일 돌아보기")
+                                Text("Reflect on today")
                                     .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                     .frame(width: 356 , height: 40)
                                     .foregroundColor(ColorManage.ezpzLime)
@@ -140,7 +140,7 @@ struct ChallengedetailView: View {
                             }
                             .sheet(isPresented: $isShowingJournalEditorView) {
                                 let journalEntity: JournalEntity = getTodaysJournalEntity(challengeEntity: challengeEntity)
-                                EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")
+                                EditorView(item: journalEntity, text: journalEntity.text ?? "Write a reflection")
                                     .padding(.top, 20)
                             }
                         }
@@ -153,7 +153,7 @@ struct ChallengedetailView: View {
                         VStack{
                             Group{
                                 HStack{
-                                    Text("📍  오늘 할 일")
+                                    Text("📍  Today’s todo")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                         .foregroundColor(ColorManage.ezpzLime)
                                         .lineLimit(1).padding(.leading, 17.0)
@@ -170,7 +170,7 @@ struct ChallengedetailView: View {
                                         .background(ColorManage.ezpzSmokegrey)
                                 }
                                 HStack{
-                                    Text("+    할 일 추가하기")
+                                    Text("+    Add to do")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                         .foregroundColor(ColorManage.ezpzSmokegrey)
                                         .multilineTextAlignment(.leading).padding([.leading], 20)
@@ -193,7 +193,7 @@ struct ChallengedetailView: View {
                         VStack{
                             Group{
                                 HStack{
-                                    Text("🗓  나중에 할 일")
+                                    Text("🗓  To do later")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                                         .foregroundColor(ColorManage.ezpzLime)
                                         .lineLimit(1).padding(.leading, 17.0)
@@ -210,7 +210,7 @@ struct ChallengedetailView: View {
                                         .background(ColorManage.ezpzSmokegrey)
                                 }
                                 HStack{
-                                    Text("+    할 일 추가하기")
+                                    Text("+    Add to do")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                         .foregroundColor(ColorManage.ezpzSmokegrey)
                                         .multilineTextAlignment(.leading).padding([.leading], 20)
@@ -286,19 +286,19 @@ struct CheckboxField1: View {
                         .foregroundColor(ColorManage.ezpzPink)
                 }
                 .confirmationDialog(
-                    "도전명 변경 및 도전 기간을 수정할 수 있어요!",
+                    "Can change the challenge title and period!",
                     isPresented: $showingActionSheet,
                     actions: {
-                        Button("할 일 수정하기") {
+                        Button("Edit To-do") {
                             isShowingTodoEditView = true
                         }
-                        Button("할 일 삭제하기", role: .destructive ) {
+                        Button("Delete To-do", role: .destructive ) {
                             showAlert = true
                         }
                         Button("Cancel", role: .cancel) { }
                     })
                 .alert(isPresented: $showAlert) {
-                    Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
+                    Alert(title: Text("Are you sure you want to erase the task??"), message: Text("You can’t revert it..."), primaryButton: .destructive(Text("Delete"), action: {
                         
                         // Action
                         viewContext.delete(todoEntity)
@@ -308,7 +308,7 @@ struct CheckboxField1: View {
                             print(error)
                         }
                         
-                    } ), secondaryButton: .cancel(Text("돌아가기")))
+                    } ), secondaryButton: .cancel(Text("Back")))
                 }
             }.foregroundColor(self.color)
         }

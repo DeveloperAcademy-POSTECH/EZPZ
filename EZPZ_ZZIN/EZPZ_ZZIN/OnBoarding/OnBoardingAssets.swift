@@ -49,7 +49,7 @@ struct EzpzProgressView: View {
 //}
 
 struct OnBoardingMainBtn: View{
-    var iCon = "아이콘"
+    var iCon = "iCon"
     var msgText = "iCon과 msgText를 설정해주세요."
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
@@ -81,7 +81,7 @@ struct OnBoardingMainBtn: View{
 }
 
 struct OnBoardingMainButtonWithCustomAction: View{
-    var iCon = "아이콘"
+    var iCon = "iCon"
     var msgText = "iCon과 msgText를 설정해주세요."
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1

@@ -99,7 +99,7 @@ struct TodoeditView: View {
                 }
                 .padding(.bottom, 20)
                 HStack{
-                    Text("할 일")
+                    Text("To do")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                         .foregroundColor(ColorManage.ezpzLightgrey)
                         .padding(.leading, 17)
@@ -107,7 +107,7 @@ struct TodoeditView: View {
                 }
                 .padding(.bottom, 8)
                 
-                TextField("추가할 할 일을 적어주세요.", text: $todoTitle)
+                TextField("Create a To do.", text: $todoTitle)
                     .font(.custom("SpoqaHanSansNeo-Regular",size: 17))
                     .foregroundColor(ColorManage.ezpzLightgrey)
                     .padding(.leading, 17)
@@ -132,15 +132,15 @@ struct TodoeditView: View {
                                 Spacer()
                             }.padding(.bottom, 3)
                             HStack{
-                                Text("반복적으로 할 일이 아니라면")
-                                    .font(.custom("SpoqaHanSansNeo-Bikd",size: 17))
+                                Text("Not a repetitive a To do")
+                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                     .padding(.leading, 34)
                                 Spacer()
                             }
                             HStack{
-                                Text("누르지 않은 상태로 저장해주세요.")
-                                    .font(.custom("SpoqaHanSansNeo-Bikd",size: 17))
+                                Text("Let them unselected.")
+                                    .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                                     .foregroundColor(ColorManage.ezpzLightgrey)
                                     .padding(.leading, 34)
                                 Spacer()
@@ -150,14 +150,14 @@ struct TodoeditView: View {
                 }.padding(.bottom, 40)
                 Group{
                     HStack{
-                        Text("일정")
+                        Text("Schedule")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)
                         Spacer()
                     }.padding(.bottom, 0.1)
                     HStack{
-                        Text("반복할 요일을 정해주세요")
+                        Text("Select the days of the week to repeat")
                             .font(.custom("SpoqaHanSansNeo-Bold",size: 17))
                             .foregroundColor(ColorManage.ezpzLightgrey)
                             .padding(.leading, 17)
@@ -181,11 +181,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if mondayCheck {
-                                    Text("월")
+                                    Text("Mon")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("월")
+                                    Text("Mon")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -213,11 +213,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if tuesdayCheck {
-                                    Text("화")
+                                    Text("Tue")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("화")
+                                    Text("Tue")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -245,11 +245,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if wednesdayCheck {
-                                    Text("수")
+                                    Text("Wed")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("수")
+                                    Text("Wed")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -277,11 +277,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if thursdayCheck {
-                                    Text("목")
+                                    Text("Thu")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("목")
+                                    Text("Thu")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -309,11 +309,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if fridayCheck {
-                                    Text("금")
+                                    Text("Fri")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("금")
+                                    Text("Fri")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -341,11 +341,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if saturdayCheck {
-                                    Text("토")
+                                    Text("Sat")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("토")
+                                    Text("Sat")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     
@@ -373,11 +373,11 @@ struct TodoeditView: View {
                             }
                             VStack{
                                 if sundayCheck {
-                                    Text("일")
+                                    Text("Sun")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzLime)
                                 }else {
-                                    Text("일")
+                                    Text("Sun")
                                         .font(.custom("SpoqaHanSansNeo-Bold",size: 13))
                                         .foregroundColor(ColorManage.ezpzDisable)
                                     

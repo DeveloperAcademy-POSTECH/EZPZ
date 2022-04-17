@@ -13,11 +13,11 @@ struct ChallengeCardView: View {
     
     func getRatio() -> Double {
         guard let startDate = challengeEntity.start else {
-            print("도전 시작 날짜가 지정되어 있지 않음")
+            print("Challenge start date is not specified")
             return 0.0
         }
         guard let endDate = challengeEntity.end else {
-            print("도전 종료 날짜가 지정되어 있지 않음")
+            print("Challenge end date is not specified")
             return 0.0
         }
         let currentDate: Date = Date()
@@ -45,7 +45,7 @@ struct ChallengeCardView: View {
     
     func getDDayString() -> String {
         guard let endDate = challengeEntity.end else {
-            return "도전 종료 날짜가 지정되어 있지 않아요"
+            return "Challenge end date is not specified"
         }
         let currentDate: Date = Date()
         let difference: Double = endDate.distance(to: currentDate)
@@ -98,7 +98,7 @@ struct ChallengeCardView: View {
 // 지난 도전이면 true를 반환한다. 하고 있는 도전이면 false를 반환한다.
 func isDPlus(endDate: Date?) -> Bool {
     guard let end = endDate else {
-        print("도전 종료 날짜가 지정되어 있지 않음")
+        print("Challenge end date is not specified")
         return false
     }
     let currentDate: Date = Date()

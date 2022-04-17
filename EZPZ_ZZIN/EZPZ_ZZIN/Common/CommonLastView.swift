@@ -19,8 +19,8 @@ struct CommonStartChallengeView: View {
     @State var textcolor = [Color("ezpzDisdable")]
     @State var overLineWidth : CGFloat = 1
     @Environment(\.presentationMode) var presentationMode
-    var allString = "새로운 도전을\n만들었어요!"
-    var partialString = "새로운 도전"
+    var allString = "Set up \n a new challenge!"
+    var partialString = "Set up"
     
     let isTemplateRecommended: Bool
     @Binding var templateType: Int
@@ -28,7 +28,7 @@ struct CommonStartChallengeView: View {
     
     static let dateFormat: DateFormatter = {
         let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY.M.d"
+        formatter.dateFormat = "M.d.YYYY"
         return formatter
     }()
     
@@ -62,7 +62,7 @@ struct CommonStartChallengeView: View {
                
                 Spacer()
                 
-                Text("이제 리스트업 하러 가볼까요?")
+                Text("Let’s list the tasks up?")
                     .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                     .padding([.leading,.trailing])
                 
@@ -77,7 +77,7 @@ struct CommonStartChallengeView: View {
                         presentationMode.wrappedValue.dismiss()
                         
                     }) {
-                        Text("리스트업으로 가기")
+                        Text("Goto list-up")
                             .foregroundColor(ColorManage.ezpzLime)
                         
                     }

@@ -33,7 +33,7 @@ struct ChallengeSelectionView: View {
                     }
             ScrollView {
                 HStack {
-                    Text("작성할 도전을 선택해주세요!")
+                    Text("Please select a challenge to write!")
                         .font(.custom("SpoqaHanSansNeo-Bold",size: 18))
                         .foregroundColor(Color("ezpzLightgrey"))
                         .padding(.leading, 10)
@@ -57,7 +57,7 @@ struct ChallengeSelectionView: View {
                 }
                 .sheet(item: $sharedChallengeEntity) {
                     let journalEntity: JournalEntity = getTodaysJournalEntity(challengeEntity: $0)
-                    EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")
+                    EditorView(item: journalEntity, text: journalEntity.text ?? "Write a reflection")
                         .padding(.top, 20)
                 }
             }
@@ -96,7 +96,7 @@ struct ChallengeSelectionView: View {
         journalEntity.toChallenge = challengeEntity
         journalEntity.date = Date()
         journalEntity.title = "\(getNthDay(startDate: challengeEntity.start ?? Date()))일차"
-        journalEntity.text = "일지를 입력해 주세요"
+        journalEntity.text = "Write a reflection"
         journalEntity.emoji = randomEmoji[Int.random(in: 0..<randomEmoji.count)]
         
         return journalEntity

@@ -44,7 +44,7 @@ struct DailyView: View {
                     if isNewestFirst {
                         HStack {
                             Spacer()
-                            Text("최신순")
+                            Text("Newest")
                                 .font(.system(size: 16))
                             Image(systemName: "arrow.down")
                                 .font(.system(size: 12))
@@ -56,7 +56,7 @@ struct DailyView: View {
                     } else {
                         HStack {
                             Spacer()
-                            Text("오래된순")
+                            Text("Oldest")
                                 .font(.system(size: 16))
                             Image(systemName: "arrow.up")
                                 .font(.system(size: 12))
@@ -67,7 +67,7 @@ struct DailyView: View {
                         }
                     }
                     ForEach(getJournals()) { journalEntity in
-                        NavigationLink(destination: EditorView(item: journalEntity, text: journalEntity.text ?? "일지를 입력해 주세요")) {
+                        NavigationLink(destination: EditorView(item: journalEntity, text: journalEntity.text ?? "Write a reflection")) {
                             CardView(journalEntity: journalEntity)
                                 .padding(.horizontal, 10)
                         }

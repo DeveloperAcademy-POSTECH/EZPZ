@@ -43,7 +43,7 @@ struct ChallengeDeleteView: View {
                 }
                 ScrollView {
                     HStack {
-                        Text("포기할 도전을 선택해주세요!")
+                        Text("Choose a challenge to give-up!")
                             .font(.system(size: 18))
                             .foregroundColor(Color("ezpzLightgrey"))
                             .padding(.leading, 30)
@@ -63,10 +63,10 @@ struct ChallengeDeleteView: View {
                                     .padding(.leading, 30)
                             }
                             .alert(item: $sharedChallengeEntity) { entity in
-                                Alert(title: Text("할 일을 삭제하시겠어요?"), message: Text("한 번 지운 할 일은 복구할 수 없어요..."), primaryButton: .destructive(Text("삭제하기"), action: {
+                                Alert(title: Text("Are you sure you want to erase the task??"), message: Text("You can’t revert it..."), primaryButton: .destructive(Text("Delete"), action: {
                                     //some action
                                     deleteChallengeEntity(challengeEntity: entity)
-                                } ), secondaryButton: .cancel(Text("돌아가기")))
+                                } ), secondaryButton: .cancel(Text("Back")))
                             }
                             Spacer()
                         }

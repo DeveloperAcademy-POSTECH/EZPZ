@@ -38,7 +38,7 @@ struct MyPageMainView: View {
     private func loadProfileImage() -> UIImage {
         let defaultImage: UIImage = UIImage(named: "ezpz")!
         if user.isEmpty {
-            print("사용자가 등록되어있지 않음")
+            print("User is not registered")
             return defaultImage
         }
         guard let fileName = user[0].image else {
@@ -68,7 +68,7 @@ struct MyPageMainView: View {
     
     private func removeProfileImage() {
         if user.isEmpty {
-            print("사용자가 등록되어있지 않음")
+            print("User is not registered")
             return
         }
         guard let fileName: String = user[0].image else {
@@ -86,7 +86,7 @@ struct MyPageMainView: View {
     func getUsername() -> String {
         
         // 유저 이름이 설정되지 않았을 때의 기본 값
-        let defaultUsername: String = "린다"
+        let defaultUsername: String = "Rinda"
         
         if user.isEmpty {
             return defaultUsername
@@ -100,7 +100,7 @@ struct MyPageMainView: View {
             ColorManage.ezpzBlack.ignoresSafeArea()
             VStack {
                 HStack {
-                    Text("마이페이지")
+                    Text("Mypage")
                         .font(.system(size: 28))
                         .fontWeight(.bold)
                         .foregroundColor(ColorManage.ezpzLightgrey)
@@ -109,7 +109,7 @@ struct MyPageMainView: View {
                 }
                 .padding(.bottom, 20.0)
                 HStack {
-                    Text("프로필")
+                    Text("Profile")
                         .font(.system( size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(ColorManage.ezpzLightgrey)
@@ -124,13 +124,13 @@ struct MyPageMainView: View {
                         "Select",
                         isPresented: $showingActionSheet,
                         actions: {
-                            Button("닉네임 변경하기") {
+                            Button("Change username") {
                                 self.isPresented1 = true
                             }
-                            Button("프로필 이미지 변경하기") {
+                            Button("Change profile image") {
                                 isShowingPhotoPicker = true
                             }
-                            Button("프로필 이미지 삭제하기", role: .destructive) {
+                            Button("Remove profile image", role: .destructive) {
                                 removeProfileImage()
                             }
                             Button("Cancel", role: .cancel) { }
@@ -165,7 +165,7 @@ struct MyPageMainView: View {
                 }
                 .padding(.bottom, 40.0)
                 HStack {
-                    Text("설정")
+                    Text("Settings")
                         .font(.system(size: 18))
                         .fontWeight(.bold)
                         .foregroundColor(ColorManage.ezpzLightgrey)
@@ -177,7 +177,7 @@ struct MyPageMainView: View {
                     .background(ColorManage.ezpzSmokegrey)
                 Group {
                     HStack {
-                        Text("앱 버전 정보")
+                        Text("App version")
                             .font(.system(size: 17))
                             .fontWeight(.medium)
                             .foregroundColor(ColorManage.ezpzLightgrey)
@@ -196,7 +196,7 @@ struct MyPageMainView: View {
                     HStack {
                         Button(action: {
                             // some action
-                        }) {Text("푸시 알람 설정")
+                        }) {Text("Push notifications")
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                                 .foregroundColor(ColorManage.ezpzLightgrey)
@@ -211,7 +211,7 @@ struct MyPageMainView: View {
                         Button(action: {
                             // some action
                         }) {
-                            Text("라이센스 정보")
+                            Text("License")
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                                 .foregroundColor(ColorManage.ezpzLightgrey)
@@ -224,7 +224,7 @@ struct MyPageMainView: View {
                         .background(ColorManage.ezpzSmokegrey)
                     HStack {
                         Link(destination: URL(string: "https://frosted-zone-8df.notion.site/EZPZ-8187af3a5f8f4d41b0935eb2c230e87a")!, label: {
-                            Text("이용 약관")
+                            Text("Terms and conditions")
                                 .font(.system(size: 17))
                                 .fontWeight(.medium)
                                 .foregroundColor(ColorManage.ezpzLightgrey)
@@ -240,7 +240,7 @@ struct MyPageMainView: View {
                     .background(ColorManage.ezpzSmokegrey)
                 HStack {
                     Button(action: {isPresented2 = true}) {
-                        Text("도전 포기하기")
+                        Text("Give up a challenge")
                             .font(.system(size: 17))
                             .fontWeight(.medium)
                             .foregroundColor(ColorManage.ezpzLightgrey)

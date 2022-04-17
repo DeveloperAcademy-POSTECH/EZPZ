@@ -35,7 +35,7 @@ struct ImageEmojiView: View {
                 Image(systemName: "photo.fill.on.rectangle.fill")
                     .font(.system(size: 20))
                     .foregroundColor(Color("ezpzDisdable"))
-                Text("이미지를 추가해주세요")
+                Text("Add image")
                     .font(.system(size: 16))
                     .foregroundColor(Color("ezpzDisdable"))
             }

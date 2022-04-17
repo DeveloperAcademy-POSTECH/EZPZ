@@ -30,26 +30,26 @@ struct TabBarMainView: View {
                 .tabItem { //탭바 아이탬에 대한 속성을 추가 합니다.
                     Image(systemName: "checkmark.square")
                     // 탭바 아이템의 이미지설정입니다.
-                    Text("오늘할일")
+                    Text("Today's todo")
                     // 탭바 아이템의 텍스트 설정입니다.
                 }.tag(0)
             
             ChallengeListView() //내도전
                 .tabItem {
                     Image(systemName: "list.dash")
-                    Text("내도전")
+                    Text("My Challenge")
                 }.tag(1)
             
             JournalView()
                 .tabItem {
                     Image(systemName: "pencil")
-                    Text("돌아보기")
+                    Text("Reflect")
                 }.tag(2)
             
             MyPageMainView()  //마이페이지
                 .tabItem {
                     Image(systemName: "gearshape")
-                    Text("마이페이지")
+                    Text("My Page")
                 }.tag(3)
             
             
