@@ -36,7 +36,7 @@ This app helps people who have difficulty with long-term challenges to succeed s
 
 
 ## :sparkles: Skills & Tech Stack
-swiftUI, UIKit, CoreData
+swift UI, UI Kit, CoreData
 
 
 ## :lock_with_ink_pen: License
