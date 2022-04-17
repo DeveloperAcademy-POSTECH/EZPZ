@@ -22,7 +22,7 @@ This app helps people who have difficulty with long-term challenges to succeed s
 - [@HyunjaeLee](https://www.github.com/HyunjaeLee) | [@RuyHa](https://www.github.com/RuyHa) | [@drin0131](https://www.github.com/drin0131) | [@Hongjaaa](https://www.github.com/Hongjaaa) | [@Juhwa-Lee1023](https://www.github.com/Juhwa-Lee1023) | [@yeniful](https://www.github.com/yeniful)
 
 
-## :framed_picture: Demo
+## :framed_picture: Demo Video
 [![Demo_Video](https://user-images.githubusercontent.com/103019341/163710342-68d42812-e042-4490-b799-821fe3eabcfc.png)](https://youtu.be/dB69RGgH7Rc)
 
 ## :fireworks: Screenshots
