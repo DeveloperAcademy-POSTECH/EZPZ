@@ -1,4 +1,4 @@
-# EZPZ_ZZIN
+# EZPZ
 
 
 ![Logo](https://user-images.githubusercontent.com/103019341/163706391-9ac1bb28-92ea-45e4-8320-5148e1e6c769.png)
