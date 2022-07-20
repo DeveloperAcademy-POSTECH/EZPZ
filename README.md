@@ -11,11 +11,11 @@ This app helps people who have difficulty with long-term challenges to succeed s
 
 ## :pushpin: Features
 
-- It serves recommandation system for challenge templates
-- The app runs without internet connection
-- Other people won't see your activity(or reflections)
-- Simple & eyes comfortable design
-- User can review previous reflections whenever you want
+- Recommends of challenge templates
+- Runs without internect conneciton
+- Keeps activities and reflections private
+- Keeps things simple and comfortable
+- Access previous reflections whenever, wherever
 
 ## :people_hugging: Authors
 
